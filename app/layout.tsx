@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Outfit, IBM_Plex_Mono } from "next/font/google";
+import { SITE_URL } from "@/data/site";
 import "./globals.css";
 
 const syne = Syne({
@@ -21,14 +22,20 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Ruchir Jadhav — Software Engineer",
   description:
-    "MS CS @ USC. Cloud systems, distributed engineering, AI, backend development. AWS SDE Intern.",
+    "MS CS @ USC and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
   keywords: ["Ruchir Jadhav", "Software Engineer", "USC", "AWS", "Portfolio"],
   openGraph: {
     title: "Ruchir Jadhav — Software Engineer",
-    description: "MS CS @ USC. Cloud systems, distributed engineering, AI, backend development.",
+    description:
+      "MS CS @ USC and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
     type: "website",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
