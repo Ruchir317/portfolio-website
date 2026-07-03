@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Outfit, IBM_Plex_Mono } from "next/font/google";
 import { SITE_URL } from "@/data/site";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 const syne = Syne({
@@ -46,7 +47,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${syne.variable} ${outfit.variable} ${ibmPlexMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }
