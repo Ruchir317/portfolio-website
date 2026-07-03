@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";

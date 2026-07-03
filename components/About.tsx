@@ -2,7 +2,7 @@
 
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function About() {
   return (
