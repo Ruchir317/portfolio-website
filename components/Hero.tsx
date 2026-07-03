@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
 import { resume } from "@/data/resume";
 
@@ -11,7 +11,7 @@ const stagger = {
   },
   item: {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
   },
 };
 
