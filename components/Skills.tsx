@@ -15,11 +15,6 @@ const categories = [
     color: "text-teal bg-teal/10 border-teal/20",
   },
   {
-    label: "Web",
-    key: "web" as const,
-    color: "text-[#A78BFA] bg-[#A78BFA]/10 border-[#A78BFA]/20",
-  },
-  {
     label: "Databases",
     key: "databases" as const,
     color: "text-[#F59E0B] bg-[#F59E0B]/10 border-[#F59E0B]/20",
@@ -44,7 +39,7 @@ export default function Skills() {
           </div>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
           {categories.map((cat, i) => (
             <AnimatedSection key={cat.key} delay={i * 0.08}>
               <div className="border border-border bg-surface/30 rounded-sm p-5 h-full hover:border-border/80 transition-colors">

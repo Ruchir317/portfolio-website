@@ -23,9 +23,8 @@ export const resume = {
     frameworks_libraries: [
       "Node.js/Express", "React Native", "React", "Django", "Flask", "Socket.IO",
       "PyTorch", "TensorFlow", "Scikit-Learn", "NumPy", "Pandas", "OpenCV",
-      "Selenium", "Beautiful Soup",
+      "Selenium", "Beautiful Soup", "HTML", "CSS", "Tailwind",
     ],
-    web: ["HTML", "CSS", "Tailwind"],
     databases: ["PostgreSQL", "MySQL", "MongoDB"],
     tools_cloud_devops: [
       "AWS", "CloudWatch", "S3", "DynamoDB", "Fargate", "Firebase", "Git", "Linux",
