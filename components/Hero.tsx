@@ -66,7 +66,7 @@ export default function Hero() {
             variants={stagger.item}
             className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase mb-6 cursor-blink"
           >
-            SDE Intern @ AWS · MS CS @ USC
+            SWE @ Easley Dunn · MS CS @ USC
           </motion.p>
 
           {/* Sub headline */}
@@ -130,8 +130,8 @@ export default function Hero() {
           >
             {[
               { value: "2+", label: "Years exp." },
-              { value: "5+", label: "Projects" },
-              { value: "AWS", label: "Intern" },
+              { value: "6", label: "Projects" },
+              { value: "3", label: "Companies" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="font-display font-bold text-2xl text-text-primary">{stat.value}</div>
