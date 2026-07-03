@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Outfit, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/data/site";
 import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
@@ -49,6 +51,8 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${outfit.variable} ${ibmPlexMono.variable}`}>
       <body>
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
