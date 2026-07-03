@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
 import { resume } from "@/data/resume";
 
 const stagger = {
@@ -99,6 +99,16 @@ export default function Hero() {
               className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
             >
               View work
+            </a>
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-teal hover:border-teal/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
+            >
+              Resume
+              <Download size={15} />
             </a>
 
             <div className="flex items-center gap-3 ml-2">
