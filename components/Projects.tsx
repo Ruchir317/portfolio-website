@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { ExternalLink, Github } from "lucide-react";
+import { projectDetails } from "@/data/projectDetails";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -61,8 +63,17 @@ export default function Projects() {
                 </div>
 
                 {/* Links */}
-                {project.links.length > 0 && (
-                  <div className="flex items-center gap-3 pt-4 border-t border-border">
+                {(project.links.length > 0 || projectDetails[project.slug]) && (
+                  <div className="flex items-center gap-4 pt-4 border-t border-border">
+                    {projectDetails[project.slug] && (
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                      >
+                        View Details
+                        <ArrowUpRight size={10} />
+                      </Link>
+                    )}
                     {project.links.map((link, k) => (
                       <a
                         key={k}
