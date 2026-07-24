@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
+import { experienceDetails } from "@/data/experienceDetails";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Experience() {
   return (
@@ -51,6 +54,18 @@ export default function Experience() {
                         </li>
                       ))}
                     </ul>
+
+                    {experienceDetails[job.slug] && (
+                      <div className="mt-6 pt-4 border-t border-border">
+                        <Link
+                          href={`/experience/${job.slug}`}
+                          className="inline-flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                        >
+                          View Details
+                          <ArrowUpRight size={10} />
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
