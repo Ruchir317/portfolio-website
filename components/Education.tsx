@@ -40,7 +40,7 @@ export default function Education() {
                   <span className="font-mono text-[10px] text-text-faint tracking-widest uppercase">GPA</span>
                   <span className="font-display font-bold text-lg text-text-primary">{edu.gpa}</span>
                   {i === 1 && (
-                    <span className="tag-chip bg-teal/10 text-teal border border-teal/20">/ 10</span>
+                    <span className="tag-chip bg-tertiary/10 text-tertiary border border-tertiary/20">/ 10</span>
                   )}
                 </div>
 

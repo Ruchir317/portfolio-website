@@ -12,17 +12,17 @@ const categories = [
   {
     label: "Frameworks & Libraries",
     key: "frameworks_libraries" as const,
-    color: "text-teal bg-teal/10 border-teal/20",
+    color: "text-secondary bg-secondary/10 border-secondary/20",
   },
   {
     label: "Databases",
     key: "databases" as const,
-    color: "text-[#F59E0B] bg-[#F59E0B]/10 border-[#F59E0B]/20",
+    color: "text-tertiary bg-tertiary/10 border-tertiary/20",
   },
   {
     label: "Tools, Cloud & DevOps",
     key: "tools_cloud_devops" as const,
-    color: "text-[#EC4899] bg-[#EC4899]/10 border-[#EC4899]/20",
+    color: "text-accent-light bg-accent-light/10 border-accent-light/20",
   },
 ];
 

@@ -62,10 +62,10 @@ export default function About() {
                     href={resume.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between font-mono text-xs text-text-muted hover:text-teal transition-colors group"
+                    className="flex items-center justify-between font-mono text-xs text-text-muted hover:text-secondary transition-colors group"
                   >
                     <span>LinkedIn</span>
-                    <span className="text-text-faint group-hover:text-teal">↗</span>
+                    <span className="text-text-faint group-hover:text-secondary">↗</span>
                   </a>
                 </div>
               </div>
@@ -78,8 +78,8 @@ export default function About() {
                   Graduate SWE roles — backend, cloud, distributed systems, AI/ML.
                 </p>
                 <div className="mt-3 inline-flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
-                  <span className="font-mono text-[10px] text-teal tracking-widest uppercase">Available 2026</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse" />
+                  <span className="font-mono text-[10px] text-tertiary tracking-widest uppercase">Available 2026</span>
                 </div>
               </div>
             </div>

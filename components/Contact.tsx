@@ -54,10 +54,10 @@ export default function Contact() {
 
               <a
                 href={`tel:${resume.contact.phone}`}
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-teal/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-teal/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Phone size={16} className="text-teal" />
+                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
+                  <Phone size={16} className="text-secondary" />
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">Phone</p>
@@ -85,16 +85,16 @@ export default function Contact() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-teal/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-teal/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Linkedin size={16} className="text-text-muted group-hover:text-teal transition-colors" />
+                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
+                  <Linkedin size={16} className="text-text-muted group-hover:text-secondary transition-colors" />
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">LinkedIn</p>
                   <p className="text-text-primary text-sm">linkedin.com/in/ruchirjadhav</p>
                 </div>
-                <span className="ml-auto text-text-faint group-hover:text-teal transition-colors">↗</span>
+                <span className="ml-auto text-text-faint group-hover:text-secondary transition-colors">↗</span>
               </a>
             </div>
           </AnimatedSection>

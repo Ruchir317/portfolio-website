@@ -10,7 +10,7 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 export default function Projects() {
   return (
     <section id="projects" className="py-28 relative">
-      <div className="absolute right-0 top-1/3 w-72 h-72 rounded-full bg-teal/4 blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-1/3 w-72 h-72 rounded-full bg-secondary/4 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
