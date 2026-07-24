@@ -42,7 +42,7 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {categories.map((cat, i) => (
-            <AnimatedSection key={cat.key} delay={i * 0.08}>
+            <AnimatedSection key={cat.key} delay={(i % 2) * 0.08} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="card-glow border border-border bg-surface/30 rounded-sm p-5 h-full hover:border-accent/20 hover:bg-raised transition-colors">
                 <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-4">{cat.label}</p>
                 <div className="flex flex-wrap gap-1.5">
