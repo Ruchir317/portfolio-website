@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
 import { projectDetails } from "@/data/projectDetails";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -116,29 +116,51 @@ export default async function ProjectDetailPage({
         </div>
 
         <AnimatedSection delay={0.1}>
-          <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            {detail.team && (
-              <p className="font-mono text-xs text-text-faint leading-relaxed max-w-md">
-                {detail.team}
-              </p>
-            )}
-            {project.links.length > 0 && (
-              <div className="flex items-center gap-4 shrink-0">
-                {project.links.map((link, k) => (
-                  <a
-                    key={k}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
-                  >
-                    <Github size={14} />
-                    View Source
-                    <ExternalLink size={12} />
-                  </a>
-                ))}
+          <div className="mt-16 pt-8 border-t border-border">
+            {detail.publication && (
+              <div className="mb-6 pb-6 border-b border-border/50">
+                <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-2">
+                  Published
+                </p>
+                <p className="text-text-muted text-sm leading-relaxed max-w-2xl mb-3">
+                  {detail.publication.citation}
+                </p>
+                <a
+                  href={detail.publication.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                >
+                  <FileText size={14} />
+                  View Paper
+                  <ExternalLink size={12} />
+                </a>
               </div>
             )}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              {detail.team && (
+                <p className="font-mono text-xs text-text-faint leading-relaxed max-w-md">
+                  {detail.team}
+                </p>
+              )}
+              {project.links.length > 0 && (
+                <div className="flex items-center gap-4 shrink-0">
+                  {project.links.map((link, k) => (
+                    <a
+                      key={k}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                    >
+                      <Github size={14} />
+                      View Source
+                      <ExternalLink size={12} />
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </AnimatedSection>
 
