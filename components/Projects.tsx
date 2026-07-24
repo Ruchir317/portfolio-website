@@ -23,7 +23,7 @@ export default function Projects() {
 
         <div className="grid md:grid-cols-2 gap-5">
           {resume.projects.map((project, i) => (
-            <AnimatedSection key={i} delay={i * 0.07}>
+            <AnimatedSection key={i} delay={(i % 2) * 0.07} direction={i % 2 === 0 ? "left" : "right"}>
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
