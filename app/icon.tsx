@@ -22,7 +22,7 @@ export default function Icon() {
         }}
       >
         RJ
-        <span style={{ color: "#E8672A" }}>.</span>
+        <span style={{ color: "#14B8A6" }}>.</span>
       </div>
     ),
     { ...size }

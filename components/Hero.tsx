@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-accent/6 blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-teal/5 blur-[100px]" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-secondary/5 blur-[100px]" />
         <div className="absolute top-3/4 left-1/3 w-64 h-64 rounded-full bg-accent/4 blur-[80px]" />
       </div>
 
@@ -29,7 +29,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: "radial-gradient(#E8672A 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(#14B8A6 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -43,9 +43,9 @@ export default function Hero() {
         >
           {/* Location badge */}
           <motion.div variants={stagger.item} className="flex items-center gap-2 mb-8">
-            <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             <span className="font-mono text-xs text-text-muted tracking-widest uppercase flex items-center gap-1.5">
-              <MapPin size={11} className="text-teal" />
+              <MapPin size={11} className="text-secondary" />
               {resume.contact.location}
             </span>
           </motion.div>
@@ -88,7 +88,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 bg-accent text-white font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide overflow-hidden transition-all hover:bg-accent-light"
+              className="group relative inline-flex items-center gap-2 bg-accent text-bg font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide overflow-hidden transition-all hover:bg-accent-light"
             >
               <span className="relative z-10">Get in touch</span>
               <Mail size={15} className="relative z-10" />
@@ -105,7 +105,7 @@ export default function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-teal hover:border-teal/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
             >
               Resume
               <Download size={15} />
@@ -125,7 +125,7 @@ export default function Hero() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-teal hover:border-teal/50 transition-all"
+                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-secondary hover:border-secondary/50 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
