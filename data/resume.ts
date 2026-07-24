@@ -35,6 +35,7 @@ export const resume = {
       role: "Software Development Engineer",
       company: "Easley Dunn Productions",
       dates: "Feb 2026 – Present",
+      slug: "easley-dunn-safetynet",
       bullets: [
         "Built the Node.js/Express backend for SafetyNet, a cross-platform React Native app, implementing JWT + Firebase OTP authentication, a CTE-based social-graph discovery algorithm with Haversine proximity ranking, and three-tier rate limiting over PostgreSQL.",
         "Engineered real-time messaging via Socket.IO with JWT-authenticated WebSocket handshakes, AES-256-GCM encrypted storage, and atomic PostgreSQL transactions for message persistence and notification fanout.",
@@ -45,6 +46,7 @@ export const resume = {
       role: "Software Development Engineer Intern",
       company: "Amazon Web Services (AWS)",
       dates: "May 2025 – Aug 2025",
+      slug: "aws-eks-metrics-backfill",
       bullets: [
         "Built a four-component backfill system in Go for the Amazon EKS Metrics Service, resolving CloudWatch API outages that had caused up to 6-hour metric data gaps, with failure detection, hierarchical data preservation, and chronological replay for zero data loss.",
         "Designed a hot-reloadable failure simulation framework with per-log-group injection rates (0–100%) and S3-synced JSON config for safe outage testing in beta, validated end-to-end via before/after CloudWatch dashboard comparisons.",
@@ -55,6 +57,7 @@ export const resume = {
       role: "Data Engineer",
       company: "BusinessNext",
       dates: "Sep 2023 – May 2024",
+      slug: "businessnext-data-engineering",
       bullets: [
         "Built and refined SQL queries on Linux using Django ORM to power client-portfolio dashboards for Relationship Advisors in BusinessNext's banking CRM, enabling the frontend team to deliver responsive reporting interfaces.",
         "Developed data logic to surface product recommendation opportunities for banking clients, translating Relationship Advisor requirements into structured queries that identified better-fit financial offers from existing account data.",
