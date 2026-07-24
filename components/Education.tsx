@@ -18,7 +18,7 @@ export default function Education() {
         <div className="grid md:grid-cols-2 gap-6">
           {resume.education.map((edu, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
-              <div className="border border-border bg-surface/40 hover:border-accent/30 rounded-sm p-7 transition-all duration-300 h-full flex flex-col">
+              <div className="card-glow border border-border bg-surface/40 hover:border-accent/30 hover:bg-raised rounded-sm p-7 transition-all duration-300 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <div className="w-10 h-10 rounded-sm border border-border flex items-center justify-center shrink-0">

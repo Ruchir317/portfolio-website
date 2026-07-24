@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         bg: "#0C0C0F",
         surface: "#141418",
+        raised: "#1E1E26",
         border: "#22222C",
         "text-primary": "#F0EFE8",
         "text-muted": "#7A7A8A",

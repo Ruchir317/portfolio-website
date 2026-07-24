@@ -35,7 +35,7 @@ export default function Experience() {
                   {/* Dot on timeline (desktop) */}
                   <div className="hidden md:block absolute -left-[49px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
 
-                  <div className="bg-surface/30 border border-border hover:border-accent/30 rounded-sm p-6 md:p-8 transition-all duration-300 group-hover:bg-surface/60">
+                  <div className="card-glow bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-sm p-6 md:p-8 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
                       <div>
                         <h3 className="font-display font-bold text-xl text-text-primary">{job.role}</h3>
