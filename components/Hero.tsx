@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
 import { resume } from "@/data/resume";
+import CountUp from "./CountUp";
 
 const stagger = {
   container: {
@@ -144,7 +145,9 @@ export default function Hero() {
               { value: "3", label: "Companies" },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="font-display font-bold text-2xl text-text-primary">{stat.value}</div>
+                <div className="font-display font-bold text-2xl text-text-primary">
+                  <CountUp value={stat.value} />
+                </div>
                 <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-0.5">{stat.label}</div>
               </div>
             ))}
