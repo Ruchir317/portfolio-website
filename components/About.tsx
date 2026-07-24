@@ -29,7 +29,7 @@ export default function About() {
 
           {/* Info card */}
           <AnimatedSection delay={0.2}>
-            <div className="border border-border rounded-sm p-6 bg-surface/40 backdrop-blur-sm sticky top-24 space-y-6">
+            <div className="card-glow border border-border rounded-sm p-6 bg-surface/40 backdrop-blur-sm sticky top-24 space-y-6">
               <div>
                 <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-3">Contact</p>
                 <div className="space-y-2">

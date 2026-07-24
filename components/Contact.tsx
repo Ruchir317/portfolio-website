@@ -40,7 +40,7 @@ export default function Contact() {
             <div className="space-y-3">
               <a
                 href={`mailto:${resume.contact.email}`}
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <Mail size={16} className="text-accent" />
@@ -54,7 +54,7 @@ export default function Contact() {
 
               <a
                 href={`tel:${resume.contact.phone}`}
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="card-glow-secondary group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
                   <Phone size={16} className="text-secondary" />
@@ -69,7 +69,7 @@ export default function Contact() {
                 href={resume.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <Github size={16} className="text-text-muted group-hover:text-accent transition-colors" />
@@ -85,7 +85,7 @@ export default function Contact() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-surface/70 rounded-sm p-5 transition-all duration-200"
+                className="card-glow-secondary group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
                   <Linkedin size={16} className="text-text-muted group-hover:text-secondary transition-colors" />
