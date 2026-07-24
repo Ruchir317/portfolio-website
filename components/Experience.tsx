@@ -8,9 +8,10 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 relative">
+    <section id="experience" className="py-28 relative overflow-hidden">
       {/* Subtle ambient */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-accent/4 blur-[100px] pointer-events-none" />
+      <div className="absolute right-0 bottom-0 w-72 h-72 rounded-full bg-secondary/3 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
