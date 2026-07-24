@@ -3,6 +3,7 @@ export interface ProjectDetail {
   stats: { label: string; value: string }[];
   sections: { heading: string; body: string[] }[];
   team?: string;
+  publication?: { citation: string; url: string };
 }
 
 export const projectDetails: Record<string, ProjectDetail> = {
@@ -220,6 +221,11 @@ export const projectDetails: Record<string, ProjectDetail> = {
         ],
       },
     ],
-    team: "BTech capstone at K. J. Somaiya Institute of Technology with 2 teammates (Prachiti Bapat, Vedant Mishra), advised by Prof. Aarti Sahitya.",
+    team: "BTech capstone at K. J. Somaiya Institute of Technology with 2 teammates (Prachiti Bapat, Vedant Mishra), advised by Prof. Aarti Sahitya. Published as a peer-reviewed paper at IEEE ICAST 2022.",
+    publication: {
+      citation:
+        'Bapat, Jadhav, Mishra, Sahitya — "An Approach Travel Recommendation System and Route Optimizer using AI," 2022 5th International Conference on Advances in Science and Technology (ICAST), Mumbai, India, pp. 486–490.',
+      url: "https://doi.org/10.1109/ICAST55766.2022.10039531",
+    },
   },
 };

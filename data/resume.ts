@@ -120,6 +120,7 @@ export const resume = {
         "Fetched the user's live location and used the Google Maps API to compute real driving distance and duration to every catalogued spot.",
         "Applied KNN to shortlist the 7 closest matching spots, then benchmarked Tabu Search, Genetic Algorithm, and Simulated Annealing to sequence an efficient visiting route.",
         "Simulated Annealing found the shortest routes in testing, but Tabu Search converged 5-8x faster, making it the practical pick under time constraints; visualized routes with Folium/OpenStreetMap.",
+        "Published as \"An Approach Travel Recommendation System and Route Optimizer using AI\" at the IEEE 5th International Conference on Advances in Science and Technology (ICAST 2022).",
       ],
       links: [],
     },
