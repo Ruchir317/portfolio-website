@@ -6,7 +6,10 @@ import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   return (
-    <section id="education" className="py-28 relative">
+    <section id="education" className="py-28 relative overflow-hidden">
+      <div className="absolute right-0 top-0 w-64 h-64 rounded-full bg-secondary/3 blur-[110px] pointer-events-none" />
+      <div className="absolute left-0 bottom-0 w-56 h-56 rounded-full bg-accent-light/3 blur-[90px] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-16">

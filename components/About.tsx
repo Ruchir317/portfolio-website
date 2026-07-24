@@ -6,7 +6,10 @@ import { motion } from "motion/react";
 
 export default function About() {
   return (
-    <section id="about" className="py-28 relative">
+    <section id="about" className="py-28 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-accent/4 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full bg-tertiary/3 blur-[100px] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-16">
