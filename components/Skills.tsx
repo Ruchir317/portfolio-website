@@ -28,13 +28,13 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 relative overflow-hidden">
+    <section id="skills" className="py-24 relative overflow-hidden">
       <div className="absolute left-1/4 top-0 w-96 h-96 rounded-full bg-accent/3 blur-[140px] pointer-events-none" />
       <div className="absolute right-0 bottom-0 w-60 h-60 rounded-full bg-tertiary/3 blur-[110px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-12">
             <span className="section-label">04 — Skills</span>
             <div className="flex-1 h-px bg-border" />
           </div>
