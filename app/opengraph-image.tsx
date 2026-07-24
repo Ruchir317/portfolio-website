@@ -28,7 +28,7 @@ export default function OGImage() {
             fontSize: 22,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#E8672A",
+            color: "#14B8A6",
             marginBottom: 32,
           }}
         >
@@ -37,7 +37,7 @@ export default function OGImage() {
               width: 10,
               height: 10,
               borderRadius: "50%",
-              background: "#2EC4B6",
+              background: "#F472B6",
             }}
           />
           Software Engineer
@@ -53,7 +53,7 @@ export default function OGImage() {
           }}
         >
           Ruchir Jadhav
-          <span style={{ color: "#E8672A" }}>.</span>
+          <span style={{ color: "#14B8A6" }}>.</span>
         </div>
         <div
           style={{
