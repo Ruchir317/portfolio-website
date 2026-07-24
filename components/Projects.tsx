@@ -9,13 +9,13 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 relative overflow-hidden">
+    <section id="projects" className="py-24 relative overflow-hidden">
       <div className="absolute right-0 top-1/3 w-72 h-72 rounded-full bg-secondary/4 blur-[120px] pointer-events-none" />
       <div className="absolute left-0 bottom-0 w-64 h-64 rounded-full bg-accent-light/3 blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-12">
             <span className="section-label">03 — Projects</span>
             <div className="flex-1 h-px bg-border" />
           </div>
