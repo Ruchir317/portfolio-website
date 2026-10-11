@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll } from "motion/react";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -59,6 +59,8 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
@@ -77,6 +79,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <motion.div
+        id="mobile-menu"
+        inert={!menuOpen}
         initial={false}
         animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({
           <div className="mt-16 pt-8 border-t border-border">
             {detail.publication && (
               <div className="mb-6 pb-6 border-b border-border/50">
-                <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-2">
+                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-2">
                   Published
                 </p>
                 <p className="text-text-muted text-sm leading-relaxed max-w-2xl mb-3">
@@ -139,7 +139,7 @@ export default async function ProjectDetailPage({
             )}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               {detail.team && (
-                <p className="font-mono text-xs text-text-faint leading-relaxed max-w-md">
+                <p className="font-mono text-xs text-text-muted leading-relaxed max-w-md">
                   {detail.team}
                 </p>
               )}

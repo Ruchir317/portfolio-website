@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
@@ -15,7 +12,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <span className="section-label">06 — Contact</span>
+            <h2 className="section-label">06 — Contact</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -47,7 +44,7 @@ export default function Contact() {
                   <Mail size={16} className="text-accent" />
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">Email</p>
+                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Email</p>
                   <p className="text-text-primary text-sm">{resume.contact.email}</p>
                 </div>
                 <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
@@ -61,7 +58,7 @@ export default function Contact() {
                   <Phone size={16} className="text-secondary" />
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">Phone</p>
+                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Phone</p>
                   <p className="text-text-primary text-sm">{resume.contact.phone}</p>
                 </div>
               </a>
@@ -76,7 +73,7 @@ export default function Contact() {
                   <Github size={16} className="text-text-muted group-hover:text-accent transition-colors" />
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">GitHub</p>
+                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">GitHub</p>
                   <p className="text-text-primary text-sm">github.com/Ruchir317</p>
                 </div>
                 <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
@@ -92,7 +89,7 @@ export default function Contact() {
                   <Linkedin size={16} className="text-text-muted group-hover:text-secondary transition-colors" />
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-0.5">LinkedIn</p>
+                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">LinkedIn</p>
                   <p className="text-text-primary text-sm">linkedin.com/in/ruchirjadhav</p>
                 </div>
                 <span className="ml-auto text-text-faint group-hover:text-secondary transition-colors">↗</span>
@@ -104,10 +101,10 @@ export default function Contact() {
         {/* Footer */}
         <AnimatedSection delay={0.2}>
           <div className="mt-24 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="font-display font-bold text-text-faint text-sm">
+            <span className="font-display font-bold text-text-muted text-sm">
               Ruchir Jadhav<span className="text-accent">.</span>
             </span>
-            <p className="font-mono text-[10px] text-text-faint tracking-wider">
+            <p className="font-mono text-[10px] text-text-muted tracking-wider">
               Built with Next.js · Tailwind · Framer Motion
             </p>
           </div>
