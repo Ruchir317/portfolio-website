@@ -59,7 +59,7 @@ export default function OGImage() {
           style={{
             display: "flex",
             fontSize: 32,
-            color: "#7A7A8A",
+            color: "#848494",
             marginTop: 32,
             maxWidth: 900,
             lineHeight: 1.4,

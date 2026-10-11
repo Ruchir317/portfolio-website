@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { projectDetails } from "@/data/projectDetails";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
-export default function Projects() {
+// detailSlugs comes from the server page so the long-form detail text stays out of the client bundle.
+export default function Projects({ detailSlugs }: { detailSlugs: string[] }) {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="absolute right-0 top-1/3 w-72 h-72 rounded-full bg-secondary/4 blur-[120px] pointer-events-none" />
@@ -16,7 +16,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <span className="section-label">03 — Projects</span>
+            <h2 className="section-label">03 — Projects</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -64,9 +64,9 @@ export default function Projects() {
                 </div>
 
                 {/* Links */}
-                {(project.links.length > 0 || projectDetails[project.slug]) && (
+                {(project.links.length > 0 || detailSlugs.includes(project.slug)) && (
                   <div className="flex items-center gap-4 pt-4 border-t border-border">
-                    {projectDetails[project.slug] && (
+                    {detailSlugs.includes(project.slug) && (
                       <Link
                         href={`/projects/${project.slug}`}
                         className="flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors"

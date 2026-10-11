@@ -14,7 +14,7 @@ const config: Config = {
         raised: "#1E1E26",
         border: "#22222C",
         "text-primary": "#F0EFE8",
-        "text-muted": "#7A7A8A",
+        "text-muted": "#848494",
         "text-faint": "#3E3E50",
         accent: "#14B8A6",
         "accent-light": "#2DD4BF",
@@ -25,20 +25,6 @@ const config: Config = {
         display: ["var(--font-syne)", "sans-serif"],
         body: ["var(--font-outfit)", "sans-serif"],
         mono: ["var(--font-ibm-plex-mono)", "monospace"],
-      },
-      animation: {
-        "blink": "blink 1.1s step-end infinite",
-        "gradient-shift": "gradient-shift 8s ease infinite",
-      },
-      keyframes: {
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
-        "gradient-shift": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
       },
     },
   },

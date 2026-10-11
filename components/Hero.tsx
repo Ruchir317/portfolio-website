@@ -161,7 +161,7 @@ export default function Hero() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-10 right-6 md:right-12 flex flex-col items-center gap-3"
         >
-          <span className="font-mono text-[10px] text-text-faint tracking-widest uppercase [writing-mode:vertical-rl]">
+          <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase [writing-mode:vertical-rl]">
             Scroll
           </span>
           <motion.div

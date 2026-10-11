@@ -1,8 +1,5 @@
-"use client";
-
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { motion } from "motion/react";
 
 export default function About() {
   return (
@@ -13,7 +10,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <span className="section-label">01 — About</span>
+            <h2 className="section-label">01 — About</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -34,7 +31,7 @@ export default function About() {
           <AnimatedSection delay={0.2} direction="right">
             <div className="card-glow border border-border rounded-sm p-6 bg-surface/40 backdrop-blur-sm sticky top-24 space-y-6">
               <div>
-                <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-3">Contact</p>
+                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">Contact</p>
                 <div className="space-y-2">
                   <a
                     href={`mailto:${resume.contact.email}`}
@@ -50,7 +47,7 @@ export default function About() {
               <hr className="border-border" />
 
               <div>
-                <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-3">Links</p>
+                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">Links</p>
                 <div className="space-y-2">
                   <a
                     href={resume.links.github}
@@ -76,7 +73,7 @@ export default function About() {
               <hr className="border-border" />
 
               <div>
-                <p className="font-mono text-[10px] text-text-faint tracking-widest uppercase mb-3">Looking for</p>
+                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">Looking for</p>
                 <p className="font-mono text-xs text-text-muted leading-relaxed">
                   Graduate SWE roles — backend, cloud, distributed systems, AI/ML.
                 </p>
