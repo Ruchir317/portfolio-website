@@ -27,3 +27,9 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# source documents (reports, transcripts, internal employer docs): never commit
+docs/
+
+# Playwright MCP scratch output (logs, snapshots)
+.playwright-mcp/
