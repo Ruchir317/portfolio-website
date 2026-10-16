@@ -2,6 +2,7 @@
 
 import { motion, useScroll } from "motion/react";
 import { useState, useEffect } from "react";
+import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -75,6 +76,13 @@ export default function Navbar() {
               {link.label}
             </motion.a>
           ))}
+          <button
+            onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
+            aria-label="Open command palette"
+            className="font-mono text-[10px] tracking-widest text-text-muted hover:text-accent border border-border rounded-sm px-2 py-1 transition-colors"
+          >
+            ⌘K
+          </button>
         </div>
 
         {/* Mobile hamburger */}
