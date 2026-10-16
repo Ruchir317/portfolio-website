@@ -39,7 +39,6 @@ export default function About() {
                   >
                     {resume.contact.email}
                   </a>
-                  <p className="font-mono text-xs text-text-muted">{resume.contact.phone}</p>
                   <p className="font-mono text-xs text-text-muted">{resume.contact.location}</p>
                 </div>
               </div>
