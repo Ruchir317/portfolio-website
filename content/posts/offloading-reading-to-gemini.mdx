@@ -1,0 +1,27 @@
+---
+title: Offloading bulk reading to Gemini from Claude Code
+summary: A small Node tool that hands long reads to Gemini through one persistent chat per project, and the checks I put around its answers.
+date: 2026-10-16
+tags: [tooling, llm, node]
+draft: true
+---
+
+Long files, diffs and logs eat an AI coding assistant's context window. I wrote a small Node script, `gemini-offload`, that sends those reads to Gemini through Google's Antigravity CLI and returns a short, bounded answer.
+
+## One chat per project
+
+The first call in a project creates a Gemini chat and stores its id on the machine; later calls resume it. The project's instructions and skills are regenerated into the chat's workspace on every call, so edits reach the existing chat without re-seeding it.
+
+## Compaction you can see
+
+Gemini compacts long chats silently. The CLI's event stream does expose it as a `checkpoint` step, so the tool prints a notice when it happens and I know to resend anything from earlier turns.
+
+## Guardrails
+
+- A lock allows one call per project at a time, because overlapping CLI processes stall.
+- Secret-looking text and key files are refused before anything is sent.
+- I ask for a bounded answer with file and line citations, so it is cheap to check.
+
+## Verify, don't trust
+
+Measured on real use, Gemini was reliable on structural questions about code and unreliable on arithmetic: it miscounted lines and deletes on a large file, and its line citations were sometimes a few lines off. So counts come from `wc` and `grep`, and every claim gets re-checked against the source before I act on it.
