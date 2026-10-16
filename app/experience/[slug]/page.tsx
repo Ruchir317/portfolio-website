@@ -6,6 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import { resume } from "@/data/resume";
 import { experienceDetails } from "@/data/experienceDetails";
 import AnimatedSection from "@/components/AnimatedSection";
+import CaseStudy from "@/components/CaseStudy";
+import { caseStudies } from "@/data/caseStudies";
 
 export function generateStaticParams() {
   return Object.keys(experienceDetails).map((slug) => ({ slug }));
@@ -92,6 +94,8 @@ export default async function ExperienceDetailPage({
             ))}
           </div>
         </AnimatedSection>
+
+        {caseStudies[slug] && <CaseStudy study={caseStudies[slug]} />}
 
         <div className="space-y-12">
           {detail.sections.map((section, i) => (
