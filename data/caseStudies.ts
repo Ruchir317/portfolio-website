@@ -7,6 +7,62 @@ export interface CaseStudy {
 }
 
 export const caseStudies: Record<string, CaseStudy> = {
+  // Employer pages: keep strictly within the trimmed wording in experienceDetails.ts.
+  "aws-eks-metrics-backfill": {
+    diagramTitle: "Failure-to-recovery flow (the steps, not the four components)",
+    steps: [
+      { label: "Detect", detail: "A failed CloudWatch call is caught, real or simulated" },
+      { label: "Save", detail: "The complete request is stored in a structured layout" },
+      { label: "Reprocess", detail: "Failed reads are retried in the background" },
+      { label: "Republish", detail: "Failed writes are retried in the background" },
+      { label: "Back up", detail: "Durable storage with a lifecycle for long outages" },
+      { label: "Replay", detail: "Chronological replay through the live code path" },
+    ],
+    decisions: [
+      {
+        decision: "Save the full request, not just a timestamp",
+        why: "Preserving everything makes accurate replay possible instead of a lossy approximation.",
+        result: "Zero data loss on recovery",
+      },
+      {
+        decision: "Replay through the same code path as live data, in order",
+        why: "Recovered data takes the normal route, so dashboards fill in gaps instead of showing data out of sequence.",
+        result: "Outages become a bounded delay",
+      },
+      {
+        decision: "Inject failures from configuration, in test environments only",
+        why: "Failure handling could previously be exercised only during a real outage.",
+        result: "Recovery verified end to end; cannot trigger in a live environment",
+      },
+    ],
+  },
+  "easley-dunn-safetynet": {
+    diagramTitle: "Request path through the backend",
+    steps: [
+      { label: "Authenticate", detail: "JWT plus Firebase OTP" },
+      { label: "Rate limit", detail: "Tiered limits on the API" },
+      { label: "Handle", detail: "Node.js / Express over PostgreSQL" },
+      { label: "Persist", detail: "Atomic transactions for messages and notifications" },
+      { label: "Deliver", detail: "Socket.IO over authenticated WebSockets" },
+    ],
+    decisions: [
+      {
+        decision: "Integration tests against a real PostgreSQL in CI",
+        why: "Logic that only works against a fake database is a risk; only third-party auth is mocked.",
+        result: "Tests exercise the real database behaviour",
+      },
+      {
+        decision: "Review the database with query plans, not by reading code",
+        why: "Indexes did not match how the data was actually queried.",
+        result: "Indexes, transactions and atomic upserts corrected",
+      },
+      {
+        decision: "Fix indexing before adopting a graph database",
+        why: "At the actual scale the bottleneck was indexing, not the data model.",
+        result: "Migration not justified; reasoning documented",
+      },
+    ],
+  },
   factual: {
     diagramTitle: "Real-time speech verification pipeline",
     steps: [
