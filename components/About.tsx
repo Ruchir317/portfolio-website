@@ -79,7 +79,7 @@ export default function About() {
                 </p>
                 <div className="mt-3 inline-flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse" />
-                  <span className="font-mono text-[10px] text-tertiary tracking-widest uppercase">Available 2026</span>
+                  <span className="font-mono text-[10px] text-tertiary tracking-widest uppercase">Available immediately</span>
                 </div>
               </div>
             </div>

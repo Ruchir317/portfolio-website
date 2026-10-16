@@ -67,7 +67,7 @@ export default function Hero() {
             variants={stagger.item}
             className="font-mono text-xs sm:text-sm text-accent tracking-widest uppercase mb-6 cursor-blink"
           >
-            SWE @ Easley Dunn · MS CS @ USC
+            SWE @ Easley Dunn · MS CS, USC
           </motion.p>
 
           {/* Sub headline */}
@@ -140,7 +140,7 @@ export default function Hero() {
             className="mt-20 pt-8 border-t border-border grid grid-cols-3 sm:grid-cols-3 gap-8 max-w-sm"
           >
             {[
-              { value: "2+", label: "Years exp." },
+              { value: "20+", label: "Months exp." },
               { value: "6", label: "Projects" },
               { value: "3", label: "Companies" },
             ].map((stat) => (
