@@ -4,6 +4,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/data/site";
 import MotionProvider from "@/components/MotionProvider";
+import CommandPalette from "@/components/CommandPalette";
+import { projectDetails } from "@/data/projectDetails";
+import { experienceDetails } from "@/data/experienceDetails";
 import "./globals.css";
 
 const syne = Syne({
@@ -54,6 +57,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <MotionProvider>{children}</MotionProvider>
+        <CommandPalette detailSlugs={[...Object.keys(projectDetails), ...Object.keys(experienceDetails)]} />
         <Analytics />
         <SpeedInsights />
       </body>
