@@ -1,0 +1,28 @@
+---
+title: How this site is built
+summary: The stack, the choices behind it, and the quality gates that every push to this portfolio has to pass.
+date: 2026-10-16
+tags: [nextjs, react, accessibility]
+---
+
+This portfolio is a fully static Next.js 16 App Router site on Vercel, written in TypeScript with Tailwind 3 and `motion` for animation. Every push to `master` deploys it.
+
+## One source of truth
+
+All résumé content lives in a single typed file, `data/resume.ts`. The home page, the project and experience pages, the sitemap and the ⌘K command palette all read from it, so a fact changes in one place.
+
+## Motion that respects people
+
+Page-to-page transitions use React's `<ViewTransition>`, so a project title glides from the card to the detail page. Scroll reveals are short, and everything honours `prefers-reduced-motion`.
+
+## Quality gates
+
+A GitHub Actions workflow runs on every push:
+
+- ESLint, `tsc` and a production build must pass.
+- A dependency-free smoke script checks the built pages.
+- Lighthouse CI fails the build if accessibility or SEO drops below 0.95.
+
+## Content as data
+
+Posts like this one are MDX files. Their frontmatter is validated against a Zod schema at build time with Velite, so a missing title or a malformed date fails the build instead of shipping.

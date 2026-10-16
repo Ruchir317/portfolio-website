@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/data/site";
 import { resume } from "@/data/resume";
 import { projectDetails } from "@/data/projectDetails";
+import { allPosts } from "@/data/posts";
 import { experienceDetails } from "@/data/experienceDetails";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,10 +18,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/experience/${job.slug}`,
     }));
 
+  const writingPages = allPosts.map((post) => ({
+    url: `${SITE_URL}/writing/${post.slug}`,
+  }));
+
   return [
     {
       url: SITE_URL,
     },
+    ...(writingPages.length ? [{ url: `${SITE_URL}/writing` }] : []),
+    ...writingPages,
     ...projectPages,
     ...experiencePages,
   ];
