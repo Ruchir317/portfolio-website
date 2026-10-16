@@ -83,7 +83,7 @@ export default function Navbar() {
         inert={!menuOpen}
         initial={false}
         animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
         className="overflow-hidden md:hidden border-t border-border bg-bg/95 backdrop-blur-md"
       >
         <div className="px-6 py-4 flex flex-col gap-4">

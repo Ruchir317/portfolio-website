@@ -26,7 +26,7 @@ export default function Projects({ detailSlugs }: { detailSlugs: string[] }) {
             <AnimatedSection key={i} delay={(i % 2) * 0.07} direction={i % 2 === 0 ? "left" : "right"}>
               <motion.div
                 whileHover={{ y: -4 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
                 className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-sm p-6 transition-colors duration-300"
               >
                 {/* Number */}
