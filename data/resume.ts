@@ -11,7 +11,6 @@ export const resume = {
   ],
   contact: {
     email: "ruchirjadhav29@gmail.com",
-    phone: "213-234-8896",
     location: "Los Angeles, CA",
   },
   links: {

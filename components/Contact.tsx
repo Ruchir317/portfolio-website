@@ -1,6 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -48,19 +48,6 @@ export default function Contact() {
                   <p className="text-text-primary text-sm">{resume.contact.email}</p>
                 </div>
                 <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
-              </a>
-
-              <a
-                href={`tel:${resume.contact.phone}`}
-                className="card-glow-secondary group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Phone size={16} className="text-secondary" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Phone</p>
-                  <p className="text-text-primary text-sm">{resume.contact.phone}</p>
-                </div>
               </a>
 
               <a
