@@ -20,9 +20,12 @@ export async function generateMetadata({
   const detail = projectDetails[slug];
   if (!project || !detail) return {};
 
+  const title = `${project.name} — Ruchir Jadhav`;
   return {
-    title: `${project.name} — Ruchir Jadhav`,
+    title,
     description: detail.summary,
+    alternates: { canonical: `/projects/${slug}` },
+    openGraph: { title, description: detail.summary, url: `/projects/${slug}`, type: "article", images: ["/opengraph-image"] },
   };
 }
 
@@ -40,7 +43,7 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <main className="min-h-screen">
+    <main id="main" className="min-h-screen">
       <header className="border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link

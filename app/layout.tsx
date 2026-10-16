@@ -50,6 +50,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${outfit.variable} ${ibmPlexMono.variable}`}>
       <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
         <SpeedInsights />

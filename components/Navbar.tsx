@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
+        <a href="#" aria-label="Back to top" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
           RJ<span className="text-accent">.</span>
         </a>
 

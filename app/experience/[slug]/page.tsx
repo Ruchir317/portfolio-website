@@ -20,9 +20,12 @@ export async function generateMetadata({
   const detail = experienceDetails[slug];
   if (!job || !detail) return {};
 
+  const title = `${job.role} @ ${job.company} — Ruchir Jadhav`;
   return {
-    title: `${job.role} @ ${job.company} — Ruchir Jadhav`,
+    title,
     description: detail.summary,
+    alternates: { canonical: `/experience/${slug}` },
+    openGraph: { title, description: detail.summary, url: `/experience/${slug}`, type: "article", images: ["/opengraph-image"] },
   };
 }
 
@@ -40,7 +43,7 @@ export default async function ExperienceDetailPage({
   }
 
   return (
-    <main className="min-h-screen">
+    <main id="main" className="min-h-screen">
       <header className="border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link
