@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Ruchir Jadhav — Software Engineer",
   description:
-    "MS CS @ USC and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
+    "MS CS (USC, 2025) and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
   keywords: ["Ruchir Jadhav", "Software Engineer", "USC", "AWS", "Portfolio"],
   openGraph: {
     title: "Ruchir Jadhav — Software Engineer",
     description:
-      "MS CS @ USC and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
+      "MS CS (USC, 2025) and Software Development Engineer. Cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
     type: "website",
     url: SITE_URL,
   },
