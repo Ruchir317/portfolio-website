@@ -6,6 +6,8 @@ import { ArrowLeft, ExternalLink, Github, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
 import { projectDetails } from "@/data/projectDetails";
 import AnimatedSection from "@/components/AnimatedSection";
+import CaseStudy from "@/components/CaseStudy";
+import { caseStudies } from "@/data/caseStudies";
 
 export function generateStaticParams() {
   return Object.keys(projectDetails).map((slug) => ({ slug }));
@@ -66,7 +68,7 @@ export default async function ProjectDetailPage({
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div>
           <ViewTransition name={`project-${slug}`}>
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
+            <h1 className="font-display font-extrabold text-3xl sm:text-5xl break-words hyphens-auto text-text-primary leading-tight mb-6">
               {project.name}
             </h1>
           </ViewTransition>
@@ -100,6 +102,8 @@ export default async function ProjectDetailPage({
             ))}
           </div>
         </AnimatedSection>
+
+        {caseStudies[slug] && <CaseStudy study={caseStudies[slug]} />}
 
         <div className="space-y-12">
           {detail.sections.map((section, i) => (

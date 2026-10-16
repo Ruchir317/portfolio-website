@@ -66,7 +66,7 @@ export default async function ExperienceDetailPage({
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div>
           <ViewTransition name={`experience-${slug}`}>
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-3">
+            <h1 className="font-display font-extrabold text-3xl sm:text-5xl break-words hyphens-auto text-text-primary leading-tight mb-3">
               {job.role}
             </h1>
           </ViewTransition>
