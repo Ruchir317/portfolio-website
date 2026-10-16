@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { resume } from "@/data/resume";
+import { allPosts } from "@/data/posts";
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
 
 interface Item {
   id: string;
-  group: "Sections" | "Experience" | "Projects" | "Links";
+  group: "Sections" | "Experience" | "Projects" | "Writing" | "Links";
   label: string;
   hint?: string;
   href: string;
@@ -33,6 +34,13 @@ const items: Item[] = [
     hint: p.tech_stack.slice(0, 3).join(" · "),
     href: `/projects/${p.slug}`,
   })),
+  ...allPosts.map((post) => ({
+    id: `w-${post.slug}`,
+    group: "Writing" as const,
+    label: post.title,
+    hint: post.tags.slice(0, 3).join(" · "),
+    href: `/writing/${post.slug}`,
+  })),
   { id: "l-resume", group: "Links", label: "Resume (PDF)", href: "/resume.pdf", external: true },
   { id: "l-github", group: "Links", label: "GitHub", href: resume.links.github, external: true },
   { id: "l-linkedin", group: "Links", label: "LinkedIn", href: resume.links.linkedin, external: true },
@@ -55,7 +63,7 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
     () =>
       items
         // only slugs that have a detail page are linkable
-        .filter((i) => i.group === "Sections" || i.group === "Links" || detailSlugs.includes(i.id.slice(2)))
+        .filter((i) => i.group === "Sections" || i.group === "Writing" || i.group === "Links" || detailSlugs.includes(i.id.slice(2)))
         .filter((i) => matches(i, query)),
     [query, detailSlugs]
   );
