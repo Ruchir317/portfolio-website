@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -63,10 +64,12 @@ export default async function ProjectDetailPage({
       </header>
 
       <div className="max-w-4xl mx-auto px-6 py-20">
-        <AnimatedSection>
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
-            {project.name}
-          </h1>
+        <div>
+          <ViewTransition name={`project-${slug}`}>
+            <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
+              {project.name}
+            </h1>
+          </ViewTransition>
           <p className="text-text-muted text-lg leading-relaxed max-w-2xl mb-8">
             {detail.summary}
           </p>
@@ -81,7 +84,7 @@ export default async function ProjectDetailPage({
               </span>
             ))}
           </div>
-        </AnimatedSection>
+        </div>
 
         <AnimatedSection delay={0.05}>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-14 pb-14 border-b border-border">

@@ -1,5 +1,6 @@
 "use client";
 
+import { ViewTransition } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
@@ -36,9 +37,11 @@ export default function Projects({ detailSlugs }: { detailSlugs: string[] }) {
 
                 {/* Header */}
                 <div className="mb-4">
-                  <h3 className="font-display font-bold text-lg text-text-primary leading-tight pr-12 group-hover:text-accent transition-colors">
-                    {project.name}
-                  </h3>
+                  <ViewTransition name={`project-${project.slug}`}>
+                    <h3 className="font-display font-bold text-lg text-text-primary leading-tight pr-12 group-hover:text-accent transition-colors">
+                      {project.name}
+                    </h3>
+                  </ViewTransition>
                 </div>
 
                 {/* Bullets */}

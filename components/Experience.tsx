@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
@@ -39,7 +40,9 @@ export default function Experience() {
                   <div className="card-glow bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-sm p-6 md:p-8 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
                       <div>
-                        <h3 className="font-display font-bold text-xl text-text-primary">{job.role}</h3>
+                        <ViewTransition name={`experience-${job.slug}`}>
+                          <h3 className="font-display font-bold text-xl text-text-primary">{job.role}</h3>
+                        </ViewTransition>
                         <p className="font-mono text-sm text-accent mt-0.5">{job.company}</p>
                       </div>
                       <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase whitespace-nowrap mt-1 sm:mt-0 shrink-0 md:hidden">
