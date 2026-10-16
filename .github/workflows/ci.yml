@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm run build
+
+  quality:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Start server
+        run: npx next start -p 3100 &
+      - name: Wait for server
+        run: npx --yes wait-on -t 30000 http://localhost:3100
+      - name: Smoke test
+        run: node scripts/smoke.mjs
+        env:
+          BASE: http://localhost:3100
+      - name: Lighthouse (accessibility and SEO are hard gates)
+        run: npx --yes @lhci/cli@0.15.x autorun --config=lighthouserc.json
