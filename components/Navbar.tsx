@@ -16,10 +16,30 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    return scrollY.on("change", (v) => setScrolled(v > 60));
+    return scrollY.on("change", (v) => {
+      setScrolled(v > 60);
+      if (v < 200) setActiveSection(""); // back at the hero: nothing highlighted
+    });
   }, [scrollY]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    for (const { href } of navLinks) {
+      const el = document.getElementById(href.slice(1));
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <motion.nav
@@ -47,7 +67,10 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
-              className="font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
+              aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+              className={`font-mono text-xs tracking-widest uppercase transition-colors ${
+                activeSection === link.href.slice(1) ? "text-accent" : "text-text-muted hover:text-accent"
+              }`}
             >
               {link.label}
             </motion.a>
@@ -92,7 +115,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors py-1"
+              aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+              className={`font-mono text-xs tracking-widest uppercase transition-colors py-1 ${
+                activeSection === link.href.slice(1) ? "text-accent" : "text-text-muted hover:text-accent"
+              }`}
             >
               {link.label}
             </a>

@@ -33,3 +33,4 @@ docs/
 
 # Playwright MCP scratch output (logs, snapshots)
 .playwright-mcp/
+.lighthouseci/
