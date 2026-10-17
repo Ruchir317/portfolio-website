@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Syne, Outfit, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -27,7 +27,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0C0C0F",
+  colorScheme: "dark",
+};
+
 export const metadata: Metadata = {
+  alternates: { types: { "application/rss+xml": "/feed.xml" } },
   metadataBase: new URL(SITE_URL),
   title: "Ruchir Jadhav — Software Engineer",
   description:
@@ -56,6 +62,10 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        {/* Animated blocks start hidden until JS runs; without JS they must still be readable. */}
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <MotionProvider>{children}</MotionProvider>
         <CommandPalette detailSlugs={[...Object.keys(projectDetails), ...Object.keys(experienceDetails)]} />
         <Analytics />

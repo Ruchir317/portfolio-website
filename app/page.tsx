@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
+import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
 import { projectDetails } from "@/data/projectDetails";
 import { resume } from "@/data/resume";
@@ -38,6 +39,7 @@ export default function Home() {
       />
       <Skills />
       <Education />
+      <Writing />
       <Contact />
     </main>
   );

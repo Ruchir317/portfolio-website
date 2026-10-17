@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink, Github, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
 import { projectDetails } from "@/data/projectDetails";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/data/site";
 import AnimatedSection from "@/components/AnimatedSection";
 import CaseStudy from "@/components/CaseStudy";
 import { caseStudies } from "@/data/caseStudies";
@@ -32,7 +34,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: `/projects/${slug}` },
-    openGraph: { title, description, url: `/projects/${slug}`, type: "article", images: ["/opengraph-image"] },
+    openGraph: { title, description, url: `/projects/${slug}`, type: "article" },
   };
 }
 
@@ -51,6 +53,17 @@ export default async function ProjectDetailPage({
 
   return (
     <main id="main" className="min-h-screen">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/#projects` },
+            { "@type": "ListItem", position: 3, name: project.name, item: `${SITE_URL}/projects/${slug}` },
+          ],
+        }}
+      />
       {detail.publication && (
         <script
           type="application/ld+json"

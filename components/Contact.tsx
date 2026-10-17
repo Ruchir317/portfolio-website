@@ -12,7 +12,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">06 — Contact</h2>
+            <h2 className="section-label">07 — Contact</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -70,16 +70,16 @@ export default function Contact() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-glow-secondary group flex items-center gap-4 border border-border bg-surface/40 hover:border-secondary/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-secondary/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Linkedin size={16} className="text-text-muted group-hover:text-secondary transition-colors" />
+                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                  <Linkedin size={16} className="text-text-muted group-hover:text-accent transition-colors" />
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">LinkedIn</p>
                   <p className="text-text-primary text-sm">linkedin.com/in/ruchirjadhav</p>
                 </div>
-                <span className="ml-auto text-text-faint group-hover:text-secondary transition-colors">↗</span>
+                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
               </a>
 
               <a

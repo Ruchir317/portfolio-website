@@ -69,6 +69,7 @@ export const resume = {
     {
       name: "FACTUAL — Real-Time Multimodal Fact-Checking",
       slug: "factual",
+      metric: { value: "84%", label: "accuracy on post-cutoff claims" },
       tech_stack: ["Python", "OpenAI Whisper", "GPT-4o", "Gemini", "RAG", "Google Search/News API"],
       bullets: [
         "Built a real-time speech fact-checking pipeline: Whisper ASR transcription, LLM-based claim extraction, and retrieval-augmented verification against live web evidence.",
@@ -82,6 +83,7 @@ export const resume = {
     {
       name: "Multimodal Emotion Detection",
       slug: "multimodal-emotion-detection",
+      metric: { value: "2×", label: "accuracy of early fusion" },
       tech_stack: ["Python", "BERT", "HuBERT", "OpenFace", "LoRA", "PyTorch", "Streamlit"],
       bullets: [
         "Balanced the MELD dataset (2,000 train / 400 dev samples per class) via audio pitch/speed/noise augmentation and OpenCV-based video filters to correct severe class imbalance.",
@@ -94,6 +96,7 @@ export const resume = {
     {
       name: "Materialized Views in DuckDB",
       slug: "duckdb-materialized-views",
+      metric: { value: "100×", label: "faster retrieval, up to" },
       tech_stack: ["C++", "SQL", "DuckDB", "TPC-H"],
       bullets: [
         "Extended DuckDB's parser, logical planner, and execution engine to support CREATE/REFRESH MATERIALIZED VIEW, with dependency tracking to auto-invalidate views when base tables change.",
@@ -106,6 +109,7 @@ export const resume = {
     {
       name: "CARLA Cooperative V2X Intersection",
       slug: "carla-v2x-intersection",
+      metric: { value: "−51%", label: "average crossing time" },
       tech_stack: ["Python", "CARLA 0.9.16", "V2X"],
       bullets: [
         "Designed a V2X-inspired virtual Intersection Manager that replaces traffic lights with an FCFS, conflict-aware reservation protocol for autonomous vehicles in CARLA.",
@@ -118,6 +122,7 @@ export const resume = {
     {
       name: "Travel Recommendation & Route Optimizer",
       slug: "travel-route-optimizer",
+      metric: { value: "5–8×", label: "faster than the Genetic Algorithm" },
       tech_stack: ["Python", "Selenium", "Django", "GeoPy", "Folium", "Google Maps API"],
       bullets: [
         "Scraped TripAdvisor via Selenium for the top ~120 rated spots across 5 Indian cities, geocoding each with GeoPy into a ratings/category dataset.",
@@ -131,6 +136,7 @@ export const resume = {
     {
       name: "Sign Language Detection",
       slug: "sign-language-detection",
+      metric: { value: "93%+", label: "gesture accuracy" },
       tech_stack: ["Python", "TensorFlow", "OpenCV", "REST API"],
       bullets: [
         "Built a real-time gesture recognition system for accessibility-oriented use cases.",

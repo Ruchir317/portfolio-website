@@ -16,6 +16,13 @@ const stagger = {
   },
 };
 
+const status = [
+  { key: "now", value: "SDE, Easley Dunn Productions" },
+  { key: "before", value: "SDE Intern, AWS (EKS Metrics)" },
+  { key: "published", value: "IEEE ICAST 2022" },
+  { key: "education", value: "MS CS, USC (Dec 2025)" },
+];
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
@@ -35,7 +42,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-20">
+      <div className="relative w-full max-w-6xl mx-auto px-6 pt-32 pb-20 xl:grid xl:grid-cols-[1fr_20rem] xl:items-center xl:gap-12">
         <motion.div
           variants={stagger.container}
           initial="hidden"
@@ -54,7 +61,7 @@ export default function Hero() {
           {/* Name */}
           <motion.h1
             variants={stagger.item}
-            className="font-display font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] leading-[0.9] tracking-tight mb-6"
+            className="font-display font-extrabold text-[length:clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl md:text-8xl lg:text-[6.5rem] leading-[0.9] tracking-tight mb-6"
           >
             <span className="gradient-text">Ruchir</span>
             <br />
@@ -153,6 +160,37 @@ export default function Hero() {
             ))}
           </motion.div>
         </motion.div>
+
+        {/* Status card (wide screens only) */}
+        <motion.aside
+          aria-label="Current status"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="hidden xl:block card-glow border border-border bg-surface/60 backdrop-blur-sm rounded-sm font-mono text-xs"
+        >
+          <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="ml-3 text-text-muted tracking-wide">ruchir ~ status</span>
+          </div>
+          <dl className="space-y-4 px-4 py-5 leading-relaxed">
+            {status.map(({ key, value }) => (
+              <div key={key}>
+                <dt className="text-accent">$ {key}</dt>
+                <dd className="text-text-muted pl-3">{value}</dd>
+              </div>
+            ))}
+            <div>
+              <dt className="text-accent">$ status</dt>
+              <dd className="pl-3 flex items-center gap-2 text-text-primary">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                available immediately
+              </dd>
+            </div>
+          </dl>
+        </motion.aside>
 
         {/* Scroll indicator */}
         <motion.div
