@@ -43,6 +43,7 @@ const items: Item[] = [
   })),
   { id: "l-resume", group: "Links", label: "Resume (PDF)", href: "/resume.pdf", external: true },
   { id: "l-github", group: "Links", label: "GitHub", href: resume.links.github, external: true },
+  { id: "l-scholar", group: "Links", label: "Google Scholar", href: resume.links.scholar, external: true },
   { id: "l-linkedin", group: "Links", label: "LinkedIn", href: resume.links.linkedin, external: true },
   { id: "l-email", group: "Links", label: "Email", hint: resume.contact.email, href: `mailto:${resume.contact.email}`, external: true },
 ];
