@@ -16,7 +16,7 @@ const personJsonLd = {
   name: resume.name,
   url: SITE_URL,
   jobTitle: "Software Engineer",
-  sameAs: [resume.links.github, resume.links.linkedin],
+  sameAs: [resume.links.github, resume.links.linkedin, resume.links.scholar],
 };
 
 export default function Home() {

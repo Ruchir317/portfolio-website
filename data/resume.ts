@@ -16,6 +16,7 @@ export const resume = {
   links: {
     github: "https://github.com/Ruchir317",
     linkedin: "https://www.linkedin.com/in/ruchirjadhav/",
+    scholar: "https://scholar.google.com/citations?hl=en&user=NwqI_kkAAAAJ",
   },
   skills: {
     languages: ["Python", "Go", "JavaScript", "TypeScript", "SQL", "Java", "C", "C++"],

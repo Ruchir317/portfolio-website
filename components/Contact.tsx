@@ -1,6 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GraduationCap, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -80,6 +80,22 @@ export default function Contact() {
                   <p className="text-text-primary text-sm">linkedin.com/in/ruchirjadhav</p>
                 </div>
                 <span className="ml-auto text-text-faint group-hover:text-secondary transition-colors">↗</span>
+              </a>
+
+              <a
+                href={resume.links.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+              >
+                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                  <GraduationCap size={16} className="text-text-muted group-hover:text-accent transition-colors" />
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Google Scholar</p>
+                  <p className="text-text-primary text-sm">Published research</p>
+                </div>
+                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
               </a>
             </div>
           </AnimatedSection>
