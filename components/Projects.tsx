@@ -8,7 +8,13 @@ import { resume } from "@/data/resume";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 // detailSlugs comes from the server page so the long-form detail text stays out of the client bundle.
-export default function Projects({ detailSlugs }: { detailSlugs: string[] }) {
+export default function Projects({
+  detailSlugs,
+  publications = {},
+}: {
+  detailSlugs: string[];
+  publications?: Record<string, string>;
+}) {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="absolute right-0 top-1/3 w-72 h-72 rounded-full bg-secondary/4 blur-[120px] pointer-events-none" />
@@ -42,6 +48,11 @@ export default function Projects({ detailSlugs }: { detailSlugs: string[] }) {
                       {project.name}
                     </h3>
                   </ViewTransition>
+                  {publications[project.slug] && (
+                    <p className="mt-2 font-mono text-[10px] tracking-widest uppercase text-secondary">
+                      Published · {publications[project.slug]}
+                    </p>
+                  )}
                 </div>
 
                 {/* Bullets */}

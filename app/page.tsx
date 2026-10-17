@@ -30,7 +30,12 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
-      <Projects detailSlugs={Object.keys(projectDetails)} />
+      <Projects
+        detailSlugs={Object.keys(projectDetails)}
+        publications={Object.fromEntries(
+          Object.entries(projectDetails).flatMap(([slug, d]) => (d.publication ? [[slug, d.publication.badge]] : []))
+        )}
+      />
       <Skills />
       <Education />
       <Contact />
