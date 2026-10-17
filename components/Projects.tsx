@@ -55,9 +55,15 @@ export default function Projects({
                   )}
                 </div>
 
-                {/* Bullets */}
+                {/* Headline metric */}
+                <div className="flex items-baseline gap-3 mb-5">
+                  <span className="font-display font-extrabold text-3xl text-accent">{project.metric.value}</span>
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-text-muted">{project.metric.label}</span>
+                </div>
+
+                {/* Bullets: the full list lives on the detail page when there is one */}
                 <ul className="space-y-2 mb-6 flex-1">
-                  {project.bullets.map((bullet, j) => (
+                  {(detailSlugs.includes(project.slug) ? project.bullets.slice(0, 3) : project.bullets).map((bullet, j) => (
                     <li key={j} className="flex gap-2 text-text-muted text-sm leading-relaxed">
                       <span className="text-accent shrink-0 font-mono mt-0.5">›</span>
                       <span>{bullet}</span>

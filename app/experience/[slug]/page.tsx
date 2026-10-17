@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { resume } from "@/data/resume";
 import { experienceDetails } from "@/data/experienceDetails";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/data/site";
 import AnimatedSection from "@/components/AnimatedSection";
 import CaseStudy from "@/components/CaseStudy";
 import { caseStudies } from "@/data/caseStudies";
@@ -28,7 +30,7 @@ export async function generateMetadata({
     title,
     description: detail.summary,
     alternates: { canonical: `/experience/${slug}` },
-    openGraph: { title, description: detail.summary, url: `/experience/${slug}`, type: "article", images: ["/opengraph-image"] },
+    openGraph: { title, description: detail.summary, url: `/experience/${slug}`, type: "article" },
   };
 }
 
@@ -47,6 +49,17 @@ export default async function ExperienceDetailPage({
 
   return (
     <main id="main" className="min-h-screen">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            { "@type": "ListItem", position: 2, name: "Experience", item: `${SITE_URL}/#experience` },
+            { "@type": "ListItem", position: 3, name: `${job.role} @ ${job.company}`, item: `${SITE_URL}/experience/${slug}` },
+          ],
+        }}
+      />
       <header className="border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link

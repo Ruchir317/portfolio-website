@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { allPosts, formatDate } from "@/data/posts";
 import MDXContent from "@/components/MDXContent";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/data/site";
 
 export const dynamicParams = false;
 
@@ -30,7 +32,6 @@ export async function generateMetadata({
       url: `/writing/${slug}`,
       type: "article",
       publishedTime: post.date,
-      images: ["/opengraph-image"],
     },
   };
 }
@@ -42,6 +43,18 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main id="main" className="min-h-screen">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.summary,
+          datePublished: post.date,
+          keywords: post.tags.join(", "),
+          mainEntityOfPage: `${SITE_URL}/writing/${slug}`,
+          author: { "@type": "Person", name: "Ruchir Jadhav", url: SITE_URL },
+        }}
+      />
       <header className="border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link

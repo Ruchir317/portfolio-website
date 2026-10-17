@@ -1,0 +1,24 @@
+# Ruchir Jadhav
+
+> Software Development Engineer with an MS in Computer Science from USC (December 2025), available immediately. Focus: cloud systems, backend and mobile engineering, distributed systems, and AI/ML. Based in Los Angeles, CA.
+
+## Pages
+- [Home](https://ruchirjadhav.dev/): overview, experience, projects, skills, education
+- [Writing](https://ruchirjadhav.dev/writing): posts on how I build things
+- [Resume (PDF)](https://ruchirjadhav.dev/resume.pdf)
+
+## Experience
+- [Software Development Engineer, Easley Dunn Productions](https://ruchirjadhav.dev/experience/easley-dunn-safetynet): backend for SafetyNet, a cross-platform React Native app (Node.js, Express, PostgreSQL, Socket.IO)
+- [Software Development Engineer Intern, Amazon Web Services](https://ruchirjadhav.dev/experience/aws-eks-metrics-backfill): metrics backfill system in Go for the Amazon EKS Metrics Service
+
+## Projects
+- [FACTUAL: real-time multimodal fact-checking](https://ruchirjadhav.dev/projects/factual)
+- [Multimodal emotion detection](https://ruchirjadhav.dev/projects/multimodal-emotion-detection)
+- [Materialized views in DuckDB](https://ruchirjadhav.dev/projects/duckdb-materialized-views)
+- [CARLA cooperative V2X intersection](https://ruchirjadhav.dev/projects/carla-v2x-intersection)
+- [Travel recommendation and route optimizer](https://ruchirjadhav.dev/projects/travel-route-optimizer): published at IEEE ICAST 2022
+
+## Elsewhere
+- [GitHub](https://github.com/Ruchir317)
+- [LinkedIn](https://www.linkedin.com/in/ruchirjadhav/)
+- [Google Scholar](https://scholar.google.com/citations?hl=en&user=NwqI_kkAAAAJ)

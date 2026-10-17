@@ -18,15 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/experience/${job.slug}`,
     }));
 
+  // Only posts carry a real date; other pages deliberately have no lastModified.
   const writingPages = allPosts.map((post) => ({
     url: `${SITE_URL}/writing/${post.slug}`,
+    lastModified: post.date,
   }));
 
   return [
     {
       url: SITE_URL,
     },
-    ...(writingPages.length ? [{ url: `${SITE_URL}/writing` }] : []),
+    ...(writingPages.length ? [{ url: `${SITE_URL}/writing`, lastModified: allPosts[0].date }] : []),
     ...writingPages,
     ...projectPages,
     ...experiencePages,
