@@ -24,11 +24,15 @@ export async function generateMetadata({
   if (!project || !detail) return {};
 
   const title = `${project.name} — Ruchir Jadhav`;
+  // A published paper should be findable by its title and venue.
+  const description = detail.publication
+    ? `Peer-reviewed at ${detail.publication.badge}: "${detail.publication.title}" by ${detail.publication.authors.join(", ")}. ${detail.summary}`
+    : detail.summary;
   return {
     title,
-    description: detail.summary,
+    description,
     alternates: { canonical: `/projects/${slug}` },
-    openGraph: { title, description: detail.summary, url: `/projects/${slug}`, type: "article", images: ["/opengraph-image"] },
+    openGraph: { title, description, url: `/projects/${slug}`, type: "article", images: ["/opengraph-image"] },
   };
 }
 
@@ -47,6 +51,22 @@ export default async function ProjectDetailPage({
 
   return (
     <main id="main" className="min-h-screen">
+      {detail.publication && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              headline: detail.publication.title,
+              author: detail.publication.authors.map((name) => ({ "@type": "Person", name })),
+              datePublished: detail.publication.datePublished,
+              url: detail.publication.url,
+              sameAs: detail.publication.scholarUrl,
+            }).replace(/</g, "\u003c"),
+          }}
+        />
+      )}
       <header className="border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link
@@ -75,6 +95,19 @@ export default async function ProjectDetailPage({
           <p className="text-text-muted text-lg leading-relaxed max-w-2xl mb-8">
             {detail.summary}
           </p>
+
+          {detail.publication && (
+            <a
+              href={detail.publication.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mb-6 font-mono text-xs tracking-wider uppercase text-secondary hover:text-text-primary transition-colors"
+            >
+              <FileText size={14} />
+              Peer-reviewed · {detail.publication.badge}
+              <ExternalLink size={12} />
+            </a>
+          )}
 
           <div className="flex flex-wrap gap-1.5 mb-10">
             {project.tech_stack.map((tech) => (
@@ -145,6 +178,17 @@ export default async function ProjectDetailPage({
                   View Paper
                   <ExternalLink size={12} />
                 </a>
+                {detail.publication.scholarUrl && (
+                  <a
+                    href={detail.publication.scholarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-5 inline-flex items-center gap-1.5 font-mono text-xs text-text-muted hover:text-accent tracking-wider uppercase transition-colors"
+                  >
+                    Semantic Scholar
+                    <ExternalLink size={12} />
+                  </a>
+                )}
               </div>
             )}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">

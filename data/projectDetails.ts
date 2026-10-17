@@ -3,7 +3,7 @@ export interface ProjectDetail {
   stats: { label: string; value: string }[];
   sections: { heading: string; body: string[] }[];
   team?: string;
-  publication?: { citation: string; url: string };
+  publication?: { citation: string; url: string; scholarUrl?: string; badge: string; title: string; authors: string[]; datePublished: string };
 }
 
 export const projectDetails: Record<string, ProjectDetail> = {
@@ -226,6 +226,12 @@ export const projectDetails: Record<string, ProjectDetail> = {
       citation:
         'Bapat, Jadhav, Mishra, Sahitya — "An Approach Travel Recommendation System and Route Optimizer using AI," 2022 5th International Conference on Advances in Science and Technology (ICAST), Mumbai, India, pp. 486–490.',
       url: "https://doi.org/10.1109/ICAST55766.2022.10039531",
+      scholarUrl:
+        "https://www.semanticscholar.org/paper/An-Approach-Travel-Recommendation-System-and-Route-Bapat-Jadhav/38878d2a77bb0f5321328c25c7481100c1920fa9",
+      badge: "IEEE ICAST 2022",
+      title: "An Approach Travel Recommendation System and Route Optimizer using AI",
+      authors: ["Prachiti Bapat", "Ruchir Jadhav", "Vedant Mishra", "Aarti Sahitya"],
+      datePublished: "2022-12-02",
     },
   },
 };
