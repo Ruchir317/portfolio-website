@@ -3,7 +3,7 @@ title: Offloading bulk reading to Gemini from Claude Code
 summary: A small Node tool that hands long reads to Gemini through one persistent chat per project, and the checks I put around its answers.
 date: 2026-10-16
 tags: [tooling, llm, node]
-draft: true
+draft: false
 ---
 
 Long files, diffs and logs eat an AI coding assistant's context window. I wrote a small Node script, `gemini-offload`, that sends those reads to Gemini through Google's Antigravity CLI and returns a short, bounded answer.
