@@ -1,5 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
+import { lastUpdated } from "@/data/lastUpdated";
 import { GraduationCap, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
@@ -107,8 +108,13 @@ export default function Contact() {
             <span className="font-display font-bold text-text-muted text-sm">
               Ruchir Jadhav<span className="text-accent">.</span>
             </span>
-            <p className="font-mono text-[10px] text-text-muted tracking-wider">
-              Built with Next.js · Tailwind · Framer Motion
+            <p className="font-mono text-[10px] text-text-muted tracking-wider text-center sm:text-right">
+              Built with Next.js · Tailwind · Motion
+              <span className="mx-2 text-text-faint">·</span>
+              Last updated{" "}
+              <time dateTime={lastUpdated.toISOString().slice(0, 10)}>
+                {lastUpdated.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })}
+              </time>
             </p>
           </div>
         </AnimatedSection>

@@ -1,0 +1,28 @@
+---
+title: Choosing an optimizer when routes must be computed on demand
+summary: Simulated Annealing found the shortest routes, but Tabu Search was within about 3% and several times faster. Why the faster one won in our published travel route optimizer.
+date: 2026-10-17
+tags: [optimization, algorithms, python]
+---
+
+Our BTech capstone recommends tourist spots near a user and then plans a route through them. The route step is a small Traveling Salesman Problem, and we solved it three ways to compare heuristics on the same real data: Tabu Search, a Genetic Algorithm and Simulated Annealing. The project is on the [project page](/projects/travel-route-optimizer) and was published at IEEE ICAST 2022 ([paper](https://doi.org/10.1109/ICAST55766.2022.10039531)).
+
+## The setup
+
+We scraped about 120 top-rated spots per city for five Indian cities with Selenium and geocoded them with GeoPy. For a user's live location we called the Google Maps API for real driving distance and duration to every spot, instead of straight-line distance. Then K-Nearest Neighbors shortlisted the 7 closest spots matching the user's interests. Seven is small enough to keep the routing problem tractable and large enough for a day trip.
+
+## The comparison
+
+We benchmarked all three algorithms from two real starting points in Mumbai.
+
+- **Simulated Annealing** found the shortest total route in both cases (9,299 m and 16,179 m), but took roughly 1.5 to 2 times longer to converge than Tabu Search.
+- **The Genetic Algorithm** needed about 0.3 s, which made it the slowest.
+- **Tabu Search** converged in about 0.03 to 0.06 s, 5 to 8 times faster than the Genetic Algorithm, and landed within about 1 to 3% of Simulated Annealing's best distance.
+
+## Why the faster one won
+
+The deciding question was not "which is optimal" but "when is the answer needed". These routes are computed on demand, while a user waits, rather than precomputed offline. A route within 1 to 3% of the best that arrives several times faster made Tabu Search our practical pick. If routes could be precomputed, Simulated Annealing would be the one.
+
+## Limits
+
+Recommendations come from static scraped ratings, not a learned per-user profile, so the system does not improve with use. Live traffic and weather were a goal but did not make it into the final route scoring: routes are optimized on distance and time snapshots.

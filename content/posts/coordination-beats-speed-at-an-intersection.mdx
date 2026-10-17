@@ -1,0 +1,32 @@
+---
+title: Coordination beats speed at an intersection
+summary: We replaced a traffic light with a reservation protocol in the CARLA simulator. Even at half speed, the coordinated vehicles cleared the queue faster than the signal.
+date: 2026-10-17
+tags: [simulation, autonomous-vehicles, algorithms]
+---
+
+A traffic light is a very blunt coordination protocol: it decides who goes by the clock, not by who is actually there. For a USC group project we built a virtual intersection manager in the CARLA simulator that replaces the light with a reservation-based protocol inspired by V2X, vehicle-to-everything communication. The details are on the [project page](/projects/carla-v2x-intersection).
+
+## The protocol
+
+Vehicles talk to a central manager through a lightweight mailbox layer that stands in for real V2X hardware. A vehicle sends REQUEST, INTENT and STATE messages. The manager answers with PERMIT, CROSSING and CLEARED. This models the interaction pattern without needing a real DSRC or C-V2X stack.
+
+The manager keeps a first-come-first-served queue. From each vehicle's declared intent (straight, left or right) it infers which paths conflict, and it grants PERMIT only when the vehicle's path does not conflict with the vehicles currently crossing.
+
+## Two deliberate simplifications
+
+**Detecting vehicles.** We use a plain geometric approach radius rather than lane-level reasoning. Registration stays O(n) and the manager does not care which map it is running on.
+
+**Ordering.** Permission is first-come-first-served and conflict-aware, an O(n log n) sort per tick. The alternative is the fine-grained space-time reservation grid used by systems like AIM from UT Austin, which is far heavier than what we built.
+
+A box around the intersection tracks each vehicle's lifecycle. Entering it marks the vehicle active. Leaving it and clearing 75% of the approach radius marks it cleared and releases the reservation.
+
+## The result worth remembering
+
+Against a fixed-cycle traffic signal, average crossing time fell 51% (2.56 s to 1.25 s per vehicle), throughput rose 105% (23.4 to 48 cars per minute), and a 16-vehicle queue cleared in 20 s instead of 41 s.
+
+The surprising part is that even with vehicles running at half speed, the manager still cleared the queue faster than the signal at full speed. Coordination mattered more than raw speed.
+
+## What this does not claim
+
+This is a single intersection with fully cooperative traffic: no human drivers, pedestrians or cyclists. Communication is instantaneous and lossless, so none of the physical-layer realism of real V2X hardware is modelled. These are simulation results.

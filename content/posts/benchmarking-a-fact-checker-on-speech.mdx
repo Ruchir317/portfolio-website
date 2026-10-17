@@ -1,0 +1,33 @@
+---
+title: Benchmarking a fact-checker on speech, not text
+summary: Existing fact-checking datasets start from clean text. We built a 400-claim benchmark that exercises speech recognition and separates retrieval from memorization.
+date: 2026-10-17
+tags: [llm, evaluation, rag]
+---
+
+FACTUAL is a real-time fact-checking pipeline: Whisper transcribes speech, an LLM extracts the check-worthy claims, and retrieval-augmented verification judges them against live web evidence. The system is described on the [project page](/projects/factual). This post is about the part that is easy to skip and easy to get wrong: how to measure it.
+
+## Why we built our own benchmark
+
+Existing fact-checking corpora did not fit two things we cared about. They start from clean text, so they never test the speech recognition step. And they cannot tell you whether a model checked a claim or simply remembered it.
+
+So we built 400 claims in two halves:
+
+- **200 from the PolitiFact corpus**, published between 2008 and 2022, which may well be inside GPT-4o's training data.
+- **200 scraped from PolitiFact.com after the model's knowledge cutoff** (November 2023), where the model cannot rely on memory.
+
+Comparing the halves gives a clean read on retrieval versus memorization. Then every claim was rewritten with speech-like disfluencies, fillers and hedges and converted to audio, so the benchmark exercises the whole pipeline from sound to verdict.
+
+## What the numbers said
+
+We compared escalating strategies: zero-shot prompting, scratchpad reasoning, retrieval-augmented generation, and a self-critique loop in which a separate judge model checks whether the answer is supported by the retrieved evidence and sends feedback back into query generation, for up to 10 rounds.
+
+On the post-cutoff claims, GPT-4o with the agentic setup reached 84% accuracy and 0.83 F1, against 63% accuracy and 0.58 F1 for zero-shot on the same claims. Gemini showed the same pattern, from 68% zero-shot to 81% agentic accuracy, which suggests the gain comes from the retrieval and critique design rather than one model.
+
+## The weak spot
+
+Every configuration struggled to say "insufficient information". Models strongly preferred guessing support or refute over admitting the evidence was not enough, and accuracy on that one label sat near 0% for the best configurations. A fact-checker that cannot say "I don't know" has a real limitation.
+
+## Limits
+
+The benchmark is small, political and English-only, so generalization to other domains and languages is untested. And verification still takes several LLM calls per claim, which caps how real-time the system can be without work on streaming recognition and lighter claim detectors.

@@ -1,0 +1,28 @@
+---
+title: What a materialized view needs inside DuckDB
+summary: DuckDB had no native materialized views, so every repeated analytical query recomputed from scratch. Here is what we had to change in the parser, planner and executor to add them.
+date: 2026-10-17
+tags: [databases, cpp, duckdb]
+---
+
+DuckDB is a fast, embeddable OLAP database, but it had no native materialized views. Every repeated analytical query paid for its joins and aggregations again. For a USC group project we added `CREATE MATERIALIZED VIEW` and `REFRESH MATERIALIZED VIEW`. The full write-up is on the [project page](/projects/duckdb-materialized-views); this post is about what a materialized view actually needs from a database engine.
+
+## Three layers, three jobs
+
+**Parser.** The SQL grammar had to learn both statements, with descriptive errors for cases like refreshing a view that no longer exists.
+
+**Planner.** This is where the real work is. We introduced a `MatView` object that tracks the defining query, the base tables it depends on, its storage format and its indexing metadata. With that, the planner can do two things automatically: invalidate a view when a base table is dropped or modified, and prefer an existing view over recomputation when a query matches it.
+
+**Executor.** We stored each view as an ordinary physical table in DuckDB's native columnar format. That one decision meant views inherit the engine's existing indexing and compression, with no separate storage path to build or maintain.
+
+## Staleness is the hard part
+
+A cache is only useful if you know when it is wrong. Dependency tracking flags a view stale the moment its base table changes, and locking plus transaction management lets a view be refreshed and queried at the same time without exposing inconsistent state.
+
+## What it bought
+
+On TPC-H queries Q1 to Q5, creating a materialized view cost more than a standard view (about 0.3 s against 0.01 s), because it persists its results. Retrieval is where it pays that back: query time dropped from about 0.3 s to 0.003 to 0.004 s, up to 100 times faster, for roughly 25% more storage. We validated the design on datasets up to 2 TB.
+
+## What it does not do
+
+Refresh is manual, with no incremental updates, so a view can drift stale between refreshes if the base tables change quickly. Recursive queries and non-deterministic functions are excluded, because random or time-dependent results cannot be cached meaningfully. Incremental refresh is the gap that remains.

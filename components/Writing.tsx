@@ -21,8 +21,8 @@ export default function Writing() {
           </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {allPosts.slice(0, 2).map((post, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {allPosts.slice(0, 3).map((post, i) => (
             <AnimatedSection key={post.slug} delay={i * 0.07}>
               <Link
                 href={`/writing/${post.slug}`}
