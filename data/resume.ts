@@ -76,9 +76,9 @@ export const resume = {
         "Constructed a 400-claim benchmark split across pre- and post-model-cutoff claims and converted to speech-like audio to stress-test the pipeline under realistic conditions.",
         "Added a self-critique loop where a judge LLM evaluates evidence sufficiency and iteratively refines search queries, up to 10 iterations, to reduce hallucination.",
         "Best configuration (GPT-4o, agentic) reached 84% accuracy and 0.83 F1 on post-cutoff claims, versus 63% accuracy for zero-shot prompting alone.",
-        "Prototyped the retrieval layer as a standalone tool (SearchAPI) using the Gemini API and Google Custom Search for article retrieval, summarization, and batch claim processing with structured JSON output.",
+        "Prototyped the retrieval layer as a standalone tool (Claim Verifier) using the Gemini API and Google Custom Search for article retrieval, summarization, and batch claim processing with structured JSON output.",
       ],
-      links: ["https://github.com/Ruchir317/SearchAPI"],
+      links: ["https://github.com/Ruchir317/claim-verifier"],
     },
     {
       name: "Multimodal Emotion Detection",
@@ -117,7 +117,7 @@ export const resume = {
         "Benchmarked against fixed-cycle traffic signals: 51% lower average crossing time (2.56s to 1.25s/vehicle), 105% higher throughput (48 vs. 23.4 cars/min), and 51% faster total queue clearance.",
         "Logged arrival, permission, entry, and exit timestamps to CSV for reproducible performance analysis across synchronous simulation runs.",
       ],
-      links: ["https://github.com/Ruchir317/carla-coop-v2x"],
+      links: ["https://github.com/Ruchir317/carla-v2x-intersection"],
     },
     {
       name: "Travel Recommendation & Route Optimizer",

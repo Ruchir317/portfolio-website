@@ -48,7 +48,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         ],
       },
     ],
-    team: "Group project at USC with 5 teammates (Hiren Thakur, Aman Jain, Shahid Shaikh, Aryan Kapoor, Anurag Mudgil). I also prototyped the retrieval layer as a standalone tool, SearchAPI, using the Gemini API and Google Custom Search.",
+    team: "Group project at USC with 5 teammates (Hiren Thakur, Aman Jain, Shahid Shaikh, Aryan Kapoor, Anurag Mudgil). I also prototyped the retrieval layer as a standalone tool, Claim Verifier, using the Gemini API and Google Custom Search.",
   },
 
   "multimodal-emotion-detection": {
