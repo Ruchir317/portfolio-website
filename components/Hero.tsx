@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
 import { resume } from "@/data/resume";
 import CountUp from "./CountUp";
+import { palette } from "@/lib/palette";
 
 const stagger = {
   container: {
@@ -37,7 +38,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: "radial-gradient(#14B8A6 1px, transparent 1px)",
+          backgroundImage: `radial-gradient(${palette.accent} 1px, transparent 1px)`,
           backgroundSize: "32px 32px",
         }}
       />

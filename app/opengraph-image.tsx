@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { palette } from "@/lib/palette";
 import { resume } from "@/data/resume";
 
 export const alt = "Ruchir Jadhav — Software Engineer";
@@ -16,7 +17,7 @@ export default function OGImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0C0C0F",
+          background: palette.bg,
           fontFamily: "sans-serif",
         }}
       >
@@ -28,7 +29,7 @@ export default function OGImage() {
             fontSize: 22,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#14B8A6",
+            color: palette.accent,
             marginBottom: 32,
           }}
         >
@@ -37,7 +38,7 @@ export default function OGImage() {
               width: 10,
               height: 10,
               borderRadius: "50%",
-              background: "#F472B6",
+              background: palette.secondary,
             }}
           />
           Software Engineer
@@ -47,19 +48,19 @@ export default function OGImage() {
             display: "flex",
             fontSize: 108,
             fontWeight: 800,
-            color: "#F0EFE8",
+            color: palette.textPrimary,
             letterSpacing: "-0.03em",
             lineHeight: 1.05,
           }}
         >
           Ruchir Jadhav
-          <span style={{ color: "#14B8A6" }}>.</span>
+          <span style={{ color: palette.accent }}>.</span>
         </div>
         <div
           style={{
             display: "flex",
             fontSize: 32,
-            color: "#848494",
+            color: palette.textMuted,
             marginTop: 32,
             maxWidth: 900,
             lineHeight: 1.4,

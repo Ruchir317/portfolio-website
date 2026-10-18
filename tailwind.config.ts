@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { palette } from "./lib/palette";
 
 const config: Config = {
   content: [
@@ -9,17 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0C0C0F",
-        surface: "#141418",
-        raised: "#1E1E26",
-        border: "#22222C",
-        "text-primary": "#F0EFE8",
-        "text-muted": "#848494",
-        "text-faint": "#3E3E50",
-        accent: "#14B8A6",
-        "accent-light": "#2DD4BF",
-        secondary: "#F472B6",
-        tertiary: "#FFB020",
+        bg: palette.bg,
+        surface: palette.surface,
+        raised: palette.raised,
+        border: palette.border,
+        "text-primary": palette.textPrimary,
+        "text-dim": palette.textDim,
+        "text-muted": palette.textMuted,
+        "text-faint": palette.textFaint,
+        accent: palette.accent,
+        "accent-light": palette.accentLight,
+        secondary: palette.secondary,
+        tertiary: palette.tertiary,
       },
       fontFamily: {
         display: ["var(--font-syne)", "sans-serif"],

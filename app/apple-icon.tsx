@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { palette } from "@/lib/palette";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
@@ -13,16 +14,16 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0C0C0F",
+          background: palette.bg,
           fontFamily: "sans-serif",
           fontWeight: 800,
           fontSize: 76,
-          color: "#F0EFE8",
+          color: palette.textPrimary,
           letterSpacing: "-0.02em",
         }}
       >
         RJ
-        <span style={{ color: "#14B8A6" }}>.</span>
+        <span style={{ color: palette.accent }}>.</span>
       </div>
     ),
     { ...size }

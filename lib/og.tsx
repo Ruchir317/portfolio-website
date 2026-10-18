@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { palette } from "@/lib/palette";
 
 export const ogSize = { width: 1200, height: 630 };
 
@@ -14,7 +15,7 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "#0C0C0F",
+          background: palette.bg,
           fontFamily: "sans-serif",
         }}
       >
@@ -26,10 +27,10 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
             fontSize: 24,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#14B8A6",
+            color: palette.accent,
           }}
         >
-          <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#F472B6" }} />
+          <div style={{ width: 10, height: 10, borderRadius: "50%", background: palette.secondary }} />
           {eyebrow}
         </div>
         <div
@@ -39,14 +40,14 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
             fontWeight: 800,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
-            color: "#F0EFE8",
+            color: palette.textPrimary,
           }}
         >
           {title}
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#848494" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: palette.textMuted }}>
           <span>{footer ?? "Ruchir Jadhav"}</span>
-          <span style={{ color: "#14B8A6" }}>ruchirjadhav.dev</span>
+          <span style={{ color: palette.accent }}>ruchirjadhav.dev</span>
         </div>
       </div>
     ),

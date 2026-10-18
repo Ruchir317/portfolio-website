@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { palette } from "@/lib/palette";
 
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
@@ -13,16 +14,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0C0C0F",
+          background: palette.bg,
           fontFamily: "sans-serif",
           fontWeight: 800,
           fontSize: 20,
-          color: "#F0EFE8",
+          color: palette.textPrimary,
           letterSpacing: "-0.02em",
         }}
       >
         RJ
-        <span style={{ color: "#14B8A6" }}>.</span>
+        <span style={{ color: palette.accent }}>.</span>
       </div>
     ),
     { ...size }

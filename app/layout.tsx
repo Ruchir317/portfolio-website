@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/data/site";
 import MotionProvider from "@/components/MotionProvider";
+import { palette } from "@/lib/palette";
 import CommandPalette from "@/components/CommandPalette";
 import { projectDetails } from "@/data/projectDetails";
 import { experienceDetails } from "@/data/experienceDetails";
@@ -28,7 +29,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0C0C0F",
+  themeColor: palette.bg,
   colorScheme: "dark",
 };
 
