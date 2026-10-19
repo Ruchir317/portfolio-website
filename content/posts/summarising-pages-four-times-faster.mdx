@@ -1,0 +1,37 @@
+---
+title: Summarising pages four times faster by deleting the subprocesses
+summary: The fact-checker started a manager and a subprocess for every article it read. Replacing that with a plain request timeout gave the same summaries in a quarter of the time.
+date: 2026-10-18
+tags: [devlog, python, performance]
+---
+
+[claim-verifier](https://github.com/Ruchir317/claim-verifier) fact-checks a claim by searching the web, reading the top articles and asking Gemini for a verdict. Its first version guarded against pages that hang by running each article summary in its own subprocess. This week I took that out.
+
+## What the subprocesses cost
+
+For every article the original code created a `multiprocessing.Manager`, started a `Process`, and gave the pair ten seconds to finish. On Windows each process starts a fresh interpreter and re-imports the heavy libraries, so a large share of that time goes on start-up rather than on the page.
+
+I compared the old and new summarisers on 8 real PolitiFact pages:
+
+| | usable summaries | average per page | slowest |
+| --- | --- | --- | --- |
+| subprocess per page | 8 of 8 | 5.8 s | 6.5 s |
+| plain request with a timeout | 8 of 8 | 1.5 s | 1.8 s |
+
+Same output, about four times faster. It is one machine and eight pages, so treat the ratio as a ballpark. The old design also had a failure mode of its own: the error log from the early runs contains 68 start-up crashes (`An attempt has been made to start a new process before the current process has finished its bootstrapping phase`).
+
+The replacement is simpler. A hung download is already bounded by the request timeout, and everything after it is fast CPU work, so no subprocess is needed.
+
+## The same pass fixed the saving
+
+Workers appended results to shared lists and every one of them rewrote the output files. Now workers only fetch and verify, and the main thread is the only writer, saving through a temporary file so an interrupted run never leaves a half-written result. Finished claims are checkpointed, so a rerun skips them.
+
+## One real bug, and one thing I could not explain
+
+Reading the old code turned up a real bug for anyone cloning it fresh. The summariser raises an error when NLTK's tokenizer data is missing, and a broad `except` swallowed it, so on a new machine every page looks unreadable. I reproduced that with an empty NLTK data folder, and the verifier now fetches the data up front.
+
+It does not explain the old error log, though. That log holds 289 claims that ended as "No valid articles found", and the same runs produced 1,096 results, so the tokenizer data was clearly present. Finding the real cause needs the search API keys, so for now I can only say that subprocess start-up eating the timeout is a plausible contributor, not that it is the answer.
+
+## Checks
+
+The rewrite has 16 offline tests with fake search, Gemini and web calls, and the new reply parser reproduces all 1,095 verdicts stored by earlier runs exactly. Scored against PolitiFact's own ratings, the committed results give 73.7% accuracy on 1,002 claims.

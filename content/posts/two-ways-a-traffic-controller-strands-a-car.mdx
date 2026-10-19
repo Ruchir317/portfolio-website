@@ -1,0 +1,26 @@
+---
+title: Two ways a traffic controller can strand a car
+summary: A car that brakes just outside the registration radius is never seen, and a comparison that averages only the cars that finished looks better than it is. Both bugs, and the tests that caught them.
+date: 2026-10-18
+tags: [devlog, simulation, testing]
+---
+
+[carla-v2x-intersection](https://github.com/Ruchir317/carla-v2x-intersection) replaces a traffic light with a manager that grants cars permission to cross over a message link. Rebuilding it around that protocol turned up two bugs that look alike: in both, a car quietly never gets through.
+
+## A car that brakes where nobody can see it
+
+A car announces itself once it is inside the approach radius, and brakes at its stop point if it has no permission yet. The brake rule used a separate distance test: hold when within 2 m of the stop point. With cars driving in a lane offset 3.5 m from the road axis, there is a narrow band just outside the radius where a car is already inside the braking zone but not yet inside the radius. A car that stops there is never registered, so it never gets permission and waits forever.
+
+The fix is to make the order impossible to get wrong: a car only holds once it has announced itself. Before that it keeps driving, and it announces itself a few centimetres later. A regression test sweeps approach radii and speeds, and removing the one-line guard fails 23 of the 85 tests, which is how I know the tests really cover it.
+
+## A table that averages the survivors
+
+The first version of the comparison against a fixed-cycle signal looked good. At a 20 m approach radius it was wrong: only 10 of the 16 cars had finished, and the summary averaged just those ten. A follower rule meant to keep cars apart was comparing distances along different paths, so a car turning left could be held behind a car on the same approach that was physically somewhere else.
+
+Two changes came out of it. The follower rule now applies only on the shared approach lane. And a run that leaves any car behind now raises an error instead of reporting an average over the cars that happened to finish.
+
+## What the corrected comparison says
+
+Against a signal that gives each approach its own green, which is as safe as the manager because no two conflicting movements ever meet, the manager clears 4 cars in 19.6 s against 39.1 s and 8 cars in 30.3 s against 41.1 s. With all four approaches saturated (16 cars) the signal wins, 43.1 s against 56.9 s: it sends a whole platoon through on each green, while the manager decides movement by movement.
+
+That is a simplified model with constant-speed cars, not CARLA, so it shows how the two controllers order traffic and does not predict the simulator's numbers. The point of both bugs is the same: when a result looks better than expected, count the cars first.
