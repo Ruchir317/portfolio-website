@@ -53,6 +53,14 @@ export default function Skills() {
                     </span>
                   ))}
                 </div>
+                <ul className="mt-4 pt-3 border-t border-border space-y-1.5">
+                  {resume.skillContext[cat.key].map((line) => (
+                    <li key={line} className="flex gap-2 text-text-muted text-xs leading-relaxed">
+                      <span className="text-accent shrink-0 font-mono">›</span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </AnimatedSection>
           ))}

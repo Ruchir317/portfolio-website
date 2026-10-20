@@ -27,8 +27,8 @@ export function toggleTheme(): void {
   applyTheme(currentTheme() === "dark" ? "light" : "dark");
 }
 
-/** Runs in <head> before first paint, so the page never flashes the wrong theme. A saved choice wins,
- *  then the system setting, then dark. It also follows the system while the visitor has not chosen. */
+/** Runs in <head> before first paint, so the page never flashes the wrong theme. A ?theme=light|dark
+ *  link wins (used by the Lighthouse runs; it is not saved), then a saved choice, then the system setting, then dark. It also follows the system while the visitor has not chosen. */
 export const themeInitScript = `(function(){try{
 var K=${JSON.stringify(THEME_STORAGE_KEY)},B=${JSON.stringify({ dark: themes.dark.bg, light: themes.light.bg })};
 var q=matchMedia("(prefers-color-scheme: light)");
@@ -36,6 +36,7 @@ function set(t){var r=document.documentElement;r.dataset.theme=t;r.style.colorSc
 document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){m.remove()});
 var m=document.createElement("meta");m.name="theme-color";m.content=B[t];document.head.appendChild(m)}
 var s=null;try{s=localStorage.getItem(K)}catch(e){}
-set(s==="light"||s==="dark"?s:(q.matches?"light":"dark"));
+var p=new URLSearchParams(location.search).get("theme");
+set(p==="light"||p==="dark"?p:(s==="light"||s==="dark"?s:(q.matches?"light":"dark")));
 q.addEventListener("change",function(e){var v=null;try{v=localStorage.getItem(K)}catch(x){}if(!v)set(e.matches?"light":"dark")})
 }catch(e){}})();`;

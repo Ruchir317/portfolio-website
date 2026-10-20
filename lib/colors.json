@@ -26,5 +26,10 @@
     "accentLight": "#005F53",
     "secondary": "#575FB9",
     "tertiary": "#945A00"
+  },
+  "moreContrast": {
+    "textMuted": "textDim",
+    "textDim": "textPrimary",
+    "border": "textMuted"
   }
 }

@@ -5,7 +5,7 @@
 //   backgrounds, where WCAG 2 is too lenient). Primary text must reach Lc 90.
 import { readFileSync } from "node:fs";
 
-const palette = JSON.parse(readFileSync(new URL("../lib/colors.json", import.meta.url), "utf8"));
+const { moreContrast, ...palette } = JSON.parse(readFileSync(new URL("../lib/colors.json", import.meta.url), "utf8"));
 const channels = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
 const wcagLum = (hex) => {
   const [r, g, b] = channels(hex).map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
@@ -54,6 +54,22 @@ for (const [name, colors] of Object.entries(palette)) {
   const labelOk = label >= 4.5;
   if (!labelOk) failed = true;
   console.log(`  button label on accent: ${label.toFixed(1)} ${labelOk ? "" : "!"}`);
+}
+
+// prefers-contrast: more. Roles listed in moreContrast take a stronger colour; text must then reach AAA (7:1)
+// and borders must reach 3:1 against the page, the minimum for a visible component edge.
+for (const [name, colors] of Object.entries(palette)) {
+  const boosted = { ...colors };
+  for (const [role, source] of Object.entries(moreContrast)) boosted[role] = colors[source];
+  console.log(`\n${name} theme, prefers-contrast: more`);
+  for (const role of ["textPrimary", "textDim", "textMuted"]) {
+    const worst = Math.min(...surfaces.map((s) => wcag(boosted[role], boosted[s])));
+    if (worst < 7) failed = true;
+    console.log(`  ${role.padEnd(12)} worst WCAG ${worst.toFixed(1)} ${worst >= 7 ? "" : "!"}`);
+  }
+  const edge = wcag(boosted.border, boosted.bg);
+  if (edge < 3) failed = true;
+  console.log(`  border vs page: ${edge.toFixed(1)} ${edge >= 3 ? "" : "!"}`);
 }
 
 console.log(failed ? "\nFAIL: a colour pair is below the threshold (marked !)." : "\nAll colour pairs pass in both themes.");

@@ -30,6 +30,29 @@ export const resume = {
       "AWS", "CloudWatch", "S3", "EKS", "Google Cloud", "Firebase", "GitHub Actions", "Git", "Linux",
     ],
   },
+  // Where each group of skills was used. Every line comes from the roles and projects below; skills with
+  // no stated use (MySQL, MongoDB, Java, C) deliberately have no line.
+  skillContext: {
+    languages: [
+      "Go at AWS, in the EKS metrics backfill system",
+      "SQL at BusinessNext (dashboard queries) and at Easley Dunn (PostgreSQL)",
+      "Python across the fact-checking, emotion-detection, simulation and route-optimizer projects",
+      "C++ in the DuckDB materialized views work",
+    ],
+    frameworks_libraries: [
+      "Node.js, Express and Socket.IO behind SafetyNet at Easley Dunn, with React Native for the app",
+      "PyTorch in the multimodal emotion project; TensorFlow and OpenCV in sign-language detection",
+      "Django at BusinessNext and in the travel route optimizer, with Selenium for scraping",
+    ],
+    databases: [
+      "PostgreSQL in production at Easley Dunn: indexes chosen from query plans, transactional writes, tests against a real instance",
+    ],
+    tools_cloud_devops: [
+      "CloudWatch and EKS at AWS, in the metrics backfill system",
+      "CI and the delivery pipeline at Easley Dunn: required checks, health checks, automatic rollback (GitHub Actions)",
+      "Firebase for phone sign-in at Easley Dunn; Linux at BusinessNext",
+    ],
+  } as Record<"languages" | "frameworks_libraries" | "databases" | "tools_cloud_devops", string[]>,
   experience: [
     {
       role: "Software Development Engineer",

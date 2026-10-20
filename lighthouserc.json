@@ -2,21 +2,49 @@
   "ci": {
     "collect": {
       "url": [
-        "http://localhost:3100/",
-        "http://localhost:3100/projects/factual",
-        "http://localhost:3100/experience/aws-eks-metrics-backfill"
+        "http://localhost:3100/?theme=light",
+        "http://localhost:3100/?theme=dark",
+        "http://localhost:3100/projects/factual?theme=light",
+        "http://localhost:3100/projects/factual?theme=dark",
+        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=light",
+        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=dark"
       ],
       "numberOfRuns": 1,
-      "settings": { "preset": "desktop" }
+      "settings": {
+        "preset": "desktop"
+      }
     },
     "assert": {
       "assertions": {
-        "categories:accessibility": ["error", { "minScore": 0.95 }],
-        "categories:seo": ["error", { "minScore": 0.95 }],
-        "categories:best-practices": ["warn", { "minScore": 0.9 }],
-        "categories:performance": ["warn", { "minScore": 0.8 }]
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.95
+          }
+        ],
+        "categories:seo": [
+          "error",
+          {
+            "minScore": 0.95
+          }
+        ],
+        "categories:best-practices": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.8
+          }
+        ]
       }
     },
-    "upload": { "target": "filesystem", "outputDir": ".lighthouseci" }
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
   }
 }

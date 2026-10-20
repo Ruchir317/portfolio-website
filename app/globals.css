@@ -138,6 +138,38 @@ body::before {
   display: block;
 }
 
+/* Visitors who ask for more contrast get stronger text and borders (set in lib/palette.ts), no grain,
+   and no soft shadows. */
+@media (prefers-contrast: more) {
+  body::before {
+    display: none;
+  }
+  .card-glow,
+  .card-glow:hover {
+    box-shadow: none;
+  }
+}
+
+/* Forced colours (Windows high contrast): the system palette replaces ours, so keep component edges
+   visible and make sure gradient text, whose fill is transparent, does not vanish. */
+@media (forced-colors: active) {
+  .card-glow,
+  .tag-chip,
+  .theme-toggle,
+  .bg-accent {
+    border: 1px solid CanvasText;
+  }
+  :focus-visible {
+    outline: 2px solid Highlight;
+  }
+  .gradient-text,
+  .accent-gradient-text {
+    background: none;
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
 /* Keyboard focus: a visible accent ring, only for keyboard users. */
 :focus-visible {
   outline: 2px solid theme('colors.accent');

@@ -10,7 +10,9 @@ import colors from "./colors.json";
 export type ThemeName = "dark" | "light";
 export type ThemeColors = typeof colors.dark;
 
-export const themes: Record<ThemeName, ThemeColors> = colors;
+export const themes: Record<ThemeName, ThemeColors> = { dark: colors.dark, light: colors.light };
+// For prefers-contrast: more, each of these roles takes the value of a stronger role in the same theme.
+const moreContrast = colors.moreContrast as Partial<Record<keyof ThemeColors, keyof ThemeColors>>;
 export const palette = themes.dark;
 
 // Colour names as used by Tailwind (kebab-case) and as CSS variables (--color-<name>).
@@ -46,6 +48,12 @@ function block(theme: ThemeName): string {
   return `${vars}${elevation}color-scheme:${theme};`;
 }
 
+function moreBlock(theme: ThemeName): string {
+  return (Object.keys(moreContrast) as (keyof ThemeColors)[])
+    .map((role) => `--color-${colorNames[role]}:${channels(themes[theme][moreContrast[role]!])};`)
+    .join("");
+}
+
 /** CSS custom properties for both themes. Dark is the default; light applies when the visitor chose it,
  *  or follows the system setting when they have not (and without any JavaScript). */
 export function themeCss(): string {
@@ -53,6 +61,9 @@ export function themeCss(): string {
     `:root{${block("dark")}}` +
     `:root[data-theme="light"]{${block("light")}}` +
     `:root[data-theme="dark"]{${block("dark")}}` +
-    `@media (prefers-color-scheme: light){:root:not([data-theme]){${block("light")}}}`
+    `@media (prefers-color-scheme: light){:root:not([data-theme]){${block("light")}}}` +
+    // Higher contrast for visitors who ask for it: placed last so it overrides the blocks above.
+    `@media (prefers-contrast: more){:root{${moreBlock("dark")}}:root[data-theme="light"]{${moreBlock("light")}}:root[data-theme="dark"]{${moreBlock("dark")}}}` +
+    `@media (prefers-contrast: more) and (prefers-color-scheme: light){:root:not([data-theme]){${moreBlock("light")}}}`
   );
 }

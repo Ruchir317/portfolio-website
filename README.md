@@ -11,7 +11,7 @@ My personal portfolio and writing site: a fully static Next.js app that shows my
 - **Writing.** MDX posts in `content/posts`, validated at build time with [Velite](https://velite.js.org/): a missing title or a malformed date fails the build instead of shipping. Posts get an RSS feed, structured data and their own share image.
 - **Built to be found.** Per-page metadata and canonical URLs, JSON-LD (Person, BlogPosting, breadcrumbs, and the published paper as a ScholarlyArticle), a sitemap, generated Open Graph images for every project, role and post, and an `llms.txt`.
 - **Light and dark themes.** Follows your system setting, remembers your choice, and never flashes the wrong theme on load. Colours come from one file and are checked in CI against both WCAG and APCA contrast.
-- **Accessible by default.** Skip link, visible focus rings, semantic landmarks and `prefers-reduced-motion` respected.
+- **Accessible by default.** Skip link, visible focus rings, semantic landmarks, and `prefers-reduced-motion`, `prefers-contrast` and forced-colours (Windows high contrast) respected.
 
 ![The command palette](.github/assets/palette.png)
 
@@ -21,7 +21,7 @@ Next.js 16 (App Router, fully static) · React 19 · TypeScript · Tailwind CSS 
 
 ## Quality gates
 
-Every push runs GitHub Actions: ESLint, `tsc`, a colour-contrast check for both themes, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn.
+Every push runs GitHub Actions: ESLint, `tsc`, a colour-contrast check for both themes and for high-contrast mode, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI on every page in both themes. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn.
 
 ## Run it locally
 

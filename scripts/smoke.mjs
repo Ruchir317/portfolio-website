@@ -41,6 +41,9 @@ check("sitemap lists /projects/factual", pages["/sitemap.xml"].includes("/projec
 check("sitemap lists a writing post", pages["/sitemap.xml"].includes("/writing/how-this-site-is-built"));
 check("feed has items", pages["/feed.xml"].includes("<item>"));
 
+check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
+check("home has the theme toggle", home.includes("theme-toggle"));
+
 const notFound = await fetch(BASE + "/this-page-does-not-exist");
 check("unknown route returns 404", notFound.status === 404);
 
