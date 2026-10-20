@@ -4,7 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/data/site";
 import MotionProvider from "@/components/MotionProvider";
-import { palette } from "@/lib/palette";
+import { themes, themeCss } from "@/lib/palette";
+import { themeInitScript } from "@/lib/theme";
 import CommandPalette from "@/components/CommandPalette";
 import { projectDetails } from "@/data/projectDetails";
 import { experienceDetails } from "@/data/experienceDetails";
@@ -29,8 +30,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: palette.bg,
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: themes.light.bg },
+    { media: "(prefers-color-scheme: dark)", color: themes.dark.bg },
+  ],
+  colorScheme: "dark light",
 };
 
 export const metadata: Metadata = {
@@ -58,7 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${syne.variable} ${outfit.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${syne.variable} ${outfit.variable} ${ibmPlexMono.variable}`} suppressHydrationWarning>
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: themeCss() }} />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

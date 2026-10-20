@@ -10,7 +10,8 @@ My personal portfolio and writing site: a fully static Next.js app that shows my
 - **⌘K command palette.** Press `⌘K` or `Ctrl+K` anywhere to jump to a section, project, post or link. It is a native `<dialog>`, so focus trapping and `Esc` come from the browser.
 - **Writing.** MDX posts in `content/posts`, validated at build time with [Velite](https://velite.js.org/): a missing title or a malformed date fails the build instead of shipping. Posts get an RSS feed, structured data and their own share image.
 - **Built to be found.** Per-page metadata and canonical URLs, JSON-LD (Person, BlogPosting, breadcrumbs, and the published paper as a ScholarlyArticle), a sitemap, generated Open Graph images for every project, role and post, and an `llms.txt`.
-- **Accessible by default.** Skip link, visible focus rings, semantic landmarks, `prefers-reduced-motion` respected, and text contrast checked against every surface.
+- **Light and dark themes.** Follows your system setting, remembers your choice, and never flashes the wrong theme on load. Colours come from one file and are checked in CI against both WCAG and APCA contrast.
+- **Accessible by default.** Skip link, visible focus rings, semantic landmarks and `prefers-reduced-motion` respected.
 
 ![The command palette](.github/assets/palette.png)
 
@@ -20,7 +21,7 @@ Next.js 16 (App Router, fully static) · React 19 · TypeScript · Tailwind CSS 
 
 ## Quality gates
 
-Every push runs GitHub Actions: ESLint, `tsc`, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn.
+Every push runs GitHub Actions: ESLint, `tsc`, a colour-contrast check for both themes, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn.
 
 ## Run it locally
 
@@ -40,10 +41,10 @@ After editing a post while the dev server is running, run `npx velite build` to 
 | `data/resume.ts` | The single source of truth for content. Components only render it |
 | `data/projectDetails.ts`, `experienceDetails.ts`, `caseStudies.ts` | The long-form case-study content |
 | `content/posts/` | MDX posts with typed frontmatter (`velite.config.ts`) |
-| `lib/palette.ts` | The one place colours are defined; Tailwind, the stylesheet and every generated image import it |
+| `lib/colors.json`, `lib/palette.ts` | The one place colours are defined, for both themes; Tailwind, the stylesheet and the generated images use it |
 | `components/` | Page sections and the command palette |
 | `app/` | Routes: home, `projects/[slug]`, `experience/[slug]`, `writing`, feed, sitemap, share images |
-| `scripts/smoke.mjs` | The smoke test CI runs against the built site |
+| `scripts/smoke.mjs`, `scripts/contrast.mjs` | The smoke test and the colour-contrast gate CI runs |
 
 ## Related projects
 

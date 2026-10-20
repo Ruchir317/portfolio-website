@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { palette } from "./lib/palette";
+import { colorNames } from "./lib/palette";
 
 const config: Config = {
   content: [
@@ -9,20 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        bg: palette.bg,
-        surface: palette.surface,
-        raised: palette.raised,
-        border: palette.border,
-        "text-primary": palette.textPrimary,
-        "text-dim": palette.textDim,
-        "text-muted": palette.textMuted,
-        "text-faint": palette.textFaint,
-        accent: palette.accent,
-        "accent-light": palette.accentLight,
-        secondary: palette.secondary,
-        tertiary: palette.tertiary,
-      },
+      colors: Object.fromEntries(
+        Object.values(colorNames).map((name) => [name, `rgb(var(--color-${name}) / <alpha-value>)`])
+      ),
       fontFamily: {
         display: ["var(--font-syne)", "sans-serif"],
         body: ["var(--font-outfit)", "sans-serif"],

@@ -7,6 +7,7 @@
     "build": "velite build && next build",
     "start": "next start",
     "lint": "eslint .",
+    "contrast": "node scripts/contrast.mjs",
     "postinstall": "velite build"
   },
   "dependencies": {

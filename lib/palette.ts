@@ -1,20 +1,58 @@
-// Single source of truth for colour. Tailwind, the stylesheet (via theme()) and every generated
-// image import from here, so changing the look is a one-file edit.
+import colors from "./colors.json";
+
+// Single source of truth for colour, in two themes. `lib/colors.json` holds the values (the contrast
+// check in scripts/contrast.mjs reads the same file); Tailwind, the stylesheet and the page's CSS
+// variables are all generated from it. Generated images (icons, share cards) always use the dark theme.
 //
-// Roles: teal = primary and interactive; amber = status (availability, grades);
-// periwinkle = research (publications, outcomes). Surfaces are a deep ink with a faint teal cast.
-export const palette = {
-  bg: "#0A0E13",
-  surface: "#10161C",
-  raised: "#17202A",
-  border: "#1F2A35",
-  borderStrong: "#2A3643",
-  textPrimary: "#F0EFE8",
-  textDim: "#B4B2AA",
-  textMuted: "#8794A3",
-  textFaint: "#3A4856",
-  accent: "#14B8A6",
-  accentLight: "#2DD4BF",
-  secondary: "#9AA5FF",
-  tertiary: "#FFB020",
+// Roles: teal = primary and interactive; amber = status (availability, grades); periwinkle = research
+// (publications, outcomes). Each role keeps one hue in both themes and only its lightness changes.
+// Dark: surfaces are a deep ink and get lighter with elevation. Light: a cool off-white page with white cards.
+export type ThemeName = "dark" | "light";
+export type ThemeColors = typeof colors.dark;
+
+export const themes: Record<ThemeName, ThemeColors> = colors;
+export const palette = themes.dark;
+
+// Colour names as used by Tailwind (kebab-case) and as CSS variables (--color-<name>).
+export const colorNames = {
+  bg: "bg",
+  surface: "surface",
+  raised: "raised",
+  border: "border",
+  textPrimary: "text-primary",
+  textDim: "text-dim",
+  textMuted: "text-muted",
+  textFaint: "text-faint",
+  accent: "accent",
+  accentLight: "accent-light",
+  secondary: "secondary",
+  tertiary: "tertiary",
 } as const;
+
+function channels(hex: string): string {
+  const n = parseInt(hex.slice(1), 16);
+  return `${(n >> 16) & 255} ${(n >> 8) & 255} ${n & 255}`; // "r g b", so Tailwind can add alpha
+}
+
+function block(theme: ThemeName): string {
+  const vars = (Object.keys(colorNames) as (keyof typeof colorNames)[])
+    .map((key) => `--color-${colorNames[key]}:${channels(themes[theme][key])};`)
+    .join("");
+  // Elevation: dark surfaces get a faint top highlight; light surfaces get a soft shadow.
+  const elevation =
+    theme === "dark"
+      ? "--elev:inset 0 1px 0 0 rgb(var(--color-text-primary) / .04);--elev-hover:inset 0 1px 0 0 rgb(var(--color-text-primary) / .07),0 16px 40px -16px rgb(var(--color-accent) / .25);"
+      : "--elev:0 1px 2px 0 rgb(var(--color-text-primary) / .07);--elev-hover:0 1px 2px 0 rgb(var(--color-text-primary) / .07),0 14px 34px -16px rgb(var(--color-accent) / .35);";
+  return `${vars}${elevation}color-scheme:${theme};`;
+}
+
+/** CSS custom properties for both themes. Dark is the default; light applies when the visitor chose it,
+ *  or follows the system setting when they have not (and without any JavaScript). */
+export function themeCss(): string {
+  return (
+    `:root{${block("dark")}}` +
+    `:root[data-theme="light"]{${block("light")}}` +
+    `:root[data-theme="dark"]{${block("dark")}}` +
+    `@media (prefers-color-scheme: light){:root:not([data-theme]){${block("light")}}}`
+  );
+}

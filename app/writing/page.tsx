@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { allPosts, formatDate } from "@/data/posts";
@@ -27,6 +28,8 @@ export default function WritingPage() {
           >
             RJ<span className="text-accent">.</span>
           </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           <Link
             href="/"
             className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
@@ -34,6 +37,7 @@ export default function WritingPage() {
             <ArrowLeft size={14} />
             Home
           </Link>
+          </div>
         </div>
       </header>
 

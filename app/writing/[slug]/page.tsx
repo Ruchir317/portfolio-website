@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { allPosts, formatDate } from "@/data/posts";
@@ -63,6 +64,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           >
             RJ<span className="text-accent">.</span>
           </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           <Link
             href="/writing"
             className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
@@ -70,6 +73,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <ArrowLeft size={14} />
             All writing
           </Link>
+          </div>
         </div>
       </header>
 

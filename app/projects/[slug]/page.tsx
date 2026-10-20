@@ -1,6 +1,7 @@
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink, Github, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
@@ -88,6 +89,8 @@ export default async function ProjectDetailPage({
           >
             RJ<span className="text-accent">.</span>
           </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           <Link
             href="/#projects"
             className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
@@ -95,6 +98,7 @@ export default async function ProjectDetailPage({
             <ArrowLeft size={14} />
             Back to Projects
           </Link>
+          </div>
         </div>
       </header>
 

@@ -3,6 +3,7 @@
 import { motion, useScroll } from "motion/react";
 import { useState, useEffect } from "react";
 import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -84,11 +85,14 @@ export default function Navbar() {
           >
             ⌘K
           </button>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile theme toggle and hamburger */}
+        <div className="md:hidden flex items-center gap-1">
+        <ThemeToggle />
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -107,6 +111,7 @@ export default function Navbar() {
             className="block w-5 h-px bg-text-primary origin-center transition-all"
           />
         </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

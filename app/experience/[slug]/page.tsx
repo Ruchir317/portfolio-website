@@ -1,6 +1,7 @@
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { resume } from "@/data/resume";
@@ -68,6 +69,8 @@ export default async function ExperienceDetailPage({
           >
             RJ<span className="text-accent">.</span>
           </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           <Link
             href="/#experience"
             className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
@@ -75,6 +78,7 @@ export default async function ExperienceDetailPage({
             <ArrowLeft size={14} />
             Back to Experience
           </Link>
+          </div>
         </div>
       </header>
 
