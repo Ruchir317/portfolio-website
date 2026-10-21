@@ -85,7 +85,7 @@ export default function Navbar() {
           <button
             onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
             aria-label="Open command palette"
-            className="font-mono text-[10px] tracking-widest text-text-muted hover:text-accent border border-border rounded-sm px-2 py-1 transition-colors"
+            className="font-mono text-[10px] tracking-widest text-text-muted hover:text-accent border border-border rounded-xs px-2 py-1 transition-colors"
           >
             ⌘K
           </button>

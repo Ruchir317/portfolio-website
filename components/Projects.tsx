@@ -33,7 +33,7 @@ export default function Projects({
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-sm p-6 transition-colors duration-300"
+                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-xs p-6 transition-colors duration-300"
               >
                 {/* Header */}
                 <div className="mb-4">

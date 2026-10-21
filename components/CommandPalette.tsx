@@ -142,7 +142,7 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
           }}
           onKeyDown={onKeyDown}
           placeholder="Jump to…"
-          className="w-full bg-transparent font-mono text-sm text-text-primary placeholder:text-text-muted outline-none"
+          className="w-full bg-transparent font-mono text-sm text-text-primary placeholder:text-text-muted outline-hidden"
         />
       </div>
       <ul id="palette-list" role="listbox" ref={listRef} className="max-h-[50vh] overflow-y-auto py-2">
@@ -160,7 +160,7 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
                 aria-selected={i === active}
                 onMouseMove={() => setActive(i)}
                 onClick={() => run(item)}
-                className={`mx-2 flex cursor-pointer items-baseline justify-between gap-4 rounded-sm px-3 py-2 text-sm ${
+                className={`mx-2 flex cursor-pointer items-baseline justify-between gap-4 rounded-xs px-3 py-2 text-sm ${
                   i === active ? "bg-raised text-accent" : "text-text-primary"
                 }`}
               >

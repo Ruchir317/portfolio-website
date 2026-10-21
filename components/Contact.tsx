@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <AnimatedSection>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl/none text-text-primary leading-tight mb-6">
               Open to graduate SWE roles.
             </h2>
             <p className="text-text-muted text-base leading-relaxed max-w-md">
@@ -33,9 +33,9 @@ export default function Contact() {
             <div className="space-y-3">
               <a
                 href={`mailto:${resume.contact.email}`}
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <Mail size={16} className="text-accent" />
                 </div>
                 <div>
@@ -49,9 +49,9 @@ export default function Contact() {
                 href={resume.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <Github size={16} className="text-text-muted group-hover:text-accent transition-colors" />
                 </div>
                 <div>
@@ -65,9 +65,9 @@ export default function Contact() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <Linkedin size={16} className="text-text-muted group-hover:text-accent transition-colors" />
                 </div>
                 <div>
@@ -81,9 +81,9 @@ export default function Contact() {
                 href={resume.links.scholar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-5 transition-all duration-200"
+                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-sm border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
                   <GraduationCap size={16} className="text-text-muted group-hover:text-accent transition-colors" />
                 </div>
                 <div>

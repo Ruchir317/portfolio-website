@@ -81,7 +81,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <p className="font-mono text-xs text-accent tracking-wide mb-4">
           {formatDate(post.date)} · {post.metadata.readingTime} min read
         </p>
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl break-words hyphens-auto text-text-primary leading-tight mb-8">
+        <h1 className="font-display font-extrabold text-3xl sm:text-5xl/none wrap-break-word hyphens-auto text-text-primary leading-tight mb-8">
           {post.title}
         </h1>
         <MDXContent code={post.code} />

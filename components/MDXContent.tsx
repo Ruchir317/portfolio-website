@@ -22,11 +22,11 @@ const components = {
     <blockquote className="border-l-2 border-accent pl-4 italic text-text-muted mb-5" {...p} />
   ),
   code: (p: React.ComponentProps<"code">) => (
-    <code className="font-mono text-[0.85em] text-accent-light bg-raised rounded-sm px-1.5 py-0.5" {...p} />
+    <code className="font-mono text-[0.85em] text-accent-light bg-raised rounded-xs px-1.5 py-0.5" {...p} />
   ),
   pre: (p: React.ComponentProps<"pre">) => (
     <pre
-      className="font-mono text-sm bg-surface border border-border rounded-sm p-4 overflow-x-auto mb-5 [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-text-primary"
+      className="font-mono text-sm bg-surface border border-border rounded-xs p-4 overflow-x-auto mb-5 [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-text-primary"
       {...p}
     />
   ),

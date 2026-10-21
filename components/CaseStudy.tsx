@@ -12,12 +12,12 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
           {study.diagramTitle}
         </p>
         <ol
-          className="grid gap-3 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
+          className="grid gap-3 lg:grid-cols-[repeat(var(--n),minmax(0,1fr))]"
           style={{ "--n": n } as React.CSSProperties}
         >
           {study.steps.map((step, i) => (
             <li key={step.label} className="relative">
-              <div className="card-glow h-full border border-border bg-surface/40 rounded-sm p-4">
+              <div className="card-glow h-full border border-border bg-surface/40 rounded-xs p-4">
                 <span className="font-mono text-[10px] text-accent tracking-widest">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -29,7 +29,7 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                   <ArrowRight
                     size={14}
                     aria-hidden="true"
-                    className="hidden lg:block absolute -right-[13px] top-1/2 -translate-y-1/2 text-accent/70"
+                    className="hidden lg:block absolute right-[-13px] top-1/2 -translate-y-1/2 text-accent/70"
                   />
                   <ArrowDown size={14} aria-hidden="true" className="lg:hidden mx-auto mt-3 text-accent/70" />
                 </>
@@ -43,7 +43,7 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
         <h2 className="font-display font-bold text-xl text-text-primary mb-6">Key decisions</h2>
         <ol className="space-y-4">
           {study.decisions.map((d, i) => (
-            <li key={d.decision} className="card-glow border border-border bg-surface/40 rounded-sm p-5">
+            <li key={d.decision} className="card-glow border border-border bg-surface/40 rounded-xs p-5">
               <p className="font-mono text-[10px] text-accent tracking-widest mb-2">
                 DECISION {String(i + 1).padStart(2, "0")}
               </p>

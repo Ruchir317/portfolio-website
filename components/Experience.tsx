@@ -33,9 +33,9 @@ export default function Experience() {
                 {/* Right: content card */}
                 <div className={`relative pb-14 ${i < resume.experience.length - 1 ? "border-b border-border md:border-none" : ""}`}>
                   {/* Dot on timeline (desktop) */}
-                  <div className="hidden md:block absolute -left-[55.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
+                  <div className="hidden md:block absolute left-[-55.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
 
-                  <div className="card-glow relative bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-sm p-6 md:p-8 transition-all duration-300">
+                  <div className="card-glow relative bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-xs p-6 md:p-8 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
                       <div>
                         <ViewTransition name={`experience-${job.slug}`}>

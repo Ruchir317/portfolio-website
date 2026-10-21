@@ -42,7 +42,7 @@ export default function WritingPage() {
       </header>
 
       <div className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-text-primary leading-tight mb-3">
+        <h1 className="font-display font-extrabold text-3xl sm:text-5xl/none text-text-primary leading-tight mb-3">
           Writing
         </h1>
         <p className="text-text-muted text-lg leading-relaxed max-w-2xl mb-14">Notes on how I build things.</p>
@@ -52,7 +52,7 @@ export default function WritingPage() {
             <AnimatedSection key={post.slug} delay={0.05 + i * 0.05}>
               <Link
                 href={`/writing/${post.slug}`}
-                className="card-glow block border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-6 transition-all duration-200"
+                className="card-glow block border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-6 transition-all duration-200"
               >
                 <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-2">
                   {formatDate(post.date)} · {post.metadata.readingTime} min read
