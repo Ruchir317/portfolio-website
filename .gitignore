@@ -31,6 +31,9 @@ next-env.d.ts
 # source documents (reports, transcripts, internal employer docs): never commit
 docs/
 
+# the resume PDF lives in a public Vercel Blob store (see next.config.js), not in git
+public/resume.pdf
+
 # plans and audit reports (local working notes)
 tasks/
 

@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  // The resume PDF is not in git. It lives in a public Vercel Blob store; /resume.pdf serves it under this site's own URL.
+  // To update it, upload a new file named resume.pdf to the store (overwriting); it shows within the cache time (1 hour).
+  async rewrites() {
+    return [
+      {
+        source: "/resume.pdf",
+        destination: "https://x7ac48jtg95zmn4d.public.blob.vercel-storage.com/resume.pdf",
+      },
+    ];
+  },
   async headers() {
     return [
       {
