@@ -8,9 +8,11 @@ import { resume } from "@/data/resume";
 const proofSlugs = ["factual", "duckdb-materialized-views", "carla-v2x-intersection"];
 const proof = resume.projects.filter((p) => proofSlugs.includes(p.slug));
 
+const sde = (role: string) => role.replace("Software Development Engineer", "SDE");
+
 const status = [
-  { key: "now", value: "SDE, Easley Dunn Productions" },
-  { key: "before", value: "SDE Intern, AWS (EKS Metrics)" },
+  { key: "now", value: `${sde(resume.experience[0].role)}, ${resume.experience[0].company}` },
+  { key: "before", value: `${sde(resume.experience[1].role)}, AWS (EKS Metrics)` },
   { key: "published", value: "IEEE ICAST 2022" },
   { key: "education", value: "MS CS, USC (Dec 2025)" },
 ];
@@ -59,7 +61,7 @@ export default function Hero() {
             style={{ animationDelay: "0.12s" }}
             className="hero-rise font-mono text-xs sm:text-sm text-accent tracking-widest uppercase mb-6 cursor-blink"
           >
-            SWE @ Easley Dunn · MS CS, USC
+            SDE @ Easley Dunn · MS CS, USC
           </p>
 
           {/* Sub headline */}
