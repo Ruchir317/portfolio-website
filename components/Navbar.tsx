@@ -62,7 +62,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link, i) => (
             <motion.a
               key={link.href}
@@ -89,7 +89,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile theme toggle and hamburger */}
-        <div className="md:hidden flex items-center gap-1">
+        <div className="lg:hidden flex items-center gap-1">
         <ThemeToggle />
         <button
           className="flex flex-col gap-1.5 p-2"
@@ -121,7 +121,7 @@ export default function Navbar() {
         initial={false}
         animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-        className="overflow-hidden md:hidden border-t border-border bg-bg/95 backdrop-blur-md"
+        className="overflow-hidden lg:hidden border-t border-border bg-bg/95 backdrop-blur-md"
       >
         <div className="px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
