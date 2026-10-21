@@ -92,6 +92,7 @@ body::before {
 /* Cursor blink */
 .cursor-blink::after {
   content: "_";
+  content: "_" / "";
   color: theme('colors.accent');
   animation: blink 1.1s step-end infinite;
 }
