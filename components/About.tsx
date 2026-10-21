@@ -4,8 +4,6 @@ import { resume } from "@/data/resume";
 export default function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-accent/4 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full bg-tertiary/3 blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
