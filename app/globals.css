@@ -195,6 +195,17 @@ body::before {
   transform: translateY(0);
 }
 
+/* Hero entrance: CSS only and transform only. Content that starts at opacity 0 is ignored by Largest
+   Contentful Paint, so the text stays fully opaque and just rises into place. */
+@keyframes hero-rise {
+  from {
+    transform: translateY(12px);
+  }
+}
+.hero-rise {
+  animation: hero-rise 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
 /* Route transitions (React ViewTransition): short cross-fade; titles morph between pages. */
 ::view-transition-old(root) {
   animation: 160ms cubic-bezier(0.16, 1, 0.3, 1) both vt-fade-out;
@@ -231,6 +242,7 @@ body::before {
   }
   .animate-pulse,
   .accent-gradient-text,
+  .hero-rise,
   .cursor-blink::after {
     animation: none;
   }
