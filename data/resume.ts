@@ -21,13 +21,17 @@ export const resume = {
   skills: {
     languages: ["Python", "Go", "JavaScript", "TypeScript", "SQL", "Java", "C", "C++"],
     frameworks_libraries: [
-      "Node.js/Express", "React Native", "React", "Django", "Flask", "Socket.IO",
+      "Node.js/Express", "React Native", "React", "Django", "Flask",
       "PyTorch", "TensorFlow", "Scikit-Learn", "NumPy", "Pandas", "OpenCV",
       "Selenium", "Beautiful Soup", "HTML", "CSS", "Tailwind", "Jest",
     ],
     databases: ["PostgreSQL", "MySQL", "MongoDB"],
     tools_cloud_devops: [
       "AWS", "CloudWatch", "S3", "EKS", "Google Cloud", "Firebase", "GitHub Actions", "Git", "Linux",
+    ],
+    backend_security_infra: [
+      "REST API design", "JWT auth", "bcrypt", "Rate limiting", "AES-256-GCM", "Firebase Auth",
+      "Socket.IO", "Cloudflare Tunnel", "Tailscale",
     ],
   },
   // Where each group of skills was used. Every line comes from the roles and projects below; skills with
@@ -52,7 +56,14 @@ export const resume = {
       "CI and the delivery pipeline at Easley Dunn: required checks, health checks, automatic rollback (GitHub Actions)",
       "Firebase for phone sign-in at Easley Dunn; Linux at BusinessNext",
     ],
-  } as Record<"languages" | "frameworks_libraries" | "databases" | "tools_cloud_devops", string[]>,
+    backend_security_infra: [
+      "Authentication, real-time messaging over Socket.IO and location-aware discovery in SafetyNet at Easley Dunn",
+      "Production move to a Google Cloud VM with twice-daily backups and a passed restore drill at Easley Dunn",
+    ],
+  } as Record<
+    "languages" | "frameworks_libraries" | "databases" | "tools_cloud_devops" | "backend_security_infra",
+    string[]
+  >,
   experience: [
     {
       role: "Software Development Engineer",
