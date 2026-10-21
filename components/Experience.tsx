@@ -15,7 +15,7 @@ export default function Experience() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">02 — Experience</h2>
+            <h2 className="section-label">Experience</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>

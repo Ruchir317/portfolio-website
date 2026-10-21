@@ -23,7 +23,7 @@ export default function Projects({
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">03 — Projects</h2>
+            <h2 className="section-label">Projects</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -36,15 +36,10 @@ export default function Projects({
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-sm p-6 transition-colors duration-300"
               >
-                {/* Number */}
-                <span className="font-display font-extrabold text-5xl text-text-faint/40 absolute top-4 right-5 select-none leading-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
                 {/* Header */}
                 <div className="mb-4">
                   <ViewTransition name={`project-${project.slug}`}>
-                    <h3 className="font-display font-bold text-lg text-text-primary leading-tight pr-12 group-hover:text-accent transition-colors">
+                    <h3 className="font-display font-bold text-lg text-text-primary leading-tight group-hover:text-accent transition-colors">
                       {project.name}
                     </h3>
                   </ViewTransition>

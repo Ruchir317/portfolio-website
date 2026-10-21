@@ -10,7 +10,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">01 — About</h2>
+            <h2 className="section-label">About</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>

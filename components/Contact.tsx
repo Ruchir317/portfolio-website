@@ -13,7 +13,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">07 — Contact</h2>
+            <h2 className="section-label">Contact</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
