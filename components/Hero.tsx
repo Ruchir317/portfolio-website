@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
 import { resume } from "@/data/resume";
 
 // Headline proof for the hero: the metric these projects already show on their cards.
@@ -41,7 +41,6 @@ export default function Hero() {
         <div className="max-w-4xl">
           {/* Location badge */}
           <div className="hero-rise flex items-center gap-2 mb-8">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             <span className="font-mono text-xs text-text-muted tracking-widest uppercase flex items-center gap-1.5">
               <MapPin size={11} className="text-secondary" />
               {resume.contact.location}
@@ -145,9 +144,9 @@ export default function Hero() {
         {/* Status card (wide screens only) */}
         <motion.aside
           aria-label="Current status"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ delay: 0.4, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
           className="hidden xl:block card-glow border border-border bg-surface/60 backdrop-blur-sm rounded-sm font-mono text-xs"
         >
           <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
@@ -172,24 +171,6 @@ export default function Hero() {
             </div>
           </dl>
         </motion.aside>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 right-6 md:right-12 flex flex-col items-center gap-3"
-        >
-          <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase [writing-mode:vertical-rl]">
-            Scroll
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          >
-            <ArrowDown size={14} className="text-text-faint" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
