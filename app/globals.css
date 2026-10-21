@@ -102,13 +102,6 @@ body::before {
   50% { opacity: 0; }
 }
 
-/* Horizontal rule decoration */
-.hr-accent {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, theme('colors.accent'), theme('colors.border') 70%);
-}
-
 /* Tag chip */
 .tag-chip {
   font-family: var(--font-ibm-plex-mono), monospace;
