@@ -31,6 +31,9 @@ next-env.d.ts
 # source documents (reports, transcripts, internal employer docs): never commit
 docs/
 
+# plans and audit reports (local working notes)
+tasks/
+
 # Playwright MCP scratch output (logs, snapshots)
 .playwright-mcp/
 .lighthouseci/
