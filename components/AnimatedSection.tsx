@@ -7,31 +7,23 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  direction?: "up" | "left" | "right";
 }
 
-const offsets = {
-  up: { x: 0, y: 24 },
-  left: { x: -24, y: 0 },
-  right: { x: 24, y: 0 },
-};
+// Reveal on scroll: a short rise with a fade. The full transform string (not the x/y shorthands) lets the
+// browser animate it off the main thread, and delays are capped so a long list never feels slow.
+const hidden = { opacity: 0, transform: "translateY(12px)" };
+const shown = { opacity: 1, transform: "translateY(0px)" };
 
-export default function AnimatedSection({
-  children,
-  className = "",
-  delay = 0,
-  direction = "up",
-}: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className = "", delay = 0 }: AnimatedSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const offset = offsets[direction];
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: offset.x, y: offset.y }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: offset.x, y: offset.y }}
-      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={hidden}
+      animate={isInView ? shown : hidden}
+      transition={{ duration: 0.35, delay: Math.min(delay, 0.12), ease: [0.23, 1, 0.32, 1] }}
       className={className}
     >
       {children}

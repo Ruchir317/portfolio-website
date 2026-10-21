@@ -17,18 +17,18 @@ export default function About() {
 
         <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-start">
           {/* Text column */}
-          <div className="space-y-5">
-            {resume.about.map((paragraph, i) => (
-              <AnimatedSection key={i} delay={i * 0.08}>
-                <p className="text-text-muted leading-relaxed text-base sm:text-lg">
+          <AnimatedSection>
+            <div className="space-y-5">
+              {resume.about.map((paragraph, i) => (
+                <p key={i} className="text-text-muted leading-relaxed text-base sm:text-lg">
                   {paragraph}
                 </p>
-              </AnimatedSection>
-            ))}
-          </div>
+              ))}
+            </div>
+          </AnimatedSection>
 
           {/* Info card */}
-          <AnimatedSection delay={0.2} direction="right">
+          <AnimatedSection delay={0.2}>
             <div className="card-glow border border-border rounded-sm p-6 bg-surface/40 backdrop-blur-sm sticky top-24 space-y-6">
               <div>
                 <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">Contact</p>
