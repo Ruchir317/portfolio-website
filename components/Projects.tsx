@@ -89,7 +89,7 @@ export default function Projects({
                     {detailSlugs.includes(project.slug) && (
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                        className="flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
                       >
                         View Details
                         <ArrowUpRight size={10} />
@@ -101,7 +101,7 @@ export default function Projects({
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 font-mono text-[10px] text-text-muted hover:text-accent tracking-wider uppercase transition-colors"
+                        className="relative z-10 flex items-center gap-1.5 py-1.5 font-mono text-[10px] text-text-muted hover:text-accent tracking-wider uppercase transition-colors"
                       >
                         <Github size={12} />
                         View Source
