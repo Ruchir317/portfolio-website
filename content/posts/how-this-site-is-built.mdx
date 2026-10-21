@@ -22,6 +22,7 @@ A GitHub Actions workflow runs on every push:
 - ESLint, `tsc` and a production build must pass.
 - A dependency-free smoke script checks the built pages.
 - Lighthouse CI fails the build if accessibility or SEO drops below 0.95.
+- A second Lighthouse run on the mobile preset warns when Largest Contentful Paint passes 2.5 seconds.
 
 ## Content as data
 

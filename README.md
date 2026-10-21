@@ -17,11 +17,11 @@ My personal portfolio and writing site: a fully static Next.js app that shows my
 
 ## Stack
 
-Next.js 16 (App Router, fully static) · React 19 · TypeScript · Tailwind CSS 3 · [motion](https://motion.dev/) · MDX via Velite · deployed on Vercel.
+Next.js 16 (App Router, fully static) · React 19 · TypeScript · Tailwind CSS 4 · [motion](https://motion.dev/) · MDX via Velite · deployed on Vercel.
 
 ## Quality gates
 
-Every push runs GitHub Actions: ESLint, `tsc`, a colour-contrast check for both themes and for high-contrast mode, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI on every page in both themes. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn.
+Every push runs GitHub Actions: ESLint, `tsc`, a colour-contrast check for both themes and for high-contrast mode, a production build, a dependency-free smoke test of the built pages, and Lighthouse CI on every page in both themes. Accessibility and SEO must score at least 0.95 or the build fails; performance and best practices warn. A second run on the mobile preset warns when Largest Contentful Paint passes 2.5 seconds.
 
 ## Run it locally
 
