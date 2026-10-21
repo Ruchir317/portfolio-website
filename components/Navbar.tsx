@@ -54,16 +54,14 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-bg/90 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      {/* Background that fades in once the page scrolls: only opacity animates, so it stays cheap. */}
+      <div
+        aria-hidden="true"
+        className={`absolute inset-0 -z-10 border-b border-border bg-bg/90 backdrop-blur-md transition-opacity duration-200 ease-out ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" aria-label="Back to top" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
@@ -72,20 +70,17 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link, i) => (
-            <motion.a
+          {navLinks.map((link) => (
+            <a
               key={link.href}
               href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
               aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
               className={`font-mono text-xs tracking-widest uppercase transition-colors ${
                 activeSection === link.href.slice(1) ? "text-accent" : "text-text-muted hover:text-accent"
               }`}
             >
               {link.label}
-            </motion.a>
+            </a>
           ))}
           <button
             onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
@@ -148,6 +143,6 @@ export default function Navbar() {
           ))}
         </div>
       </motion.div>
-    </motion.nav>
+    </nav>
   );
 }
