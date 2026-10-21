@@ -254,17 +254,3 @@ body::before {
   background: theme('colors.bg / 70%');
   backdrop-filter: blur(4px);
 }
-.palette[open] {
-  animation: palette-in 0.16s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes palette-in {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .palette[open] {
-    animation: none;
-  }
-}
