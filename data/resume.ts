@@ -95,7 +95,7 @@ export const resume = {
       metric: { value: "84%", label: "accuracy on post-cutoff claims" },
       tech_stack: ["Python", "OpenAI Whisper", "GPT-4o", "Gemini", "RAG", "Google Search/News API"],
       bullets: [
-        "Built a real-time speech fact-checking pipeline: Whisper ASR transcription, LLM-based claim extraction, and retrieval-augmented verification against live web evidence.",
+        "Co-built a real-time speech fact-checking pipeline: Whisper ASR transcription, LLM-based claim extraction, and retrieval-augmented verification against live web evidence.",
         "Constructed a 400-claim benchmark split across pre- and post-model-cutoff claims and converted to speech-like audio to stress-test the pipeline under realistic conditions.",
         "Added a self-critique loop where a judge LLM evaluates evidence sufficiency and iteratively refines search queries, up to 10 iterations, to reduce hallucination.",
         "Best configuration (GPT-4o, agentic) reached 84% accuracy and 0.83 F1 on post-cutoff claims, versus 63% accuracy for zero-shot prompting alone.",
