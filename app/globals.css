@@ -128,6 +128,13 @@ body::before {
   box-shadow: var(--elev-hover);
 }
 
+/* Set by applyTheme for a moment while the theme flips, so nothing fades between palettes. */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 /* Theme toggle: show the icon for the theme you would switch to. */
 .theme-icon-moon {
   display: none;

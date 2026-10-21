@@ -9,6 +9,11 @@ export function currentTheme(): ThemeName {
 /** Switch theme, remember the choice, and keep the browser UI colour in step. */
 export function applyTheme(theme: ThemeName, persist = true): void {
   const root = document.documentElement;
+  if (persist) {
+    // A visitor's switch restyles the whole page; pausing colour transitions briefly keeps the click fast.
+    root.classList.add("theme-switching");
+    setTimeout(() => root.classList.remove("theme-switching"), 80);
+  }
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
   document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.remove());
