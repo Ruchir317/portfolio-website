@@ -9,13 +9,11 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
       {/* Subtle ambient */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-accent/4 blur-[100px] pointer-events-none" />
-      <div className="absolute right-0 bottom-0 w-72 h-72 rounded-full bg-secondary/3 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">02 — Experience</h2>
+            <h2 className="section-label">Experience</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -37,7 +35,7 @@ export default function Experience() {
                   {/* Dot on timeline (desktop) */}
                   <div className="hidden md:block absolute -left-[55.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
 
-                  <div className="card-glow bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-sm p-6 md:p-8 transition-all duration-300">
+                  <div className="card-glow relative bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-sm p-6 md:p-8 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
                       <div>
                         <ViewTransition name={`experience-${job.slug}`}>
@@ -63,7 +61,7 @@ export default function Experience() {
                       <div className="mt-6 pt-4 border-t border-border">
                         <Link
                           href={`/experience/${job.slug}`}
-                          className="inline-flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                          className="inline-flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
                         >
                           View Details
                           <ArrowUpRight size={10} />

@@ -33,6 +33,7 @@ const home = pages["/"];
 check("home has 7 section headings", (home.match(/<h2 class="section-label"/g) || []).length === 7);
 check("home has JSON-LD", /<script[^>]*type="application\/ld\+json"/.test(home));
 check("home has skip link", home.includes('class="skip-link"'));
+check("home hero stats are not zero in server HTML", !/<span>0\+?<\/span>/.test(home));
 for (const route of ["/projects/factual", "/experience/aws-eks-metrics-backfill"]) {
   check(`${route} has canonical`, /<link rel="canonical"/.test(pages[route]));
   check(`${route} has og:image`, /property="og:image"/.test(pages[route]));
@@ -43,6 +44,15 @@ check("feed has items", pages["/feed.xml"].includes("<item>"));
 
 check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
 check("home has the theme toggle", home.includes("theme-toggle"));
+
+const resume = await fetch(BASE + "/resume.pdf");
+await resume.arrayBuffer();
+check(
+  "/resume.pdf is served as a PDF",
+  resume.status === 200 &&
+    (resume.headers.get("content-type") || "").includes("application/pdf") &&
+    Number(resume.headers.get("content-length") || 0) > 50000
+);
 
 const notFound = await fetch(BASE + "/this-page-does-not-exist");
 check("unknown route returns 404", notFound.status === 404);
