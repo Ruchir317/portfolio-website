@@ -7,7 +7,11 @@
         "http://localhost:3100/projects/factual?theme=light",
         "http://localhost:3100/projects/factual?theme=dark",
         "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=light",
-        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=dark"
+        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=dark",
+        "http://localhost:3100/writing?theme=light",
+        "http://localhost:3100/writing?theme=dark",
+        "http://localhost:3100/writing/how-this-site-is-built?theme=light",
+        "http://localhost:3100/writing/how-this-site-is-built?theme=dark"
       ],
       "numberOfRuns": 1,
       "settings": {

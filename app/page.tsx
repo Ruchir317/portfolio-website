@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
+import JsonLd from "@/components/JsonLd";
 import { projectDetails } from "@/data/projectDetails";
 import { resume } from "@/data/resume";
 import { SITE_URL } from "@/data/site";
@@ -23,10 +24,7 @@ const personJsonLd = {
 export default function Home() {
   return (
     <main id="main">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
-      />
+      <JsonLd data={personJsonLd} />
       <Navbar />
       <Hero />
       <About />
