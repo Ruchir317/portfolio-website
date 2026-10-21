@@ -66,18 +66,15 @@ export default async function ProjectDetailPage({
         }}
       />
       {detail.publication && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ScholarlyArticle",
-              headline: detail.publication.title,
-              author: detail.publication.authors.map((name) => ({ "@type": "Person", name })),
-              datePublished: detail.publication.datePublished,
-              url: detail.publication.url,
-              sameAs: detail.publication.scholarUrl,
-            }).replace(/</g, "\u003c"),
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "ScholarlyArticle",
+            headline: detail.publication.title,
+            author: detail.publication.authors.map((name) => ({ "@type": "Person", name })),
+            datePublished: detail.publication.datePublished,
+            url: detail.publication.url,
+            sameAs: detail.publication.scholarUrl,
           }}
         />
       )}
