@@ -22,25 +22,32 @@ const categories = [
     key: "tools_cloud_devops" as const,
     color: "text-accent-light bg-accent-light/10 border-accent-light/20",
   },
+  {
+    label: "Backend, Security & Infra",
+    key: "backend_security_infra" as const,
+    color: "text-accent bg-accent/10 border-accent/20",
+  },
 ];
 
 export default function Skills() {
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="absolute left-1/4 top-0 w-96 h-96 rounded-full bg-accent/3 blur-[140px] pointer-events-none" />
-      <div className="absolute right-0 bottom-0 w-60 h-60 rounded-full bg-tertiary/3 blur-[110px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">04 — Skills</h2>
+            <h2 className="section-label">Skills</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {categories.map((cat, i) => (
-            <AnimatedSection key={cat.key} delay={(i % 2) * 0.08}>
+            <AnimatedSection
+              key={cat.key}
+              delay={(i % 2) * 0.08}
+              className={categories.length % 2 === 1 && i === categories.length - 1 ? "sm:col-span-2" : ""}
+            >
               <div className="card-glow border border-border bg-surface/30 rounded-sm p-5 h-full hover:border-accent/20 hover:bg-raised transition-colors">
                 <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-4">{cat.label}</p>
                 <div className="flex flex-wrap gap-1.5">

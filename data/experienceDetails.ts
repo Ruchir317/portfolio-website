@@ -50,7 +50,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
     summary:
       "SafetyNet is a cross-platform React Native social app. I own much of the backend and database work, and ship features across backend and mobile, as the Node.js/Express and PostgreSQL foundation behind authentication, real-time messaging and location-aware features.",
     stats: [
-      { label: "Authored pull requests", value: "60+" },
+      { label: "Merged pull requests authored", value: "67 of 119" },
       { label: "Backend", value: "Node.js" },
       { label: "Database", value: "PostgreSQL" },
       { label: "Real-time", value: "Socket.IO" },
@@ -84,7 +84,7 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
       {
         heading: "Testing",
         body: [
-          "Wrote hundreds of integration tests that run against a real, non-mocked PostgreSQL instance in CI, because logic that only works against a fake database is a risk. Every pull request also has to pass required checks, including a guard that blocks destructive migrations. Third-party authentication is mocked, since faking those calls is safe in a way that faking the database is not.",
+          "Wrote 453 integration tests that run against a real, non-mocked PostgreSQL instance in CI, because logic that only works against a fake database is a risk. Every pull request also has to pass 7 required checks, including a guard that blocks destructive migrations. Third-party authentication is mocked, since faking those calls is safe in a way that faking the database is not.",
         ],
       },
       {

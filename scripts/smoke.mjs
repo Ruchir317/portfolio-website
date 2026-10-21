@@ -45,6 +45,15 @@ check("feed has items", pages["/feed.xml"].includes("<item>"));
 check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
 check("home has the theme toggle", home.includes("theme-toggle"));
 
+const resume = await fetch(BASE + "/resume.pdf");
+await resume.arrayBuffer();
+check(
+  "/resume.pdf is served as a PDF",
+  resume.status === 200 &&
+    (resume.headers.get("content-type") || "").includes("application/pdf") &&
+    Number(resume.headers.get("content-length") || 0) > 50000
+);
+
 const notFound = await fetch(BASE + "/this-page-does-not-exist");
 check("unknown route returns 404", notFound.status === 404);
 

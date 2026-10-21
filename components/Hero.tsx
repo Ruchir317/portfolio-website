@@ -23,18 +23,7 @@ export default function Hero() {
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-accent/6 blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-secondary/5 blur-[100px]" />
-        <div className="absolute top-3/4 left-1/3 w-64 h-64 rounded-full bg-accent/4 blur-[80px]" />
       </div>
-
-      {/* Dot grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(rgb(var(--color-accent)) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
 
       <div className="relative w-full max-w-6xl mx-auto px-6 pt-32 pb-20 xl:grid xl:grid-cols-[1fr_20rem] xl:items-center xl:gap-12">
         {/* The text block enters with CSS (.hero-rise, 60 ms steps), not motion, so it is visible in the server HTML. */}
@@ -68,11 +57,8 @@ export default function Hero() {
             style={{ animationDelay: "0.18s" }}
             className="hero-rise text-text-muted text-lg sm:text-xl leading-relaxed max-w-2xl mb-12"
           >
-            Building resilient cloud systems and distributed backends.
-            Passionate about{" "}
-            <span className="text-text-primary font-medium">AI/ML</span>,{" "}
-            <span className="text-text-primary font-medium">systems engineering</span>, and{" "}
-            <span className="text-text-primary font-medium">end-to-end software</span>.
+            I build backend and cloud systems: a Go backfill service for Amazon EKS Metrics, a Node.js and
+            PostgreSQL backend for a React Native app, and research in multimodal ML.
           </p>
 
           {/* CTA row */}

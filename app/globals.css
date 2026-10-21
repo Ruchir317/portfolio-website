@@ -34,18 +34,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Noise texture overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.4;
-}
-
 /* Selection */
 ::selection {
   background: theme('colors.accent / 20%');
@@ -67,20 +55,6 @@ body::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.accent-gradient-text {
-  background: linear-gradient(90deg, theme('colors.accent') 0%, theme('colors.accent-light') 50%, theme('colors.secondary') 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 /* Cursor blink */
@@ -133,12 +107,9 @@ body::before {
   display: block;
 }
 
-/* Visitors who ask for more contrast get stronger text and borders (set in lib/palette.ts), no grain,
-   and no soft shadows. */
+/* Visitors who ask for more contrast get stronger text and borders (set in lib/palette.ts) and no soft
+   shadows. */
 @media (prefers-contrast: more) {
-  body::before {
-    display: none;
-  }
   .card-glow,
   .card-glow:hover {
     box-shadow: none;
@@ -157,8 +128,7 @@ body::before {
   :focus-visible {
     outline: 2px solid Highlight;
   }
-  .gradient-text,
-  .accent-gradient-text {
+  .gradient-text {
     background: none;
     -webkit-text-fill-color: CanvasText;
     color: CanvasText;
@@ -239,7 +209,6 @@ body::before {
     scroll-behavior: auto;
   }
   .animate-pulse,
-  .accent-gradient-text,
   .hero-rise,
   .cursor-blink::after {
     animation: none;

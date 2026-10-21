@@ -9,13 +9,11 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
       {/* Subtle ambient */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-accent/4 blur-[100px] pointer-events-none" />
-      <div className="absolute right-0 bottom-0 w-72 h-72 rounded-full bg-secondary/3 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">02 — Experience</h2>
+            <h2 className="section-label">Experience</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>

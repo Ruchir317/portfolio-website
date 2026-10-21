@@ -21,13 +21,17 @@ export const resume = {
   skills: {
     languages: ["Python", "Go", "JavaScript", "TypeScript", "SQL", "Java", "C", "C++"],
     frameworks_libraries: [
-      "Node.js/Express", "React Native", "React", "Django", "Flask", "Socket.IO",
+      "Node.js/Express", "React Native", "React", "Django", "Flask",
       "PyTorch", "TensorFlow", "Scikit-Learn", "NumPy", "Pandas", "OpenCV",
       "Selenium", "Beautiful Soup", "HTML", "CSS", "Tailwind", "Jest",
     ],
     databases: ["PostgreSQL", "MySQL", "MongoDB"],
     tools_cloud_devops: [
       "AWS", "CloudWatch", "S3", "EKS", "Google Cloud", "Firebase", "GitHub Actions", "Git", "Linux",
+    ],
+    backend_security_infra: [
+      "REST API design", "JWT auth", "bcrypt", "Rate limiting", "AES-256-GCM", "Firebase Auth",
+      "Socket.IO", "Cloudflare Tunnel", "Tailscale",
     ],
   },
   // Where each group of skills was used. Every line comes from the roles and projects below; skills with
@@ -52,7 +56,14 @@ export const resume = {
       "CI and the delivery pipeline at Easley Dunn: required checks, health checks, automatic rollback (GitHub Actions)",
       "Firebase for phone sign-in at Easley Dunn; Linux at BusinessNext",
     ],
-  } as Record<"languages" | "frameworks_libraries" | "databases" | "tools_cloud_devops", string[]>,
+    backend_security_infra: [
+      "Authentication, real-time messaging over Socket.IO and location-aware discovery in SafetyNet at Easley Dunn",
+      "Production move to a Google Cloud VM with twice-daily backups and a passed restore drill at Easley Dunn",
+    ],
+  } as Record<
+    "languages" | "frameworks_libraries" | "databases" | "tools_cloud_devops" | "backend_security_infra",
+    string[]
+  >,
   experience: [
     {
       role: "Software Development Engineer",
@@ -60,9 +71,9 @@ export const resume = {
       dates: "Feb 2026 – Present",
       slug: "easley-dunn-safetynet",
       bullets: [
-        "De facto backend lead for SafetyNet, a cross-platform React Native app on Node.js/Express and PostgreSQL: authored most of the merged pull requests on a ~15-contributor team, building authentication, real-time messaging over Socket.IO, and location-aware discovery.",
-        "Hardened the PostgreSQL layer with transactional multi-step writes, atomic upserts, and query-plan-driven index fixes, verified with before/after EXPLAIN.",
-        "Raised release confidence with hundreds of backend integration tests on a real PostgreSQL database and required CI checks on every pull request, including a migration-safety guard.",
+        "De facto backend lead for SafetyNet, a cross-platform React Native app on Node.js/Express and PostgreSQL: authored 67 of 119 merged pull requests (422 commits) on a ~15-contributor team, building authentication, real-time messaging over Socket.IO, and location-aware discovery.",
+        "Hardened the PostgreSQL layer (13 tables, 24 migrations) with transactional multi-step writes, atomic upserts, and query-plan-driven index fixes, verified with before/after EXPLAIN.",
+        "Raised release confidence with 453 backend integration tests on a real PostgreSQL database and 7 required CI checks on every pull request, including a migration-safety guard.",
         "Built the delivery pipeline: auto-deploy to an internal environment with health checks and automatic rollback, one-click promotion to production, and backups with a tested restore.",
       ],
     },
@@ -95,7 +106,7 @@ export const resume = {
       metric: { value: "84%", label: "accuracy on post-cutoff claims" },
       tech_stack: ["Python", "OpenAI Whisper", "GPT-4o", "Gemini", "RAG", "Google Search/News API"],
       bullets: [
-        "Built a real-time speech fact-checking pipeline: Whisper ASR transcription, LLM-based claim extraction, and retrieval-augmented verification against live web evidence.",
+        "Co-built a real-time speech fact-checking pipeline: Whisper ASR transcription, LLM-based claim extraction, and retrieval-augmented verification against live web evidence.",
         "Constructed a 400-claim benchmark split across pre- and post-model-cutoff claims and converted to speech-like audio to stress-test the pipeline under realistic conditions.",
         "Added a self-critique loop where a judge LLM evaluates evidence sufficiency and iteratively refines search queries, up to 10 iterations, to reduce hallucination.",
         "Best configuration (GPT-4o, agentic) reached 84% accuracy and 0.83 F1 on post-cutoff claims, versus 63% accuracy for zero-shot prompting alone.",
@@ -106,7 +117,7 @@ export const resume = {
     {
       name: "Multimodal Emotion Detection",
       slug: "multimodal-emotion-detection",
-      metric: { value: "2×", label: "accuracy of early fusion" },
+      metric: { value: "60%", label: "weighted late fusion accuracy" },
       tech_stack: ["Python", "BERT", "HuBERT", "OpenFace", "LoRA", "PyTorch", "Streamlit"],
       bullets: [
         "Balanced the MELD dataset (2,000 train / 400 dev samples per class) via audio pitch/speed/noise augmentation and OpenCV-based video filters to correct severe class imbalance.",

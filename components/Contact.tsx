@@ -7,13 +7,11 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Large background accent */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent/5 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-secondary/3 blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">07 — Contact</h2>
+            <h2 className="section-label">Contact</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
         </AnimatedSection>
@@ -22,15 +20,10 @@ export default function Contact() {
           {/* Left */}
           <AnimatedSection>
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
-              Let&apos;s build
-              <br />
-              something
-              <br />
-              <span className="accent-gradient-text">together.</span>
+              Open to graduate SWE roles.
             </h2>
             <p className="text-text-muted text-base leading-relaxed max-w-md">
-              I&apos;m actively looking for graduate SWE roles in cloud, backend, distributed systems, and AI/ML.
-              If you have an opportunity or just want to connect — reach out.
+              Cloud, backend, distributed systems and AI/ML. Email is the fastest way to reach me.
             </p>
           </AnimatedSection>
 
