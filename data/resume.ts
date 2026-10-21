@@ -106,7 +106,7 @@ export const resume = {
     {
       name: "Multimodal Emotion Detection",
       slug: "multimodal-emotion-detection",
-      metric: { value: "2×", label: "accuracy of early fusion" },
+      metric: { value: "60%", label: "weighted late fusion accuracy" },
       tech_stack: ["Python", "BERT", "HuBERT", "OpenFace", "LoRA", "PyTorch", "Streamlit"],
       bullets: [
         "Balanced the MELD dataset (2,000 train / 400 dev samples per class) via audio pitch/speed/noise augmentation and OpenCV-based video filters to correct severe class imbalance.",
