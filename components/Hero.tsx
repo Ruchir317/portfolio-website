@@ -3,7 +3,10 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail, MapPin, ArrowDown, Download } from "lucide-react";
 import { resume } from "@/data/resume";
-import CountUp from "./CountUp";
+
+// Headline proof for the hero: the metric these projects already show on their cards.
+const proofSlugs = ["factual", "duckdb-materialized-views", "carla-v2x-intersection"];
+const proof = resume.projects.filter((p) => proofSlugs.includes(p.slug));
 
 const status = [
   { key: "now", value: "SDE, Easley Dunn Productions" },
@@ -126,18 +129,12 @@ export default function Hero() {
           {/* Stats row */}
           <div
             style={{ animationDelay: "0.3s" }}
-            className="hero-rise mt-20 pt-8 border-t border-border grid grid-cols-3 sm:grid-cols-3 gap-8 max-w-sm"
+            className="hero-rise mt-20 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-xl"
           >
-            {[
-              { value: "20+", label: "Months exp." },
-              { value: "6", label: "Projects" },
-              { value: "3", label: "Companies" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-display font-bold text-2xl text-text-primary">
-                  <CountUp value={stat.value} />
-                </div>
-                <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-0.5">{stat.label}</div>
+            {proof.map((p) => (
+              <div key={p.slug}>
+                <div className="font-display font-bold text-2xl text-text-primary">{p.metric.value}</div>
+                <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-0.5">{p.metric.label}</div>
               </div>
             ))}
           </div>

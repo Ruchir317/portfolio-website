@@ -119,7 +119,7 @@ export const resume = {
     {
       name: "Materialized Views in DuckDB",
       slug: "duckdb-materialized-views",
-      metric: { value: "100×", label: "faster retrieval, up to" },
+      metric: { value: "up to 100×", label: "faster retrieval" },
       tech_stack: ["C++", "SQL", "DuckDB", "TPC-H"],
       bullets: [
         "Extended DuckDB's parser, logical planner, and execution engine to support CREATE/REFRESH MATERIALIZED VIEW, with dependency tracking to auto-invalidate views when base tables change.",

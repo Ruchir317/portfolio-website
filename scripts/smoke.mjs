@@ -33,6 +33,7 @@ const home = pages["/"];
 check("home has 7 section headings", (home.match(/<h2 class="section-label"/g) || []).length === 7);
 check("home has JSON-LD", /<script[^>]*type="application\/ld\+json"/.test(home));
 check("home has skip link", home.includes('class="skip-link"'));
+check("home hero stats are not zero in server HTML", !/<span>0\+?<\/span>/.test(home));
 for (const route of ["/projects/factual", "/experience/aws-eks-metrics-backfill"]) {
   check(`${route} has canonical`, /<link rel="canonical"/.test(pages[route]));
   check(`${route} has og:image`, /property="og:image"/.test(pages[route]));
