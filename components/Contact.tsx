@@ -20,15 +20,10 @@ export default function Contact() {
           {/* Left */}
           <AnimatedSection>
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-text-primary leading-tight mb-6">
-              Let&apos;s build
-              <br />
-              something
-              <br />
-              <span className="accent-gradient-text">together.</span>
+              Open to graduate SWE roles.
             </h2>
             <p className="text-text-muted text-base leading-relaxed max-w-md">
-              I&apos;m actively looking for graduate SWE roles in cloud, backend, distributed systems, and AI/ML.
-              If you have an opportunity or just want to connect — reach out.
+              Cloud, backend, distributed systems and AI/ML. Email is the fastest way to reach me.
             </p>
           </AnimatedSection>
 

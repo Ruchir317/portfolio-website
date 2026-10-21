@@ -57,11 +57,8 @@ export default function Hero() {
             style={{ animationDelay: "0.18s" }}
             className="hero-rise text-text-muted text-lg sm:text-xl leading-relaxed max-w-2xl mb-12"
           >
-            Building resilient cloud systems and distributed backends.
-            Passionate about{" "}
-            <span className="text-text-primary font-medium">AI/ML</span>,{" "}
-            <span className="text-text-primary font-medium">systems engineering</span>, and{" "}
-            <span className="text-text-primary font-medium">end-to-end software</span>.
+            I build backend and cloud systems: a Go backfill service for Amazon EKS Metrics, a Node.js and
+            PostgreSQL backend for a React Native app, and research in multimodal ML.
           </p>
 
           {/* CTA row */}
