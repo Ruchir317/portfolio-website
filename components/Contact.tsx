@@ -1,7 +1,8 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
 import { lastUpdated } from "@/data/lastUpdated";
-import { GraduationCap, Github, Linkedin, Mail } from "lucide-react";
+import { GraduationCap, Mail } from "lucide-react";
+import { Github, Linkedin } from "./BrandIcons";
 
 export default function Contact() {
   return (

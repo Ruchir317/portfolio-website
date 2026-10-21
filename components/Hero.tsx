@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
+import { Mail, MapPin, Download } from "lucide-react";
+import { Github, Linkedin } from "./BrandIcons";
 import { resume } from "@/data/resume";
 
 // Headline proof for the hero: the metric these projects already show on their cards.

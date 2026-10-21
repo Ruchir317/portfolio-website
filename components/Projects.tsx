@@ -5,7 +5,8 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github } from "./BrandIcons";
 
 // detailSlugs comes from the server page so the long-form detail text stays out of the client bundle.
 export default function Projects({
