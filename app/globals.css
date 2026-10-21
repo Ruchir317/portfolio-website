@@ -228,11 +228,14 @@ body::before {
     opacity: 0;
   }
 }
+/* Reduced motion keeps a short cross-fade (it helps people see the page changed) but drops the movement. */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*),
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
   ::view-transition-old(*),
   ::view-transition-new(*) {
-    animation: none !important;
+    animation-duration: 100ms !important;
   }
 }
 
