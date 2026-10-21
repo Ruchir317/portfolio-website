@@ -60,9 +60,9 @@ export const resume = {
       dates: "Feb 2026 – Present",
       slug: "easley-dunn-safetynet",
       bullets: [
-        "De facto backend lead for SafetyNet, a cross-platform React Native app on Node.js/Express and PostgreSQL: authored most of the merged pull requests on a ~15-contributor team, building authentication, real-time messaging over Socket.IO, and location-aware discovery.",
-        "Hardened the PostgreSQL layer with transactional multi-step writes, atomic upserts, and query-plan-driven index fixes, verified with before/after EXPLAIN.",
-        "Raised release confidence with hundreds of backend integration tests on a real PostgreSQL database and required CI checks on every pull request, including a migration-safety guard.",
+        "De facto backend lead for SafetyNet, a cross-platform React Native app on Node.js/Express and PostgreSQL: authored 67 of 119 merged pull requests (422 commits) on a ~15-contributor team, building authentication, real-time messaging over Socket.IO, and location-aware discovery.",
+        "Hardened the PostgreSQL layer (13 tables, 24 migrations) with transactional multi-step writes, atomic upserts, and query-plan-driven index fixes, verified with before/after EXPLAIN.",
+        "Raised release confidence with 453 backend integration tests on a real PostgreSQL database and 7 required CI checks on every pull request, including a migration-safety guard.",
         "Built the delivery pipeline: auto-deploy to an internal environment with health checks and automatic rollback, one-click promotion to production, and backups with a tested restore.",
       ],
     },
