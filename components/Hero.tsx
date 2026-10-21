@@ -82,7 +82,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 bg-accent text-bg font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide overflow-hidden transition-all hover:bg-accent-light"
+              className="group relative inline-flex items-center gap-2 bg-accent text-bg font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide overflow-hidden transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97] hover:bg-accent-light"
             >
               <span className="relative z-10">Get in touch</span>
               <Mail size={15} className="relative z-10" />
@@ -90,7 +90,7 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
             >
               View work
             </a>
@@ -99,7 +99,7 @@ export default function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
             >
               Resume
               <Download size={15} />
@@ -110,7 +110,7 @@ export default function Hero() {
                 href={resume.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent/50 transition-all"
+                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent/50 transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={16} />
@@ -119,7 +119,7 @@ export default function Hero() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-secondary hover:border-secondary/50 transition-all"
+                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-secondary hover:border-secondary/50 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
