@@ -15,7 +15,7 @@ export default function About() {
         <AnimatedSection>
           <div className="max-w-3xl space-y-5">
             {resume.about.map((paragraph, i) => (
-              <p key={i} className="text-text-muted leading-relaxed text-base sm:text-lg">
+              <p key={i} className="text-text-muted leading-relaxed text-base sm:text-lg/7">
                 {paragraph}
               </p>
             ))}

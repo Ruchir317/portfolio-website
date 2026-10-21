@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
+import { Mail, MapPin, Download } from "lucide-react";
+import { Github, Linkedin } from "./BrandIcons";
 import { resume } from "@/data/resume";
 
 // Headline proof for the hero: the metric these projects already show on their cards.
@@ -37,7 +38,7 @@ export default function Hero() {
           </div>
 
           {/* Name */}
-          <h1 style={{ animationDelay: "0.06s" }} className="hero-rise font-display font-extrabold text-[length:clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl md:text-8xl lg:text-[6.5rem] leading-[0.9] tracking-tight mb-6">
+          <h1 style={{ animationDelay: "0.06s" }} className="hero-rise font-display font-extrabold text-[clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl/none md:text-8xl/none lg:text-[6.5rem]/none leading-[0.9] tracking-tight mb-6">
             <span className="gradient-text">Ruchir</span>
             <br />
             <span className="gradient-text">Jadhav</span>
@@ -55,7 +56,7 @@ export default function Hero() {
           {/* Sub headline */}
           <p
             style={{ animationDelay: "0.18s" }}
-            className="hero-rise text-text-muted text-lg sm:text-xl leading-relaxed max-w-2xl mb-12"
+            className="hero-rise text-text-muted text-lg sm:text-xl/7 leading-relaxed max-w-2xl mb-12"
           >
             I build backend and cloud systems: a Go backfill service for Amazon EKS Metrics, a Node.js and
             PostgreSQL backend for a React Native app, and research in multimodal ML.
@@ -68,7 +69,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 bg-accent text-bg font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide overflow-hidden transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97] hover:bg-accent-light"
+              className="group relative inline-flex items-center gap-2 bg-accent text-bg font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide overflow-hidden transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97] hover:bg-accent-light"
             >
               <span className="relative z-10">Get in touch</span>
               <Mail size={15} className="relative z-10" />
@@ -76,7 +77,7 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
             >
               View work
             </a>
@@ -85,7 +86,7 @@ export default function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
             >
               Resume
               <Download size={15} />
@@ -96,7 +97,7 @@ export default function Hero() {
                 href={resume.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent/50 transition-colors"
+                className="w-9 h-9 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-accent hover:border-accent/50 transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={16} />
@@ -105,7 +106,7 @@ export default function Hero() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-secondary hover:border-secondary/50 transition-colors"
+                className="w-9 h-9 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-secondary hover:border-secondary/50 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
@@ -133,7 +134,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className="hidden xl:block card-glow border border-border bg-surface/60 backdrop-blur-sm rounded-sm font-mono text-xs"
+          className="hidden xl:block card-glow border border-border bg-surface/60 backdrop-blur-xs rounded-xs font-mono text-xs"
         >
           <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
             <span className="w-2.5 h-2.5 rounded-full bg-border" />

@@ -3,7 +3,7 @@ import { palette } from "@/lib/palette";
 
 export const ogSize = { width: 1200, height: 630 };
 
-// Share card for detail pages. Palette matches tailwind.config.ts (see CLAUDE.md).
+// Share card for detail pages. Palette matches lib/colors.json (see CLAUDE.md).
 export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: string; footer?: string }) {
   return new ImageResponse(
     (

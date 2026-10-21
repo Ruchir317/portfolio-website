@@ -5,7 +5,8 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github } from "./BrandIcons";
 
 // detailSlugs comes from the server page so the long-form detail text stays out of the client bundle.
 export default function Projects({
@@ -32,7 +33,7 @@ export default function Projects({
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-sm p-6 transition-colors duration-300"
+                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-xs p-6 transition-colors duration-300"
               >
                 {/* Header */}
                 <div className="mb-4">

@@ -26,7 +26,7 @@ export default function Writing() {
             <AnimatedSection key={post.slug} delay={i * 0.07}>
               <Link
                 href={`/writing/${post.slug}`}
-                className="card-glow group flex h-full flex-col border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-sm p-6 transition-colors duration-300"
+                className="card-glow group flex h-full flex-col border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-6 transition-colors duration-300"
               >
                 <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">
                   {formatDate(post.date)} · {post.metadata.readingTime} min read

@@ -15,7 +15,7 @@ export const themes: Record<ThemeName, ThemeColors> = { dark: colors.dark, light
 const moreContrast = colors.moreContrast as Partial<Record<keyof ThemeColors, keyof ThemeColors>>;
 export const palette = themes.dark;
 
-// Colour names as used by Tailwind (kebab-case) and as CSS variables (--color-<name>).
+// Colour names as used by Tailwind (kebab-case) and as CSS variables (--rgb-<name>).
 export const colorNames = {
   bg: "bg",
   surface: "surface",
@@ -38,19 +38,19 @@ function channels(hex: string): string {
 
 function block(theme: ThemeName): string {
   const vars = (Object.keys(colorNames) as (keyof typeof colorNames)[])
-    .map((key) => `--color-${colorNames[key]}:${channels(themes[theme][key])};`)
+    .map((key) => `--rgb-${colorNames[key]}:${channels(themes[theme][key])};`)
     .join("");
   // Elevation: dark surfaces get a faint top highlight; light surfaces get a soft shadow.
   const elevation =
     theme === "dark"
-      ? "--elev:inset 0 1px 0 0 rgb(var(--color-text-primary) / .04);--elev-hover:inset 0 1px 0 0 rgb(var(--color-text-primary) / .07),0 16px 40px -16px rgb(var(--color-accent) / .25);"
-      : "--elev:0 1px 2px 0 rgb(var(--color-text-primary) / .07);--elev-hover:0 1px 2px 0 rgb(var(--color-text-primary) / .07),0 14px 34px -16px rgb(var(--color-accent) / .35);";
+      ? "--elev:inset 0 1px 0 0 rgb(var(--rgb-text-primary) / .04);--elev-hover:inset 0 1px 0 0 rgb(var(--rgb-text-primary) / .07),0 16px 40px -16px rgb(var(--rgb-accent) / .25);"
+      : "--elev:0 1px 2px 0 rgb(var(--rgb-text-primary) / .07);--elev-hover:0 1px 2px 0 rgb(var(--rgb-text-primary) / .07),0 14px 34px -16px rgb(var(--rgb-accent) / .35);";
   return `${vars}${elevation}color-scheme:${theme};`;
 }
 
 function moreBlock(theme: ThemeName): string {
   return (Object.keys(moreContrast) as (keyof ThemeColors)[])
-    .map((role) => `--color-${colorNames[role]}:${channels(themes[theme][moreContrast[role]!])};`)
+    .map((role) => `--rgb-${colorNames[role]}:${channels(themes[theme][moreContrast[role]!])};`)
     .join("");
 }
 

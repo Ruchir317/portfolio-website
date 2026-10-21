@@ -85,7 +85,7 @@ export default async function ExperienceDetailPage({
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div>
           <ViewTransition name={`experience-${slug}`}>
-            <h1 className="font-display font-extrabold text-3xl sm:text-5xl break-words hyphens-auto text-text-primary leading-tight mb-3">
+            <h1 className="font-display font-extrabold text-3xl sm:text-5xl/none wrap-break-word hyphens-auto text-text-primary leading-tight mb-3">
               {job.role}
             </h1>
           </ViewTransition>
@@ -124,7 +124,7 @@ export default async function ExperienceDetailPage({
                 {section.body.map((para, j) => (
                   <p
                     key={j}
-                    className="text-text-muted text-sm sm:text-base leading-relaxed"
+                    className="text-text-muted text-sm sm:text-base/6 leading-relaxed"
                   >
                     {para}
                   </p>
@@ -138,7 +138,7 @@ export default async function ExperienceDetailPage({
           <div className="mt-20 text-center">
             <Link
               href="/#experience"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-sm text-sm tracking-wide transition-all"
+              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-all"
             >
               <ArrowLeft size={15} />
               Back to all experience
