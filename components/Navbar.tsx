@@ -102,17 +102,21 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
         >
+          {/* Line pitch is 1px + the 6px gap = 7px, so the outer lines move 7px to meet in the middle. */}
           <motion.span
-            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-px bg-text-primary origin-center transition-all"
+            animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
+            className="block w-5 h-px bg-text-primary origin-center"
           />
           <motion.span
             animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
             className="block w-5 h-px bg-text-primary"
           />
           <motion.span
-            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-px bg-text-primary origin-center transition-all"
+            animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
+            className="block w-5 h-px bg-text-primary origin-center"
           />
         </button>
         </div>
@@ -123,9 +127,10 @@ export default function Navbar() {
         id="mobile-menu"
         inert={!menuOpen}
         initial={false}
-        animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-        className="overflow-hidden lg:hidden border-t border-border bg-bg/95 backdrop-blur-md"
+        animate={menuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
+        transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+        style={{ pointerEvents: menuOpen ? "auto" : "none" }}
+        className="absolute left-0 right-0 top-full lg:hidden border-t border-border bg-bg/95 backdrop-blur-md"
       >
         <div className="px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
