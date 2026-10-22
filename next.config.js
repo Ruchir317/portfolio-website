@@ -16,10 +16,12 @@ const nextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          // Report-only: the browser logs violations but blocks nothing. The inline theme script, theme style and
-          // JSON-LD need 'unsafe-inline' on a static site; enforce this only after every route shows no violations.
+          // Enforced. The inline theme script, theme style and JSON-LD need 'unsafe-inline' on a static site, so this
+          // does not stop injected inline script; it blocks other origins, plugins, framing and form posts elsewhere.
+          // blob: in object-src lets the resume PDF open in its own tab (lib/resume.ts). If a page breaks, switch this
+          // key back to Content-Security-Policy-Report-Only and read the console messages.
           {
-            key: "Content-Security-Policy-Report-Only",
+            key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
@@ -27,7 +29,7 @@ const nextConfig = {
               "img-src 'self' data:",
               "connect-src 'self' https://vitals.vercel-insights.com",
               "font-src 'self'",
-              "object-src 'none'",
+              "object-src 'self' blob:",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'none'",
