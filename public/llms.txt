@@ -4,7 +4,6 @@
 
 ## Pages
 - [Home](https://ruchirjadhav.dev/): overview, experience, projects, skills, education
-- [Writing](https://ruchirjadhav.dev/writing): posts on how I build things
 
 ## Experience
 - [Software Development Engineer, Easley Dunn Productions](https://ruchirjadhav.dev/experience/easley-dunn-safetynet): backend for SafetyNet, a cross-platform React Native app (Node.js, Express, PostgreSQL, Socket.IO)
@@ -18,16 +17,6 @@
 - [CARLA cooperative V2X intersection](https://ruchirjadhav.dev/projects/carla-v2x-intersection)
 - [Travel recommendation and route optimizer](https://ruchirjadhav.dev/projects/travel-route-optimizer): published at IEEE ICAST 2022
 - Sign Language Detection: real-time gesture recognition with TensorFlow and OpenCV (no detail page)
-
-## Writing
-- [Summarising pages four times faster by deleting the subprocesses](https://ruchirjadhav.dev/writing/summarising-pages-four-times-faster): replacing a subprocess per article with a plain request timeout gave the same summaries in a quarter of the time
-- [Two ways a traffic controller can strand a car](https://ruchirjadhav.dev/writing/two-ways-a-traffic-controller-strands-a-car): two bugs in a reservation-based intersection controller, and the tests that caught them
-- [Benchmarking a fact-checker on speech, not text](https://ruchirjadhav.dev/writing/benchmarking-a-fact-checker-on-speech): a 400-claim benchmark that exercises speech recognition and separates retrieval from memorization
-- [Choosing an optimizer when routes must be computed on demand](https://ruchirjadhav.dev/writing/choosing-an-optimizer-under-a-time-budget): why Tabu Search beat Simulated Annealing in the published travel route optimizer
-- [Coordination beats speed at an intersection](https://ruchirjadhav.dev/writing/coordination-beats-speed-at-an-intersection): a reservation protocol in the CARLA simulator cleared the queue faster than a traffic light, even at half speed
-- [What a materialized view needs inside DuckDB](https://ruchirjadhav.dev/writing/what-a-materialized-view-needs-inside-duckdb): the parser, planner and executor changes needed to add materialized views
-- [How this site is built](https://ruchirjadhav.dev/writing/how-this-site-is-built): the stack, the choices behind it, and the quality gates every push has to pass
-- [Offloading bulk reading to Gemini from Claude Code](https://ruchirjadhav.dev/writing/offloading-reading-to-gemini): a small Node tool that hands long reads to Gemini, and the checks around its answers
 
 ## Elsewhere
 - [GitHub](https://github.com/Ruchir317)

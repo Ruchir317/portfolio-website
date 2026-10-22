@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/data/site";
+import { SITE_URL, WRITING_ENABLED } from "@/data/site";
 import { allPosts } from "@/data/posts";
 
 export const dynamic = "force-static";
@@ -7,6 +7,7 @@ const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 export function GET() {
+  if (!WRITING_ENABLED) return new Response("Not found", { status: 404 });
   const items = allPosts
     .map(
       (p) => `    <item>

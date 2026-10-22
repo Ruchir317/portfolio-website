@@ -4,6 +4,7 @@ import { motion, useScroll } from "motion/react";
 import { useState, useEffect } from "react";
 import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
 import ThemeToggle from "@/components/ThemeToggle";
+import { WRITING_ENABLED } from "@/data/site";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -11,7 +12,7 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
-  { label: "Writing", href: "/writing" },
+  ...(WRITING_ENABLED ? [{ label: "Writing", href: "/writing" }] : []),
   { label: "Contact", href: "#contact" },
 ];
 

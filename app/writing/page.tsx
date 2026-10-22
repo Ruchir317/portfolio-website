@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { allPosts, formatDate } from "@/data/posts";
 import AnimatedSection from "@/components/AnimatedSection";
+import { WRITING_ENABLED } from "@/data/site";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+const writingMetadata: Metadata = {
   title: "Writing — Ruchir Jadhav",
   description: "Notes on how I build things.",
   alternates: { canonical: "/writing" },
@@ -17,7 +19,13 @@ export const metadata: Metadata = {
   },
 };
 
+// No metadata while the blog is off, so the 404 page keeps the site's own 404 title.
+export function generateMetadata(): Metadata {
+  return WRITING_ENABLED ? writingMetadata : {};
+}
+
 export default function WritingPage() {
+  if (!WRITING_ENABLED) notFound();
   return (
     <main id="main" className="min-h-screen">
       <header className="border-b border-border">
