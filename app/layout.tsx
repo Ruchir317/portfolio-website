@@ -15,6 +15,9 @@ const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
   weight: ["600", "700", "800"],
+  // The hero name is set in Syne; with the default `swap` it first paints in a narrower fallback and then jumps
+  // when Syne loads. `block` holds the text for the short time the (preloaded) font needs, so nothing moves.
+  display: "block",
 });
 
 const outfit = Outfit({
