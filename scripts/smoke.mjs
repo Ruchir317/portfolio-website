@@ -54,6 +54,11 @@ if (writingOn) {
 check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
 check("home has the theme toggle", home.includes("theme-toggle"));
 
+// The Content-Security-Policy is enforced (not report-only) and no X-Powered-By is sent.
+const homeHeaders = (await fetch(BASE + "/")).headers;
+check("home sends an enforced Content-Security-Policy", !!homeHeaders.get("content-security-policy") && !homeHeaders.get("content-security-policy-report-only"));
+check("home sends no X-Powered-By", !homeHeaders.get("x-powered-by"));
+
 // The resume PDF is private: /api/resume serves it after a BotID check (that needs Vercel, so it is checked by
 // hand on a deployment). Here, check that the old /resume.pdf link goes to the /resume page and that page is noindex.
 const resumeOld = await fetch(BASE + "/resume.pdf", { redirect: "manual" });
