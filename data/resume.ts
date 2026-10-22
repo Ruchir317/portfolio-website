@@ -187,7 +187,6 @@ export const resume = {
       degree: "Master of Science in Computer Science",
       dates: "Jun 2024 – Dec 2025",
       location: "Los Angeles, CA",
-      gpa: "3.38",
       coursework: [
         "Analysis of Algorithms",
         "Machine Learning for Data Science",
@@ -202,8 +201,6 @@ export const resume = {
       degree: "Bachelor of Technology in Computer Engineering",
       dates: "Jul 2019 – Apr 2023",
       location: "Mumbai, India",
-      gpa: "9.03",
-      gpaScale: "10",
     },
   ],
 };

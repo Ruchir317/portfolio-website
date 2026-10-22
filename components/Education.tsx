@@ -34,15 +34,6 @@ export default function Education() {
                 <p className="font-mono text-xs text-accent mb-1">{edu.degree}</p>
                 <p className="font-mono text-[10px] text-text-muted mb-4">{edu.location}</p>
 
-                {/* GPA */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">GPA</span>
-                  <span className="font-display font-bold text-lg text-text-primary">{edu.gpa}</span>
-                  {"gpaScale" in edu && (
-                    <span className="tag-chip bg-tertiary/10 text-tertiary border border-tertiary/20">/ {edu.gpaScale}</span>
-                  )}
-                </div>
-
                 {/* Coursework */}
                 {"coursework" in edu && edu.coursework && (
                   <div className="mt-auto pt-4 border-t border-border">
