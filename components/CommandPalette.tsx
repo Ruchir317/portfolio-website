@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { resume } from "@/data/resume";
 import { allPosts } from "@/data/posts";
 import { toggleTheme } from "@/lib/theme";
+import { openResume } from "@/lib/resume";
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
 
@@ -15,7 +16,7 @@ interface Item {
   hint?: string;
   href: string;
   external?: boolean;
-  action?: "theme";
+  action?: "theme" | "resume";
 }
 
 const sections = ["About", "Experience", "Projects", "Skills", "Education", "Contact"];
@@ -44,7 +45,7 @@ const items: Item[] = [
     href: `/writing/${post.slug}`,
   })),
   { id: "a-theme", group: "Links", label: "Switch light / dark theme", href: "#", action: "theme" },
-  { id: "l-resume", group: "Links", label: "Resume (PDF)", href: "/resume.pdf", external: true },
+  { id: "l-resume", group: "Links", label: "Resume (PDF)", href: "/resume", action: "resume" },
   { id: "l-github", group: "Links", label: "GitHub", href: resume.links.github, external: true },
   { id: "l-scholar", group: "Links", label: "Google Scholar", href: resume.links.scholar, external: true },
   { id: "l-linkedin", group: "Links", label: "LinkedIn", href: resume.links.linkedin, external: true },
@@ -103,6 +104,7 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
     if (!item) return;
     close();
     if (item.action === "theme") return toggleTheme();
+    if (item.action === "resume") return void openResume();
     if (item.external) window.open(item.href, item.href.startsWith("mailto:") ? "_self" : "_blank", "noopener");
     else router.push(item.href);
   };

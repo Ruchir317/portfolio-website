@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Mail, MapPin, Download } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
+import ResumeButton from "./ResumeButton";
 import { resume } from "@/data/resume";
 
 // Headline proof for the hero: the metric these projects already show on their cards.
@@ -82,15 +83,10 @@ export default function Hero() {
               View work
             </a>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
-            >
+            <ResumeButton className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]">
               Resume
               <Download size={15} />
-            </a>
+            </ResumeButton>
 
             <div className="flex items-center gap-3 ml-2">
               <a
