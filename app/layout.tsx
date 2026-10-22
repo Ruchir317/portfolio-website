@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Syne, Outfit, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SITE_URL } from "@/data/site";
+import { SITE_URL, WRITING_ENABLED } from "@/data/site";
 import MotionProvider from "@/components/MotionProvider";
 import { themes, themeCss } from "@/lib/palette";
 import { themeInitScript } from "@/lib/theme";
@@ -38,7 +38,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  alternates: { types: { "application/rss+xml": "/feed.xml" } },
+  ...(WRITING_ENABLED ? { alternates: { types: { "application/rss+xml": "/feed.xml" } } } : {}),
   metadataBase: new URL(SITE_URL),
   title: "Ruchir Jadhav — Software Engineer",
   description:
