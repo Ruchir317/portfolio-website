@@ -36,7 +36,7 @@ export default function Education() {
 
                 {/* Coursework */}
                 {"coursework" in edu && edu.coursework && (
-                  <div className="mt-auto pt-4 border-t border-border">
+                  <div className="pt-4 border-t border-border">
                     <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">
                       Coursework
                     </p>
