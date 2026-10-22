@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  // The resume PDF is not in git. It lives in a public Vercel Blob store; /resume.pdf serves it under this site's own URL.
-  // To update it, upload a new file named resume.pdf to the store (overwriting); it shows within the cache time (1 hour).
-  async rewrites() {
-    return [
-      {
-        source: "/resume.pdf",
-        destination: "https://x7ac48jtg95zmn4d.public.blob.vercel-storage.com/resume.pdf",
-      },
-    ];
+  // The resume PDF is not in git and has no public URL: it lives in a private Vercel Blob store and is served by
+  // app/api/resume after a BotID check. Old links to /resume.pdf land on the /resume page, which has the button.
+  // To update the resume, upload a new resume.pdf to the store (overwrite); it is served fresh, never cached.
+  async redirects() {
+    return [{ source: "/resume.pdf", destination: "/resume", permanent: false }];
   },
   async headers() {
     return [

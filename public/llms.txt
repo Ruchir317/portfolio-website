@@ -5,7 +5,6 @@
 ## Pages
 - [Home](https://ruchirjadhav.dev/): overview, experience, projects, skills, education
 - [Writing](https://ruchirjadhav.dev/writing): posts on how I build things
-- [Resume (PDF)](https://ruchirjadhav.dev/resume.pdf)
 
 ## Experience
 - [Software Development Engineer, Easley Dunn Productions](https://ruchirjadhav.dev/experience/easley-dunn-safetynet): backend for SafetyNet, a cross-platform React Native app (Node.js, Express, PostgreSQL, Socket.IO)

@@ -45,15 +45,17 @@ check("feed has items", pages["/feed.xml"].includes("<item>"));
 check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
 check("home has the theme toggle", home.includes("theme-toggle"));
 
-// /resume.pdf is rewritten to a public Blob store, so check the body itself (a real PDF), not a Content-Length header.
-const resume = await fetch(BASE + "/resume.pdf");
-const resumeBytes = new Uint8Array(await resume.arrayBuffer());
+// The resume PDF is private: /api/resume serves it after a BotID check (that needs Vercel, so it is checked by
+// hand on a deployment). Here, check that the old /resume.pdf link goes to the /resume page and that page is noindex.
+const resumeOld = await fetch(BASE + "/resume.pdf", { redirect: "manual" });
 check(
-  "/resume.pdf is served as a PDF",
-  resume.status === 200 &&
-    (resume.headers.get("content-type") || "").includes("application/pdf") &&
-    resumeBytes.length > 50000 &&
-    String.fromCharCode(...resumeBytes.slice(0, 5)) === "%PDF-"
+  "/resume.pdf redirects to the /resume page",
+  [307, 308].includes(resumeOld.status) && (resumeOld.headers.get("location") || "").endsWith("/resume")
+);
+const resumePage = await (await fetch(BASE + "/resume")).text();
+check(
+  "/resume page has the open-resume button and is noindex",
+  resumePage.includes("Open resume (PDF)") && /name="robots" content="noindex/.test(resumePage)
 );
 
 const notFound = await fetch(BASE + "/this-page-does-not-exist");
