@@ -1,8 +1,16 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
 import { lastUpdated } from "@/data/lastUpdated";
+import { AVAILABILITY } from "@/data/site";
 import { GraduationCap, Mail } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
+
+const links = [
+  { label: "Email", text: resume.contact.email, href: `mailto:${resume.contact.email}`, Icon: Mail, external: false },
+  { label: "GitHub", text: "github.com/Ruchir317", href: resume.links.github, Icon: Github, external: true },
+  { label: "LinkedIn", text: "linkedin.com/in/ruchirjadhav", href: resume.links.linkedin, Icon: Linkedin, external: true },
+  { label: "Google Scholar", text: "Published research", href: resume.links.scholar, Icon: GraduationCap, external: true },
+];
 
 export default function Contact() {
   return (
@@ -21,7 +29,7 @@ export default function Contact() {
           {/* Left */}
           <AnimatedSection>
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl/none text-text-primary leading-tight mb-6">
-              Open to graduate SWE roles.
+              {AVAILABILITY.headline}
             </h2>
             <p className="text-text-muted text-base leading-relaxed max-w-md">
               Cloud, backend, distributed systems and AI/ML. Email is the fastest way to reach me.
@@ -31,67 +39,23 @@ export default function Contact() {
           {/* Right: contact cards */}
           <AnimatedSection delay={0.15}>
             <div className="space-y-3">
-              <a
-                href={`mailto:${resume.contact.email}`}
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Mail size={16} className="text-accent" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Email</p>
-                  <p className="text-text-primary text-sm">{resume.contact.email}</p>
-                </div>
-                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
-              </a>
-
-              <a
-                href={resume.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Github size={16} className="text-text-muted group-hover:text-accent transition-colors" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">GitHub</p>
-                  <p className="text-text-primary text-sm">github.com/Ruchir317</p>
-                </div>
-                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
-              </a>
-
-              <a
-                href={resume.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
-                  <Linkedin size={16} className="text-text-muted group-hover:text-accent transition-colors" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">LinkedIn</p>
-                  <p className="text-text-primary text-sm">linkedin.com/in/ruchirjadhav</p>
-                </div>
-                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
-              </a>
-
-              <a
-                href={resume.links.scholar}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
-                  <GraduationCap size={16} className="text-text-muted group-hover:text-accent transition-colors" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">Google Scholar</p>
-                  <p className="text-text-primary text-sm">Published research</p>
-                </div>
-                <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
-              </a>
+              {links.map(({ label, text, href, Icon, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="card-glow group flex items-center gap-4 border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-5 transition-all duration-200"
+                >
+                  <div className="w-10 h-10 rounded-xs border border-border group-hover:border-accent/40 flex items-center justify-center shrink-0 transition-colors">
+                    <Icon size={16} className={external ? "text-text-muted group-hover:text-accent transition-colors" : "text-accent"} />
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">{label}</p>
+                    <p className="text-text-primary text-sm">{text}</p>
+                  </div>
+                  <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
+                </a>
+              ))}
             </div>
           </AnimatedSection>
         </div>

@@ -22,6 +22,9 @@ const personJsonLd = {
   name: resume.name,
   url: SITE_URL,
   jobTitle: "Software Engineer",
+  worksFor: { "@type": "Organization", name: resume.experience[0].company },
+  alumniOf: { "@type": "CollegeOrUniversity", name: resume.education[0].school },
+  knowsAbout: ["Cloud systems", "Backend engineering", "Distributed systems", "Machine learning"],
   sameAs: [resume.links.github, resume.links.linkedin, resume.links.scholar],
 };
 
