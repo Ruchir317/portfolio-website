@@ -7,7 +7,12 @@
         "http://localhost:3100/projects/factual?theme=light",
         "http://localhost:3100/projects/factual?theme=dark",
         "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=light",
-        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=dark"
+        "http://localhost:3100/experience/aws-eks-metrics-backfill?theme=dark",
+        "http://localhost:3100/projects/multimodal-emotion-detection?theme=dark",
+        "http://localhost:3100/projects/duckdb-materialized-views?theme=dark",
+        "http://localhost:3100/projects/carla-v2x-intersection?theme=dark",
+        "http://localhost:3100/projects/travel-route-optimizer?theme=dark",
+        "http://localhost:3100/experience/easley-dunn-safetynet?theme=dark"
       ],
       "numberOfRuns": 1,
       "settings": {

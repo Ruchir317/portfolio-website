@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Weekly, with minor and patch updates in one pull request. Majors arrive one at a time.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # TypeScript 7 stays held until typescript-eslint supports it (it allows <6.1 today).
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+  # Keeps the SHA-pinned actions in the workflows current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

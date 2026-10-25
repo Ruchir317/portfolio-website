@@ -1,0 +1,29 @@
+name: Links
+
+# Weekly check that the links on the live site still work, so a dead paper or repo link is found before a visitor does.
+on:
+  schedule:
+    - cron: "17 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # LinkedIn answers scripts with 999, so it cannot be checked; 429 means the site is rate limiting us.
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress --accept 200,202,206,429 --exclude 'linkedin\.com' --exclude '^mailto:'
+            https://ruchirjadhav.dev/
+            https://ruchirjadhav.dev/projects/factual
+            https://ruchirjadhav.dev/projects/multimodal-emotion-detection
+            https://ruchirjadhav.dev/projects/duckdb-materialized-views
+            https://ruchirjadhav.dev/projects/carla-v2x-intersection
+            https://ruchirjadhav.dev/projects/travel-route-optimizer
+            https://ruchirjadhav.dev/experience/aws-eks-metrics-backfill
+            https://ruchirjadhav.dev/experience/easley-dunn-safetynet
+          fail: true
