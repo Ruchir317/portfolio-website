@@ -65,7 +65,7 @@ export default function Navbar() {
       />
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" aria-label="Back to top" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
+        <a href="#" aria-label="RJ, back to top" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
           RJ<span className="text-accent">.</span>
         </a>
 
@@ -85,7 +85,7 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
-            aria-label="Open command palette"
+            aria-label="⌘K, open command palette"
             className="font-mono text-[10px] tracking-widest text-text-muted hover:text-accent border border-border rounded-xs px-2 py-1 transition-colors"
           >
             ⌘K

@@ -5,6 +5,7 @@ import { Mail, MapPin, Download } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 import ResumeButton from "./ResumeButton";
 import { resume } from "@/data/resume";
+import { AVAILABILITY } from "@/data/site";
 
 // Headline proof for the hero: the metric these projects already show on their cards.
 const proofSlugs = ["factual", "duckdb-materialized-views", "carla-v2x-intersection"];
@@ -149,7 +150,7 @@ export default function Hero() {
               <dt className="text-accent">$ status</dt>
               <dd className="pl-3 flex items-center gap-2 text-text-primary">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                available immediately
+                {AVAILABILITY.status}
               </dd>
             </div>
           </dl>
