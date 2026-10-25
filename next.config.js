@@ -18,8 +18,7 @@ const nextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           // Enforced. The inline theme script, theme style and JSON-LD need 'unsafe-inline' on a static site, so this
           // does not stop injected inline script; it blocks other origins, plugins, framing and form posts elsewhere.
-          // blob: in object-src lets the resume PDF open in its own tab (lib/resume.ts). If a page breaks, switch this
-          // key back to Content-Security-Policy-Report-Only and read the console messages.
+          // If a page breaks, switch this key back to Content-Security-Policy-Report-Only and read the console messages.
           {
             key: "Content-Security-Policy",
             value: [
@@ -29,7 +28,7 @@ const nextConfig = {
               "img-src 'self' data:",
               "connect-src 'self' https://vitals.vercel-insights.com",
               "font-src 'self'",
-              "object-src 'self' blob:",
+              "object-src 'self'",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'none'",
