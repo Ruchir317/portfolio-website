@@ -13,11 +13,11 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      # LinkedIn answers scripts with 999, so it cannot be checked; 429 means the site is rate limiting us.
+      # LinkedIn answers scripts with 999 and Google Scholar with 403, so they cannot be checked; 429 means the site is rate limiting us.
       - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
-            --no-progress --accept 200,202,206,429 --exclude 'linkedin\.com' --exclude '^mailto:'
+            --no-progress --accept 200,202,206,429 --exclude 'linkedin\.com' --exclude 'scholar\.google\.com' --exclude '^mailto:'
             https://ruchirjadhav.dev/
             https://ruchirjadhav.dev/projects/factual
             https://ruchirjadhav.dev/projects/multimodal-emotion-detection
