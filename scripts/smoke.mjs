@@ -53,6 +53,7 @@ if (writingOn) {
 
 check("home ships both theme palettes", home.includes(":root[data-theme=\"light\"]") && home.includes("prefers-contrast"));
 check("home has the theme toggle", home.includes("theme-toggle"));
+check("home has a canonical link to the bare address", /<link rel="canonical" href="https:\/\/ruchirjadhav\.dev\/?"/.test(home));
 
 // The Content-Security-Policy is enforced (not report-only) and no X-Powered-By is sent.
 const homeHeaders = (await fetch(BASE + "/")).headers;
