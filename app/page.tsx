@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -11,6 +12,9 @@ import JsonLd from "@/components/JsonLd";
 import { projectDetails } from "@/data/projectDetails";
 import { resume } from "@/data/resume";
 import { SITE_URL } from "@/data/site";
+
+// Without this the home page has no canonical tag and Google chose the www address as the main one.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const personJsonLd = {
   "@context": "https://schema.org",
