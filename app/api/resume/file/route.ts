@@ -2,7 +2,7 @@ import { get } from "@vercel/blob";
 import { isValidLink } from "@/lib/resumeLink";
 
 // Serves the PDF to a link made by POST /api/resume. The signed link replaces a second BotID check: only a
-// request that passed BotID gets one, and it stops working after a minute.
+// request that passed BotID gets one, and it stops working after 30 minutes.
 export async function GET(request: Request) {
   const secret = process.env.BLOB_READ_WRITE_TOKEN;
   if (!secret) {

@@ -1,6 +1,6 @@
 export type ResumeResult = "opened" | "blocked" | "failed";
 
-// Asks the BotID-protected route for a one-minute link to the PDF and opens it in a new tab. The tab is opened
+// Asks the BotID-protected route for a 30-minute link to the PDF and opens it in a new tab. The tab is opened
 // inside the click (before the fetch) so popup blockers allow it; it is pointed at the link once that arrives.
 // The link is a normal URL, not a blob:, so saving the file from the viewer keeps its proper name. A plain link
 // straight to the file cannot work: BotID only recognises requests made by this site's JavaScript.

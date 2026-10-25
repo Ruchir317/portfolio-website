@@ -2,7 +2,7 @@ import { checkBotId } from "botid/server";
 import { makeLink } from "@/lib/resumeLink";
 
 // The resume PDF lives in a private Vercel Blob store (never in git, no public URL). This route runs the BotID
-// check, which only the page's own JavaScript can pass, and answers with a link that works for one minute
+// check, which only the page's own JavaScript can pass, and answers with a link that works for 30 minutes
 // (see /api/resume/file). In local development checkBotId() always says "human", but the Blob token is not set,
 // so this answers 502 unless the env vars are pulled.
 export async function POST() {

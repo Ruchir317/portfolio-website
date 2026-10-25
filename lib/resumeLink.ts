@@ -1,8 +1,9 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-// After the BotID check passes, /api/resume hands out a link to the PDF that works for this long. The link is a
-// real URL (not a blob:), so the browser saves the file under the name the server sends.
-export const LINK_TTL_MS = 60_000;
+// After the BotID check passes, /api/resume hands out a link to the PDF that works for this long. It is long
+// enough to save the file from the viewer, which may fetch it again. The link is a real URL (not a blob:), so the
+// browser saves the file under the name the server sends.
+export const LINK_TTL_MS = 30 * 60_000;
 
 const sign = (secret: string, exp: number) =>
   createHmac("sha256", `resume-link:${secret}`).update(String(exp)).digest("hex");
