@@ -1,31 +1,29 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
 
+// One hue for every chip: colour here carries no meaning, and amber is reserved for status.
+const chipColor = "text-accent bg-accent/10 border-accent/20";
+
 const categories = [
   {
     label: "Languages",
     key: "languages" as const,
-    color: "text-accent bg-accent/10 border-accent/20",
   },
   {
     label: "Frameworks & Libraries",
     key: "frameworks_libraries" as const,
-    color: "text-secondary bg-secondary/10 border-secondary/20",
   },
   {
     label: "Databases",
     key: "databases" as const,
-    color: "text-tertiary bg-tertiary/10 border-tertiary/20",
   },
   {
     label: "Tools, Cloud & DevOps",
     key: "tools_cloud_devops" as const,
-    color: "text-accent-light bg-accent-light/10 border-accent-light/20",
   },
   {
     label: "Backend, Security & Infra",
     key: "backend_security_infra" as const,
-    color: "text-accent bg-accent/10 border-accent/20",
   },
 ];
 
@@ -49,12 +47,12 @@ export default function Skills() {
               className={categories.length % 2 === 1 && i === categories.length - 1 ? "sm:col-span-2" : ""}
             >
               <div className="card-glow border border-border bg-surface/30 rounded-xs p-5 h-full hover:border-accent/20 hover:bg-raised transition-colors">
-                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-4">{cat.label}</p>
+                <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-4">{cat.label}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {resume.skills[cat.key].map((skill) => (
                     <span
                       key={skill}
-                      className={`tag-chip border ${cat.color} transition-all`}
+                      className={`tag-chip border ${chipColor} transition-all`}
                     >
                       {skill}
                     </span>

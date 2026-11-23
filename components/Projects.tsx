@@ -33,7 +33,7 @@ export default function Projects({
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 hover:bg-raised rounded-xs p-6 transition-colors duration-300"
+                className="card-glow group relative flex flex-col h-full bg-surface/40 border border-border hover:border-accent/40 has-[a:focus-visible]:border-accent/60 hover:bg-raised rounded-xs p-6 transition-colors duration-300"
               >
                 {/* Header */}
                 <div className="mb-4">
@@ -43,16 +43,16 @@ export default function Projects({
                     </h3>
                   </ViewTransition>
                   {publications[project.slug] && (
-                    <p className="mt-2 font-mono text-[10px] tracking-widest uppercase text-secondary">
+                    <p className="mt-2 font-mono text-xs tracking-widest uppercase text-secondary">
                       Published · {publications[project.slug]}
                     </p>
                   )}
                 </div>
 
                 {/* Headline metric */}
-                <div className="flex items-baseline gap-3 mb-5">
-                  <span className="font-display font-extrabold text-3xl text-accent">{project.metric.value}</span>
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-text-muted">{project.metric.label}</span>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-5">
+                  <span className="font-display font-extrabold text-3xl text-accent whitespace-nowrap">{project.metric.value}</span>
+                  <span className="font-mono text-xs tracking-widest uppercase text-text-muted">{project.metric.label}</span>
                 </div>
 
                 {/* Bullets: the full list lives on the detail page when there is one */}
@@ -83,7 +83,8 @@ export default function Projects({
                     {detailSlugs.includes(project.slug) && (
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
+                        aria-label={`View details: ${project.name}`}
+                        className="flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
                       >
                         View Details
                         <ArrowUpRight size={10} />
@@ -95,7 +96,7 @@ export default function Projects({
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative z-10 flex items-center gap-1.5 py-1.5 font-mono text-[10px] text-text-muted hover:text-accent tracking-wider uppercase transition-colors"
+                        className="relative z-10 flex items-center gap-1.5 min-h-11 font-mono text-xs text-text-muted hover:text-accent tracking-wider uppercase transition-colors"
                       >
                         <Github size={12} />
                         View Source

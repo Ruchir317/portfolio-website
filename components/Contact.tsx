@@ -1,8 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
 import { resume } from "@/data/resume";
-import { lastUpdated } from "@/data/lastUpdated";
 import { AVAILABILITY } from "@/data/site";
-import { GraduationCap, Mail } from "lucide-react";
+import { ArrowUpRight, GraduationCap, Mail } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 
 const links = [
@@ -18,13 +17,6 @@ export default function Contact() {
       {/* Large background accent */}
 
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection>
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="section-label">Contact</h2>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-        </AnimatedSection>
-
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <AnimatedSection>
@@ -50,32 +42,17 @@ export default function Contact() {
                     <Icon size={16} className={external ? "text-text-muted group-hover:text-accent transition-colors" : "text-accent"} />
                   </div>
                   <div>
-                    <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-0.5">{label}</p>
+                    <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-0.5">{label}</p>
                     <p className="text-text-primary text-sm">{text}</p>
                   </div>
-                  <span className="ml-auto text-text-faint group-hover:text-accent transition-colors">↗</span>
+                  {external && (
+                    <ArrowUpRight size={16} aria-hidden="true" className="ml-auto shrink-0 text-text-muted group-hover:text-accent transition-colors" />
+                  )}
                 </a>
               ))}
             </div>
           </AnimatedSection>
         </div>
-
-        {/* Footer */}
-        <AnimatedSection delay={0.2}>
-          <div className="mt-24 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="font-display font-bold text-text-muted text-sm">
-              Ruchir Jadhav<span className="text-accent">.</span>
-            </span>
-            <p className="font-mono text-[10px] text-text-muted tracking-wider text-center sm:text-right">
-              Built with Next.js · Tailwind · Motion
-              <span className="mx-2 text-text-faint">·</span>
-              Last updated{" "}
-              <time dateTime={lastUpdated.toISOString().slice(0, 10)}>
-                {lastUpdated.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })}
-              </time>
-            </p>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );

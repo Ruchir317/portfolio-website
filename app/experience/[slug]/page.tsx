@@ -1,9 +1,8 @@
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import ThemeToggle from "@/components/ThemeToggle";
+import SiteHeader from "@/components/SiteHeader";
+import DetailEnd from "@/components/DetailEnd";
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
 import { resume } from "@/data/resume";
 import { experienceDetails } from "@/data/experienceDetails";
 import JsonLd from "@/components/JsonLd";
@@ -48,6 +47,10 @@ export default async function ExperienceDetailPage({
     notFound();
   }
 
+  const slugs = Object.keys(experienceDetails);
+  const nextSlug = slugs[(slugs.indexOf(slug) + 1) % slugs.length];
+  const nextJob = resume.experience.find((e) => e.slug === nextSlug);
+
   return (
     <main id="main" className="min-h-screen">
       <JsonLd
@@ -61,26 +64,7 @@ export default async function ExperienceDetailPage({
           ],
         }}
       />
-      <header className="border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors"
-          >
-            RJ<span className="text-accent">.</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          <Link
-            href="/#experience"
-            className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to Experience
-          </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader backHref="/#experience" backLabel="Back to Experience" />
 
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div>
@@ -104,7 +88,7 @@ export default async function ExperienceDetailPage({
                 <div className="font-display font-bold text-2xl sm:text-3xl text-accent">
                   {stat.value}
                 </div>
-                <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-1">
+                <div className="font-mono text-xs text-text-muted tracking-widest uppercase mt-1">
                   {stat.label}
                 </div>
               </div>
@@ -120,7 +104,7 @@ export default async function ExperienceDetailPage({
               <h2 className="font-display font-bold text-xl text-text-primary mb-4">
                 {section.heading}
               </h2>
-              <div className="space-y-3">
+              <div className="space-y-3 max-w-[70ch]">
                 {section.body.map((para, j) => (
                   <p
                     key={j}
@@ -134,17 +118,11 @@ export default async function ExperienceDetailPage({
           ))}
         </div>
 
-        <AnimatedSection delay={0.15}>
-          <div className="mt-20 text-center">
-            <Link
-              href="/#experience"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-all"
-            >
-              <ArrowLeft size={15} />
-              Back to all experience
-            </Link>
-          </div>
-        </AnimatedSection>
+        <DetailEnd
+          next={nextJob && nextJob.slug !== slug ? { href: `/experience/${nextJob.slug}`, title: `${nextJob.role}, ${nextJob.company}`, noun: "role" } : undefined}
+          backHref="/#experience"
+          backLabel="Back to all experience"
+        />
       </div>
     </main>
   );

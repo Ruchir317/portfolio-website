@@ -1,9 +1,9 @@
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import ThemeToggle from "@/components/ThemeToggle";
+import SiteHeader from "@/components/SiteHeader";
+import DetailEnd from "@/components/DetailEnd";
 import type { Metadata } from "next";
-import { ArrowLeft, ExternalLink, FileText } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
 import { Github } from "@/components/BrandIcons";
 import { resume } from "@/data/resume";
 import { projectDetails } from "@/data/projectDetails";
@@ -53,6 +53,10 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
+  const slugs = Object.keys(projectDetails);
+  const nextSlug = slugs[(slugs.indexOf(slug) + 1) % slugs.length];
+  const nextProject = resume.projects.find((p) => p.slug === nextSlug);
+
   return (
     <main id="main" className="min-h-screen">
       <JsonLd
@@ -79,26 +83,7 @@ export default async function ProjectDetailPage({
           }}
         />
       )}
-      <header className="border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors"
-          >
-            RJ<span className="text-accent">.</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          <Link
-            href="/#projects"
-            className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-text-muted hover:text-accent transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to Projects
-          </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader backHref="/#projects" backLabel="Back to Projects" />
 
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div>
@@ -107,9 +92,12 @@ export default async function ProjectDetailPage({
               {project.name}
             </h1>
           </ViewTransition>
-          <p className="text-text-muted text-lg leading-relaxed max-w-2xl mb-8">
+          <p className="text-text-muted text-lg leading-relaxed max-w-2xl mb-6">
             {detail.summary}
           </p>
+          {detail.team && (
+            <p className="text-text-muted text-base leading-relaxed max-w-2xl mb-8">{detail.team}</p>
+          )}
 
           {detail.publication && (
             <a
@@ -143,7 +131,7 @@ export default async function ProjectDetailPage({
                 <div className="font-display font-bold text-2xl sm:text-3xl text-accent">
                   {stat.value}
                 </div>
-                <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-1">
+                <div className="font-mono text-xs text-text-muted tracking-widest uppercase mt-1">
                   {stat.label}
                 </div>
               </div>
@@ -159,7 +147,7 @@ export default async function ProjectDetailPage({
               <h2 className="font-display font-bold text-xl text-text-primary mb-4">
                 {section.heading}
               </h2>
-              <div className="space-y-3">
+              <div className="space-y-3 max-w-[70ch]">
                 {section.body.map((para, j) => (
                   <p
                     key={j}
@@ -177,7 +165,7 @@ export default async function ProjectDetailPage({
           <div className="mt-16 pt-8 border-t border-border">
             {detail.publication && (
               <div className="mb-6 pb-6 border-b border-border/50">
-                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-2">
+                <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-2">
                   Published
                 </p>
                 <p className="text-text-muted text-sm leading-relaxed max-w-2xl mb-3">
@@ -207,11 +195,6 @@ export default async function ProjectDetailPage({
               </div>
             )}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-              {detail.team && (
-                <p className="font-mono text-xs text-text-muted leading-relaxed max-w-md">
-                  {detail.team}
-                </p>
-              )}
               {project.links.length > 0 && (
                 <div className="flex items-center gap-4 shrink-0">
                   {project.links.map((link, k) => (
@@ -220,7 +203,7 @@ export default async function ProjectDetailPage({
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
+                      className="flex items-center gap-1.5 min-h-11 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors"
                     >
                       <Github size={14} />
                       View Source
@@ -233,17 +216,11 @@ export default async function ProjectDetailPage({
           </div>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.15}>
-          <div className="mt-20 text-center">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-all"
-            >
-              <ArrowLeft size={15} />
-              Back to all projects
-            </Link>
-          </div>
-        </AnimatedSection>
+        <DetailEnd
+          next={nextProject && nextProject.slug !== slug ? { href: `/projects/${nextProject.slug}`, title: nextProject.name, noun: "project" } : undefined}
+          backHref="/#projects"
+          backLabel="Back to all projects"
+        />
       </div>
     </main>
   );

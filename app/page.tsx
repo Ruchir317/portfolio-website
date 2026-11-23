@@ -8,6 +8,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
+import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { projectDetails } from "@/data/projectDetails";
 import { resume } from "@/data/resume";
@@ -30,22 +31,25 @@ const personJsonLd = {
 
 export default function Home() {
   return (
-    <main id="main">
-      <JsonLd data={personJsonLd} />
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects
-        detailSlugs={Object.keys(projectDetails)}
-        publications={Object.fromEntries(
-          Object.entries(projectDetails).flatMap(([slug, d]) => (d.publication ? [[slug, d.publication.badge]] : []))
-        )}
-      />
-      <Skills />
-      <Education />
-      <Writing />
-      <Contact />
-    </main>
+      <main id="main">
+        <JsonLd data={personJsonLd} />
+        <Hero />
+        <About />
+        <Experience />
+        <Projects
+          detailSlugs={Object.keys(projectDetails)}
+          publications={Object.fromEntries(
+            Object.entries(projectDetails).flatMap(([slug, d]) => (d.publication ? [[slug, d.publication.badge]] : []))
+          )}
+        />
+        <Skills />
+        <Education />
+        <Writing />
+        <Contact />
+      </main>
+      <SiteFooter />
+    </>
   );
 }

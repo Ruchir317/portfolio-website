@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { openResume } from "@/lib/resume";
+import { resume } from "@/data/resume";
 
 const messages = {
-  blocked: "Could not confirm you are a person. Please email me for a copy.",
-  failed: "The resume is not available right now. Please email me for a copy.",
+  blocked: "Could not confirm you are a person.",
+  failed: "The resume is not available right now.",
 } as const;
 
 // The resume is not a plain link (see lib/resume.ts), so every "Resume" control on the site is this button.
@@ -25,7 +26,17 @@ export default function ResumeButton({ className, children }: { className?: stri
         {children}
       </button>
       <span role="status" className={state === "blocked" || state === "failed" ? "font-mono text-xs text-text-muted" : "sr-only"}>
-        {state === "blocked" || state === "failed" ? messages[state] : ""}
+        {state === "blocked" || state === "failed" ? (
+          <>
+            {messages[state]}{" "}
+            <a className="text-accent underline underline-offset-2" href={`mailto:${resume.contact.email}`}>
+              Email me
+            </a>{" "}
+            for a copy.
+          </>
+        ) : (
+          ""
+        )}
       </span>
     </>
   );
