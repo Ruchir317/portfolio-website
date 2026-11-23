@@ -48,12 +48,12 @@ export const experienceDetails: Record<string, ExperienceDetail> = {
 
   "easley-dunn-safetynet": {
     summary:
-      "SafetyNet is a cross-platform React Native social app. I own much of the backend and database work, and ship features across backend and mobile, as the Node.js/Express and PostgreSQL foundation behind authentication, real-time messaging and location-aware features.",
+      "SafetyNet is a cross-platform React Native app for USC students, in the spirit of Life360 but built around a private network: live location and encrypted chat only with people who accepted each other. I own most of the Node.js/Express and PostgreSQL backend, the release pipeline, and a large part of the mobile app.",
     stats: [
       { label: "Merged pull requests authored", value: "67 of 119" },
-      { label: "Backend", value: "Node.js" },
-      { label: "Database", value: "PostgreSQL" },
-      { label: "Real-time", value: "Socket.IO" },
+      { label: "Backend integration tests", value: "453" },
+      { label: "Database migrations", value: "24" },
+      { label: "Required CI checks", value: "7" },
     ],
     sections: [
       {

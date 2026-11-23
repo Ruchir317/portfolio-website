@@ -23,7 +23,7 @@ export default function Education() {
                   <div className="w-10 h-10 rounded-xs border border-border flex items-center justify-center shrink-0">
                     <GraduationCap size={18} className="text-accent" />
                   </div>
-                  <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase text-right leading-relaxed">
+                  <span className="font-mono text-xs text-text-muted tracking-widest uppercase text-right leading-relaxed">
                     {edu.dates}
                   </span>
                 </div>
@@ -32,12 +32,12 @@ export default function Education() {
                   {edu.school}
                 </h3>
                 <p className="font-mono text-xs text-accent mb-1">{edu.degree}</p>
-                <p className="font-mono text-[10px] text-text-muted mb-4">{edu.location}</p>
+                <p className="font-mono text-xs text-text-muted mb-4">{edu.location}</p>
 
                 {/* Coursework */}
                 {"coursework" in edu && edu.coursework && (
                   <div className="pt-4 border-t border-border">
-                    <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-3">
+                    <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-3">
                       Coursework
                     </p>
                     <div className="flex flex-wrap gap-1.5">

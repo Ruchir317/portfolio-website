@@ -135,7 +135,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         decision: "Persist results at creation instead of plain views",
         why: "Repeated analytical queries were recomputing joins and aggregations.",
-        result: "Retrieval up to 100x faster for ~25% more storage",
+        result: "Retrieval up to 100× faster for ~25% more storage",
       },
       {
         decision: "Exclude recursive queries and non-deterministic functions",

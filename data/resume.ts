@@ -4,7 +4,7 @@ export const resume = {
     "Software Development Engineer with an MS in Computer Science from USC (December 2025), focused on cloud systems, backend and mobile engineering, distributed systems, and AI/ML.",
   about: [
     "I hold an MS in Computer Science from the University of Southern California (December 2025) and have experience across cloud infrastructure, backend and mobile systems, data engineering, and machine learning.",
-    "I currently work as a Software Development Engineer at Easley Dunn Productions, building the Node.js/Express backend for SafetyNet, a cross-platform React Native app, covering authentication, real-time messaging, and geospatial features.",
+    "I currently work as a Software Development Engineer at Easley Dunn Productions, a gaming company, where I build most of the backend for SafetyNet, a cross-platform React Native app in the spirit of Life360 for USC students, covering authentication, real-time messaging, and location features.",
     "Previously, I was a Software Development Engineer Intern at Amazon Web Services, where I built resilient backend systems for the Amazon EKS Metrics Service, and a Data Engineer at BusinessNext, building ETL pipelines and query-driven dashboards for a banking CRM.",
     "My projects span real-time multimodal fact-checking, multimodal emotion detection, cooperative autonomous-vehicle intersection management, and database internals — including adding materialized views to DuckDB.",
     "I am looking for graduate software engineering roles where I can apply strong systems, algorithms, backend, and full-stack engineering skills.",
@@ -135,7 +135,7 @@ export const resume = {
       bullets: [
         "Extended DuckDB's parser, logical planner, and execution engine to support CREATE/REFRESH MATERIALIZED VIEW, with dependency tracking to auto-invalidate views when base tables change.",
         "Stored materialized views in DuckDB's native columnar format so they inherit its indexing and compression, and modified the query planner to prefer them automatically when applicable.",
-        "Benchmarked against standard views on TPC-H queries: retrieval time dropped from ~0.3s to ~0.004s (up to 100x faster) at the cost of ~25% additional storage and higher one-time creation overhead.",
+        "Benchmarked against standard views on TPC-H queries: retrieval time dropped from ~0.3s to ~0.004s (up to 100× faster) at the cost of ~25% additional storage and higher one-time creation overhead.",
         "Validated scalability up to 2TB datasets and confirmed safe concurrent refresh/query access via locking and transaction control.",
       ],
       links: [],
@@ -162,7 +162,7 @@ export const resume = {
         "Scraped TripAdvisor via Selenium for the top ~120 rated spots across 5 Indian cities, geocoding each with GeoPy into a ratings/category dataset.",
         "Fetched the user's live location and used the Google Maps API to compute real driving distance and duration to every catalogued spot.",
         "Applied KNN to shortlist the 7 closest matching spots, then benchmarked Tabu Search, Genetic Algorithm, and Simulated Annealing to sequence an efficient visiting route.",
-        "Simulated Annealing found the shortest routes in testing, but Tabu Search converged 5-8x faster than the Genetic Algorithm, making it the practical pick under time constraints; visualized routes with Folium/OpenStreetMap.",
+        "Simulated Annealing found the shortest routes in testing, but Tabu Search converged 5–8× faster than the Genetic Algorithm, making it the practical pick under time constraints; visualized routes with Folium/OpenStreetMap.",
         "Published as \"An Approach Travel Recommendation System and Route Optimizer using AI\" at the IEEE 5th International Conference on Advances in Science and Technology (ICAST 2022).",
       ],
       links: [],

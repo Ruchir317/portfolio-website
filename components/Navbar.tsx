@@ -4,6 +4,7 @@ import { motion, useScroll } from "motion/react";
 import { useState, useEffect } from "react";
 import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
 import ThemeToggle from "@/components/ThemeToggle";
+import ResumeButton from "@/components/ResumeButton";
 import { WRITING_ENABLED } from "@/data/site";
 
 const navLinks = [
@@ -65,7 +66,7 @@ export default function Navbar() {
       />
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" aria-label="RJ, back to top" className="font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
+        <a href="#" aria-label="RJ, back to top" className="inline-flex items-center min-h-11 min-w-11 font-display font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors">
           RJ<span className="text-accent">.</span>
         </a>
 
@@ -86,7 +87,7 @@ export default function Navbar() {
           <button
             onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
             aria-label="⌘K, open command palette"
-            className="font-mono text-[10px] tracking-widest text-text-muted hover:text-accent border border-border rounded-xs px-2 py-1 transition-colors"
+            className="font-mono text-xs tracking-widest text-text-muted hover:text-accent border border-border rounded-xs px-2 py-1 transition-colors"
           >
             ⌘K
           </button>
@@ -97,7 +98,7 @@ export default function Navbar() {
         <div className="lg:hidden flex items-center gap-1">
         <ThemeToggle />
         <button
-          className="flex flex-col gap-1.5 p-2"
+          className="flex flex-col items-center justify-center gap-1.5 w-11 h-11"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -133,20 +134,23 @@ export default function Navbar() {
         style={{ pointerEvents: menuOpen ? "auto" : "none" }}
         className="absolute left-0 right-0 top-full lg:hidden border-t border-border bg-bg/95 backdrop-blur-md"
       >
-        <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="px-6 py-2 flex flex-col">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
-              className={`font-mono text-xs tracking-widest uppercase transition-colors py-1 ${
+              className={`font-mono text-xs tracking-widest uppercase transition-colors min-h-11 flex items-center ${
                 activeSection === link.href.slice(1) ? "text-accent" : "text-text-muted hover:text-accent"
               }`}
             >
               {link.label}
             </a>
           ))}
+          <ResumeButton className="self-start min-h-11 font-mono text-xs tracking-widest uppercase transition-colors text-text-muted hover:text-secondary">
+            Resume
+          </ResumeButton>
         </div>
       </motion.div>
     </nav>

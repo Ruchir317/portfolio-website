@@ -21,19 +21,19 @@ export default function Experience() {
         <div className="space-y-0">
           {resume.experience.map((job, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
-              <div className="group relative grid md:grid-cols-[200px_1fr] gap-0 md:gap-10">
-                {/* Left: metadata */}
-                <div className="md:pt-1 pb-2 md:pb-0">
-                  <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-2">{job.dates}</p>
+              <div className="group relative grid lg:grid-cols-[200px_1fr] gap-0 lg:gap-10">
+                {/* Left: dates, beside the card only where there is room for the timeline; narrower screens show them in the card */}
+                <div className="hidden lg:block lg:pt-1">
+                  <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-2">{job.dates}</p>
                   {i < resume.experience.length - 1 && (
-                    <div className="hidden md:block w-px h-full absolute left-[188px] top-0 bg-border" />
+                    <div className="w-px h-full absolute left-[188px] top-0 bg-border" />
                   )}
                 </div>
 
                 {/* Right: content card */}
-                <div className={`relative pb-14 ${i < resume.experience.length - 1 ? "border-b border-border md:border-none" : ""}`}>
+                <div className={`relative pb-14 ${i < resume.experience.length - 1 ? "border-b border-border lg:border-none" : ""}`}>
                   {/* Dot on timeline (desktop) */}
-                  <div className="hidden md:block absolute left-[-55.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
+                  <div className="hidden lg:block absolute left-[-55.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-bg" />
 
                   <div className="card-glow relative bg-surface/30 border border-border hover:border-accent/30 hover:bg-raised rounded-xs p-6 md:p-8 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
@@ -43,12 +43,12 @@ export default function Experience() {
                         </ViewTransition>
                         <p className="font-mono text-sm text-accent mt-0.5">{job.company}</p>
                       </div>
-                      <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase whitespace-nowrap mt-1 sm:mt-0 shrink-0 md:hidden">
+                      <span className="font-mono text-xs text-text-muted tracking-widest uppercase whitespace-nowrap mt-1 sm:mt-0 shrink-0 lg:hidden">
                         {job.dates}
                       </span>
                     </div>
 
-                    <ul className="space-y-3">
+                    <ul className="space-y-3 max-w-[75ch]">
                       {job.bullets.map((bullet, j) => (
                         <li key={j} className="flex gap-3 text-text-muted text-sm leading-relaxed">
                           <span className="text-accent shrink-0 mt-[3px] font-mono">›</span>
@@ -61,7 +61,8 @@ export default function Experience() {
                       <div className="mt-6 pt-4 border-t border-border">
                         <Link
                           href={`/experience/${job.slug}`}
-                          className="inline-flex items-center gap-1.5 font-mono text-[10px] text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
+                          aria-label={`View details: ${job.role}, ${job.company}`}
+                          className="inline-flex items-center gap-1.5 font-mono text-xs text-accent hover:text-accent-light tracking-wider uppercase transition-colors after:absolute after:inset-0"
                         >
                           View Details
                           <ArrowUpRight size={10} />

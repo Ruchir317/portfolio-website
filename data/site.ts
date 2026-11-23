@@ -6,4 +6,4 @@ export const WRITING_ENABLED = false;
 
 // What the hero status card and the contact headline say about availability. Change it here when it changes
 // (the about text in data/resume.ts and public/llms.txt say the same thing and are edited by hand).
-export const AVAILABILITY = { status: "available immediately", headline: "Open to graduate SWE roles." };
+export const AVAILABILITY = { status: "available to join immediately", headline: "Open to graduate SWE roles." };

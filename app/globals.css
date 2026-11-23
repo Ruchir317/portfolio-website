@@ -78,18 +78,10 @@ body {
 /* Section label */
 .section-label {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-accent);
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-dim) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Cursor blink */
@@ -108,8 +100,8 @@ body {
 /* Tag chip */
 .tag-chip {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 0.65rem;
-  padding: 2px 8px;
+  font-size: 0.75rem;
+  padding: 3px 8px;
   border-radius: 3px;
   letter-spacing: 0.05em;
 }
@@ -152,7 +144,7 @@ body {
 }
 
 /* Forced colours (Windows high contrast): the system palette replaces ours, so keep component edges
-   visible and make sure gradient text, whose fill is transparent, does not vanish. */
+   visible. */
 @media (forced-colors: active) {
   .card-glow,
   .tag-chip,
@@ -162,11 +154,6 @@ body {
   }
   :focus-visible {
     outline: 2px solid Highlight;
-  }
-  .gradient-text {
-    background: none;
-    -webkit-text-fill-color: CanvasText;
-    color: CanvasText;
   }
 }
 

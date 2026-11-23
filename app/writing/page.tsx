@@ -62,7 +62,7 @@ export default function WritingPage() {
                 href={`/writing/${post.slug}`}
                 className="card-glow block border border-border bg-surface/40 hover:border-accent/50 hover:bg-raised rounded-xs p-6 transition-all duration-200"
               >
-                <p className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-2">
+                <p className="font-mono text-xs text-text-muted tracking-widest uppercase mb-2">
                   {formatDate(post.date)} · {post.metadata.readingTime} min read
                 </p>
                 <h2 className="font-display font-bold text-xl text-text-primary mb-2">{post.title}</h2>

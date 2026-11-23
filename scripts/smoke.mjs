@@ -32,7 +32,9 @@ for (const route of routes) {
 }
 
 const home = pages["/"];
-check(`home has ${writingOn ? 7 : 6} section headings`, (home.match(/<h2 class="section-label"/g) || []).length === (writingOn ? 7 : 6));
+// Contact has no label row (its headline is the heading), so there is one label heading fewer than there are sections.
+check(`home has ${writingOn ? 6 : 5} section label headings`, (home.match(/<h2 class="section-label"/g) || []).length === (writingOn ? 6 : 5));
+check("home has a footer landmark after main", /<\/main><footer/.test(home));
 check("home has JSON-LD", /<script[^>]*type="application\/ld\+json"/.test(home));
 check("home has skip link", home.includes('class="skip-link"'));
 check("home hero stats are not zero in server HTML", !/<span>0\+?<\/span>/.test(home));

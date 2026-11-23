@@ -1,6 +1,6 @@
 # Ruchir Jadhav
 
-> Software Development Engineer with an MS in Computer Science from USC (December 2025), available immediately. Focus: cloud systems, backend and mobile engineering, distributed systems, and AI/ML. Based in Los Angeles, CA.
+> Software Development Engineer with an MS in Computer Science from USC (December 2025), available to join immediately. Focus: cloud systems, backend and mobile engineering, distributed systems, and AI/ML. Based in Los Angeles, CA.
 
 ## Pages
 - [Home](https://ruchirjadhav.dev/): overview, experience, projects, skills, education

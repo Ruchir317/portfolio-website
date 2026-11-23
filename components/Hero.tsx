@@ -1,15 +1,20 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, MapPin, Download } from "lucide-react";
+import Link from "next/link";
+import { Mail, MapPin, FileText, ArrowUpRight } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 import ResumeButton from "./ResumeButton";
 import { resume } from "@/data/resume";
 import { AVAILABILITY } from "@/data/site";
 
 // Headline proof for the hero: the metric these projects already show on their cards.
-const proofSlugs = ["factual", "duckdb-materialized-views", "carla-v2x-intersection"];
-const proof = resume.projects.filter((p) => proofSlugs.includes(p.slug));
+const factual = resume.projects.find((p) => p.slug === "factual")!;
+const proof = [
+  { href: "/experience/easley-dunn-safetynet", value: "67 of 119", label: "merged PRs on SafetyNet", name: "SafetyNet backend" },
+  { href: "/experience/aws-eks-metrics-backfill", value: "Zero", label: "data loss on recovery", name: "Amazon EKS Metrics backfill" },
+  { href: `/projects/${factual.slug}`, ...factual.metric, name: factual.name },
+];
 
 const sde = (role: string) => role.replace("Software Development Engineer", "SDE");
 
@@ -41,9 +46,9 @@ export default function Hero() {
 
           {/* Name */}
           <h1 style={{ animationDelay: "0.06s" }} className="hero-rise font-display font-extrabold text-[clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl/none md:text-8xl/none lg:text-[6.5rem]/none leading-[0.9] tracking-tight mb-6">
-            <span className="gradient-text">Ruchir</span>
+            Ruchir
             <br />
-            <span className="gradient-text">Jadhav</span>
+            Jadhav
             <span className="text-accent">.</span>
           </h1>
 
@@ -58,10 +63,19 @@ export default function Hero() {
           {/* Sub headline */}
           <p
             style={{ animationDelay: "0.18s" }}
-            className="hero-rise text-text-muted text-lg sm:text-xl/7 leading-relaxed max-w-2xl mb-12"
+            className="hero-rise text-text-muted text-lg sm:text-xl/7 leading-relaxed max-w-2xl mb-6 xl:mb-12"
           >
             I build backend and cloud systems: a Go backfill service for Amazon EKS Metrics, a Node.js and
             PostgreSQL backend for a React Native app, and research in multimodal ML.
+          </p>
+
+          {/* Availability: the status card below carries it on wide screens; everywhere else it sits here. */}
+          <p
+            style={{ animationDelay: "0.21s" }}
+            className="hero-rise xl:hidden flex items-center gap-2 font-mono text-xs text-text-primary mb-8"
+          >
+            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            {AVAILABILITY.headline.replace(/\.$/, "")} · {AVAILABILITY.status}
           </p>
 
           {/* CTA row */}
@@ -79,22 +93,22 @@ export default function Hero() {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
+              className="hidden sm:inline-flex items-center gap-2 border border-border text-text-muted hover:text-text-primary hover:border-accent/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]"
             >
               View work
             </a>
 
             <ResumeButton className="inline-flex items-center gap-2 border border-border text-text-muted hover:text-secondary hover:border-secondary/40 font-display font-semibold px-6 py-3 rounded-xs text-sm tracking-wide transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]">
               Resume
-              <Download size={15} />
+              <FileText size={15} aria-hidden="true" />
             </ResumeButton>
 
-            <div className="flex items-center gap-3 ml-2">
+            <div className="hidden sm:flex items-center gap-3 ml-2">
               <a
                 href={resume.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-accent hover:border-accent/50 transition-colors"
+                className="w-11 h-11 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-accent hover:border-accent/50 transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={16} />
@@ -103,7 +117,7 @@ export default function Hero() {
                 href={resume.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-secondary hover:border-secondary/50 transition-colors"
+                className="w-11 h-11 flex items-center justify-center border border-border rounded-xs text-text-muted hover:text-secondary hover:border-secondary/50 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
@@ -114,13 +128,17 @@ export default function Hero() {
           {/* Stats row */}
           <div
             style={{ animationDelay: "0.3s" }}
-            className="hero-rise mt-20 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-xl"
+            className="hero-rise mt-20 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl"
           >
             {proof.map((p) => (
-              <div key={p.slug}>
-                <div className="font-display font-bold text-2xl text-text-primary">{p.metric.value}</div>
-                <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mt-0.5">{p.metric.label}</div>
-              </div>
+              <Link key={p.href} href={p.href} className="group block">
+                <div className="font-display font-bold text-2xl text-text-primary">{p.value}</div>
+                <div className="font-mono text-xs text-text-muted tracking-widest uppercase mt-0.5">{p.label}</div>
+                <div className="mt-1.5 font-mono text-xs text-accent group-hover:text-accent-light transition-colors">
+                  {p.name}
+                  <ArrowUpRight size={12} aria-hidden="true" className="inline-block ml-1 align-text-bottom" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -133,11 +151,8 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
           className="hidden xl:block card-glow border border-border bg-surface/60 backdrop-blur-xs rounded-xs font-mono text-xs"
         >
-          <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-border" />
-            <span className="w-2.5 h-2.5 rounded-full bg-border" />
-            <span className="w-2.5 h-2.5 rounded-full bg-border" />
-            <span className="ml-3 text-text-muted tracking-wide">ruchir ~ status</span>
+          <div className="border-b border-border px-4 py-3">
+            <span className="text-text-muted tracking-wide">ruchir ~ status</span>
           </div>
           <dl className="space-y-4 px-4 py-5 leading-relaxed">
             {status.map(({ key, value }) => (

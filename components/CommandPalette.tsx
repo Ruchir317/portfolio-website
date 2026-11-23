@@ -154,7 +154,7 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
           return (
             <li key={item.id} role="presentation">
               {header && (
-                <div className="px-4 pb-1 pt-3 font-mono text-[10px] uppercase tracking-widest text-text-muted">{item.group}</div>
+                <div className="px-4 pb-1 pt-3 font-mono text-xs uppercase tracking-widest text-text-muted">{item.group}</div>
               )}
               <div
                 id={`opt-${item.id}`}
@@ -167,13 +167,13 @@ export default function CommandPalette({ detailSlugs }: { detailSlugs: string[] 
                 }`}
               >
                 <span className="truncate">{item.label}</span>
-                {item.hint && <span className="hidden truncate font-mono text-[11px] text-text-muted sm:block">{item.hint}</span>}
+                {item.hint && <span className="hidden truncate font-mono text-xs text-text-muted sm:block">{item.hint}</span>}
               </div>
             </li>
           );
         })}
       </ul>
-      <div className="flex gap-4 border-t border-border px-4 py-2 font-mono text-[10px] text-text-muted">
+      <div className="flex gap-4 border-t border-border px-4 py-2 font-mono text-xs text-text-muted">
         <span>↑↓ navigate</span>
         <span>↵ open</span>
         <span>esc close</span>

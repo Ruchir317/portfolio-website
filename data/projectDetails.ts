@@ -98,7 +98,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     summary:
       "DuckDB is a fast, embeddable OLAP database, but it had no native materialized view support — meaning every repeated analytical query recomputed from scratch. I extended its parser, planner, and execution engine to add CREATE/REFRESH MATERIALIZED VIEW, bringing it closer to parity with PostgreSQL and Snowflake.",
     stats: [
-      { label: "Retrieval Speedup", value: "up to 100x" },
+      { label: "Retrieval Speedup", value: "up to 100×" },
       { label: "Storage Overhead", value: "~25%" },
       { label: "Scale Tested", value: "2 TB" },
       { label: "TPC-H Queries Benchmarked", value: "5" },
@@ -122,7 +122,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         heading: "Benchmarks",
         body: [
           "Tested against TPC-H queries Q1–Q5 (revenue aggregation, quantity-per-part, shipping-priority joins — representative OLAP workloads with heavy joins and aggregation).",
-          "Creating a materialized view costs more upfront than a standard view (~0.3s vs ~0.01s) since it actually persists results — but that's a one-time cost. Retrieval is where it pays off: query time dropped from ~0.3s to ~0.003–0.004s, up to 100x faster, at roughly 25% additional storage.",
+          "Creating a materialized view costs more upfront than a standard view (~0.3s vs ~0.01s) since it actually persists results — but that's a one-time cost. Retrieval is where it pays off: query time dropped from ~0.3s to ~0.003–0.004s, up to 100× faster, at roughly 25% additional storage.",
           "Validated the design scales to datasets up to 2TB with stable performance and safe concurrent access under load.",
         ],
       },
@@ -134,7 +134,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         ],
       },
     ],
-    team: "Group project at USC with 2 teammates (Minho Jang, Prachiti Bapat).",
+    team: "Group project at USC with 2 teammates (Minho Jang, Prachiti Bapat). My part: the materialized view implementation in DuckDB.",
   },
 
   "carla-v2x-intersection": {
@@ -177,7 +177,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         ],
       },
     ],
-    team: "Group project at USC with 3 teammates (Shahid Shaikh, Hitansh Surani, Harshal Dave).",
+    team: "Group project at USC with 3 teammates (Shahid Shaikh, Hitansh Surani, Harshal Dave). My part: the signal-based priority logic and most of the rest of the application.",
   },
 
   "travel-route-optimizer": {
@@ -210,7 +210,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         heading: "Results",
         body: [
           "Benchmarked all three algorithms from two real Mumbai starting points. Simulated Annealing found the shortest total route in both cases (9,299m and 16,179m), but took roughly 1.5–2x longer to converge than Tabu Search.",
-          "Tabu Search was the clear winner on speed — converging in ~0.03–0.06s versus the Genetic Algorithm's ~0.3–0.32s (5–8x slower) — while landing within about 1–3% of Simulated Annealing's best distance, making it the practical choice when routes need to be computed on demand rather than precomputed offline.",
+          "Tabu Search was the clear winner on speed — converging in ~0.03–0.06s versus the Genetic Algorithm's ~0.3–0.32s (5–8× slower) — while landing within about 1–3% of Simulated Annealing's best distance, making it the practical choice when routes need to be computed on demand rather than precomputed offline.",
         ],
       },
       {
