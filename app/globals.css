@@ -69,6 +69,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Avoid a lone word on the last line of text and unbalanced headings. */
+p,
+li {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 /* Selection */
 ::selection {
   background: theme('colors.accent / 20%');

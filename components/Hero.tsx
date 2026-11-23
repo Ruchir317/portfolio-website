@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Mail, MapPin, FileText, ArrowUpRight } from "lucide-react";
+import { Mail, FileText, ArrowUpRight } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 import ResumeButton from "./ResumeButton";
 import { resume } from "@/data/resume";
@@ -36,16 +36,8 @@ export default function Hero() {
       <div className="relative w-full max-w-6xl mx-auto px-6 pt-32 pb-20 xl:grid xl:grid-cols-[1fr_20rem] xl:items-center xl:gap-12">
         {/* The text block enters with CSS (.hero-rise, 60 ms steps), not motion, so it is visible in the server HTML. */}
         <div className="max-w-4xl">
-          {/* Location badge */}
-          <div className="hero-rise flex items-center gap-2 mb-8">
-            <span className="font-mono text-xs text-text-muted tracking-widest uppercase flex items-center gap-1.5">
-              <MapPin size={11} className="text-secondary" />
-              {resume.contact.location}
-            </span>
-          </div>
-
           {/* Name */}
-          <h1 style={{ animationDelay: "0.06s" }} className="hero-rise font-display font-extrabold text-[clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl/none md:text-8xl/none lg:text-[6.5rem]/none leading-[0.9] tracking-tight mb-6">
+          <h1 style={{ animationDelay: "0.06s" }} className="hero-rise mt-2 font-display font-extrabold text-[clamp(2.5rem,13.5vw,3.75rem)] sm:text-7xl/none md:text-8xl/none lg:text-[6.5rem]/none leading-[0.9] tracking-tight mb-6">
             Ruchir
             <br />
             Jadhav
@@ -57,7 +49,7 @@ export default function Hero() {
             style={{ animationDelay: "0.12s" }}
             className="hero-rise font-mono text-xs sm:text-sm text-accent tracking-widest uppercase mb-6 cursor-blink"
           >
-            SDE @ Easley Dunn · MS CS, USC
+            SDE @ Easley Dunn · MS CS, USC · {resume.contact.location}
           </p>
 
           {/* Sub headline */}
@@ -164,7 +156,7 @@ export default function Hero() {
             <div>
               <dt className="text-accent">$ status</dt>
               <dd className="pl-3 flex items-center gap-2 text-text-primary">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 {AVAILABILITY.status}
               </dd>
             </div>
